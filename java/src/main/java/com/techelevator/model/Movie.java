@@ -7,7 +7,7 @@ public class Movie {
 
     private int id;
     private String title;
-    private List genreList;
+    private List<Integer> genreList;
     private LocalDate releaseDate;
     private String overview;
     private double popularity;
@@ -17,13 +17,13 @@ public class Movie {
 
     public Movie() {}
 
-    public Movie(int id, String title, List genreList) {
+    public Movie(int id, String title, List<Integer> genreList) {
         this.id = id;
         this.title = title;
         this.genreList = genreList;
     }
 
-    public Movie(int id, String title, List genreList, LocalDate releaseDate, String overview, double popularity, int runtime, String tagline) {
+    public Movie(int id, String title, List<Integer> genreList, LocalDate releaseDate, String overview, double popularity, int runtime, String tagline, String posterPath) {
         this.id = id;
         this.title = title;
         this.genreList = genreList;
@@ -32,6 +32,7 @@ public class Movie {
         this.popularity = popularity;
         this.runtime = runtime;
         this.tagline = tagline;
+        this.posterPath = posterPath;
     }
 
     public int getId() {

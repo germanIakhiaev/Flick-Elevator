@@ -6,12 +6,12 @@ public class Account {
 
     private int accountId;
     private int userId;
-    private List preferredGenres; // ints!!!!!!!!!
-    private List getLikedMovies;
-    private List favoriteMovies;
-    private List dislikedMovies;
+    private List<Integer> preferredGenres;
+    private List<Integer> getLikedMovies;
+    private List<Integer> favoriteMovies;
+    private List<Integer> dislikedMovies;
 
-    public Account(int accountId, int userId, List preferredGenres) {
+    public Account(int accountId, int userId, List<Integer> preferredGenres) {
         this.accountId = accountId;
         this.userId = userId;
         this.preferredGenres = preferredGenres;
