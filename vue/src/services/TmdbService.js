@@ -8,24 +8,26 @@ export default {
 
     /**This API is the broadest, simplest search available for movies. 
      * It appears to search all the string properties of the movie object for a match.
-     * The farther you go into the search results, the poorer the matches become. 
-     * Therefore, keep page=1 for now to only get best matches.
+     * The promise includes a property total_pages that can be used to generate page-number <nav> elements for the search results
      * 
      * @param {String} queryString - a string to search by 
+     * @param {number} pageNum - a number <= total_pages that indicates which page of results to return
      * @returns an array of movie objects
      */
-    searchMoviesByString(queryString) {
+    searchMoviesByString(queryString, pageNum = 1) {
         queryString = queryString.replaceAll(" ", "%20");
-        return tmdb.get(`search/movie?query={$queryString}&page=1&include_adult=false`);
-    }
+        return tmdb.get(`/search/movie?query=${queryString}&page=${pageNum}&include_adult=false`);
+    },
 
-    /**
+    /**This API returns a list of movies by one to many genre ids, by page number of results.
+     * The promise includes a property total_pages that can be used to generate page-number <nav> elements for the search results
      * 
-     * @param {number} genreId 
+     * @param {number} genreId - number corresponding to genre according to TMDB's docs - TODO: store this data in the vuex
+     * @param {number} pageNum - a number <= total_pages that indicates which page of results to return
      * @returns 
      */
-    getMoviesByGenre(genreId) {
-        return tmdb.get(`discover/movie?with_genres=${genreId}&page=1`);
+    getMoviesByGenre(genreId, pageNum = 1) {
+        return tmdb.get(`/discover/movie?with_genres=${genreId}&page=${pageNum}`);
     }
 
 

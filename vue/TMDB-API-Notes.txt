@@ -21,10 +21,11 @@ Get movies by query string
 https://api.themoviedb.org/3/search/movie?query=Star%20Wars&page=1&include_adult=false
 1 <= page <= 1000, default: 1 (1 returns most relevant results)
 include_adult=false filters out pornography
-THIS CAN INCLUDE OTHER PARAMETER, eg:
+THIS CAN INCLUDE OTHER PARAMETERS, eg:
 https://api.themoviedb.org/3/search/movie?query=love&with-genres=28&page=1&include_adult=false
+reference discover doc for this
 
-Get a list of genres (perhaps for a dropdown menu for the admin, or we hardcode them into a vuex as an object)
+Get a list of genres (perhaps for a dropdown menu for the admin, unless the ids we hardcode them into a vuex as an object)
 https://api.themoviedb.org/3/genre/movie/list
 
 Get movies by genre_id
