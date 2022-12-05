@@ -16,7 +16,7 @@ CREATE TABLE accounts (
     liked_movies varchar (1000),        --should it be just text type?
     disliked_movies varchar (1000),
     favorites varchar (1000),
-    prefered_genre varchar (1000),
+    preferred_genre varchar (1000),
     CONSTRAINT PK_account_id PRIMARY KEY (account_id),
     CONSTRAINT FK_user_id FOREIGN KEY(user_id) REFERENCES users(user_id)
 
