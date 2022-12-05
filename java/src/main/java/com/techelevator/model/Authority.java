@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.util.Objects;
+import com.techelevator.model.*;
 
 public class Authority {
 
