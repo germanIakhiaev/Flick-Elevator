@@ -13,9 +13,7 @@ public class Movie {
     private double popularity;
     private int runtime;
     private String tagline;
-
-    // private String posterPath;
-    // private String status;
+    private String posterPath;
 
     public Movie() {}
 

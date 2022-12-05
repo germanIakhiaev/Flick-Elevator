@@ -7,6 +7,7 @@ public class Account {
     private int accountId;
     private int userId;
     private List preferredGenres; // ints!!!!!!!!!
+    private List getLikedMovies;
     private List favoriteMovies;
     private List dislikedMovies;
 
