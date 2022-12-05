@@ -7,32 +7,32 @@ public class Movie {
 
     private int id;
     private String title;
-    private List<Integer> genreList;
-    private LocalDate releaseDate;
+    private List<Integer> genres;
+    private LocalDate release_date;
     private String overview;
     private double popularity;
     private int runtime;
     private String tagline;
-    private String posterPath;
+    private String poster_path;
 
     public Movie() {}
 
-    public Movie(int id, String title, List<Integer> genreList) {
+    public Movie(int id, String title, List<Integer> genres) {
         this.id = id;
         this.title = title;
-        this.genreList = genreList;
+        this.genres = genres;
     }
 
-    public Movie(int id, String title, List<Integer> genreList, LocalDate releaseDate, String overview, double popularity, int runtime, String tagline, String posterPath) {
+    public Movie(int id, String title, List<Integer> genres, LocalDate release_date, String overview, double popularity, int runtime, String tagline, String poster_path) {
         this.id = id;
         this.title = title;
-        this.genreList = genreList;
-        this.releaseDate = releaseDate;
+        this.genres = genres;
+        this.release_date = release_date;
         this.overview = overview;
         this.popularity = popularity;
         this.runtime = runtime;
         this.tagline = tagline;
-        this.posterPath = posterPath;
+        this.poster_path = poster_path;
     }
 
     public int getId() {
@@ -43,12 +43,12 @@ public class Movie {
         return title;
     }
 
-    public List getGenreList() {
-        return genreList;
+    public List<Integer> getGenres() {
+        return genres;
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
+    public LocalDate getRelease_date() {
+        return release_date;
     }
 
     public String getOverview() {
@@ -65,5 +65,9 @@ public class Movie {
 
     public String getTagline() {
         return tagline;
+    }
+
+    public String getPoster_path() {
+        return poster_path;
     }
 }
