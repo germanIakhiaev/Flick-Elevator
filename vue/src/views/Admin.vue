@@ -8,8 +8,8 @@
 <script>
 
 
-import NavBar from '..components.NavBar.vue';
-import AdminSearch from '..components.AdminSearch.vue';
+import NavBar from '../components/NavBar.vue';
+import AdminSearch from '../components/AdminSearch.vue';
 export default {
     components: {
         NavBar,
