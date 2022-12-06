@@ -12,7 +12,7 @@
 
 <script>
 import TmdbService from '../services/TmdbService.js';
-// import MovieService from '../services/MovieService.js';
+//import MovieService from '../services/MovieService.js';
 
 import AdminMovieCard from '../components/MovieCard.vue';
 export default {
