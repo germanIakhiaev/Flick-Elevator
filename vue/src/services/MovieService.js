@@ -9,6 +9,10 @@ export default {
         return axios.get('/movie');
     },
 
+    getMovie(movieId) {
+        return axios.get(`/movie/${movieId}`);
+    },
+
     /**
      * Adds a movie to the local database
      * @param {object} movie - a movie object created from TMDB values, mapped to the local database table 
