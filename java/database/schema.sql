@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE accounts (
     account_id SERIAL,
     user_id int NOT NULL,
-    liked_movies varchar (1000),        --should it be just text type?
+    liked_movies varchar (1000),        
     disliked_movies varchar (1000),
     favorites varchar (1000),
     preferred_genre varchar (1000),
@@ -26,7 +26,7 @@ CREATE TABLE movies (
     movie_id int PRIMARY KEY,
     title varchar (200) NOT NULL,
     release_date date NULL,
-    genre_id int NOT NULL,
+    genre_id varchar (1000) NOT NULL,
     description text NULL,
     picture_path varchar(200) NULL
 );
