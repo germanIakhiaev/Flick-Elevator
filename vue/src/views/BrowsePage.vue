@@ -10,7 +10,7 @@ import BrowserCard from '../components/BrowserCard.vue'
 import NavBar from '../components/NavBar.vue'
 export default {
   components: { NavBar, BrowserCard },
-
+  
 }
 </script>
 
