@@ -9,8 +9,38 @@
 </template>
 
 <script>
-export default {
+import MovieService from '../services/MovieService';
 
+export default {
+  data() {
+    return {
+      movies: [],
+      movie: {
+        title: '',
+        poster: '',
+        genre: [],  
+        year: '',
+        director: ''
+      }
+    }
+  },
+
+  created() {
+    MovieService.getAllMovies().then(response => {
+      this.movies = response.data;
+    })
+  },
+
+  methods: {
+    getRandomMovie() {
+      // this.movie.title = this.movies[0].title;
+      // this.movie.poster = this.movies[0].poster;
+      // this.movie.genre = this.movies[0].genre;
+      // this.movie.year = this.movies[0].year;
+      // this.movie.director = this.movies[0].director;
+
+    }
+  }
 }
 </script>
 
