@@ -1,15 +1,16 @@
 <template>
 <div>
     <nav-bar />
-    <browser-card />
+    <movie-card />
     </div>
 </template>
 
 <script>
-import BrowserCard from '../components/BrowserCard.vue'
+import MovieCard from '../components/MovieCard.vue'
 import NavBar from '../components/NavBar.vue'
 export default {
-  components: { NavBar, BrowserCard },
+  name: 'discover',
+  components: { NavBar, MovieCard },
 
 }
 </script>

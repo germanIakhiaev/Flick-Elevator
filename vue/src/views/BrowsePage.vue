@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar />
-     <!-- <browser-card v-for="" :key="" /> -->
+     <browser-card  />
     </div>
 </template>
 
@@ -9,6 +9,7 @@
 import BrowserCard from '../components/BrowserCard.vue'
 import NavBar from '../components/NavBar.vue'
 export default {
+  name: 'browse',
   components: { NavBar, BrowserCard },
   
 }

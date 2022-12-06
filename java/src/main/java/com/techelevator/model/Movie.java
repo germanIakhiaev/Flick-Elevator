@@ -7,25 +7,21 @@ public class Movie {
 
     private int id;
     private String title;
-    private List<Integer> genres;
+    private String[] genres;
     private LocalDate release_date;
     private String overview;
     private double popularity;
-    private int runtime;
-    private String tagline;
     private String poster_path;
 
     public Movie() {}
 
-    public Movie(int id, String title, List<Integer> genres, LocalDate release_date, String overview, double popularity, int runtime, String tagline, String poster_path) {
+    public Movie(int id, String title, String[] genres, LocalDate release_date, String overview, double popularity, String poster_path) {
         this.id = id;
         this.title = title;
         this.genres = genres;
         this.release_date = release_date;
         this.overview = overview;
         this.popularity = popularity;
-        this.runtime = runtime;
-        this.tagline = tagline;
         this.poster_path = poster_path;
     }
 
@@ -37,7 +33,7 @@ public class Movie {
         return title;
     }
 
-    public List<Integer> getGenres() {
+    public String[] getGenres() {
         return genres;
     }
 
@@ -53,14 +49,6 @@ public class Movie {
         return popularity;
     }
 
-    public int getRuntime() {
-        return runtime;
-    }
-
-    public String getTagline() {
-        return tagline;
-    }
-
     public String getPoster_path() {
         return poster_path;
     }
@@ -73,7 +61,7 @@ public class Movie {
         this.title = title;
     }
 
-    public void setGenres(List<Integer> genres) {
+    public void setGenres(String[] genres) {
         this.genres = genres;
     }
 
@@ -87,14 +75,6 @@ public class Movie {
 
     public void setPopularity(double popularity) {
         this.popularity = popularity;
-    }
-
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
-    }
-
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
     }
 
     public void setPoster_path(String poster_path) {

@@ -5,6 +5,11 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import DiscoverPage from '../views/DiscoverPage'
+import BrowsePage from '../views/BrowsePage'
+import ProfilePage from '../views/ProfilePage'
+import Admin from '../views/Admin.vue'
+
 
 Vue.use(Router)
 
@@ -30,6 +35,14 @@ const router = new Router({
       }
     },
     {
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      meta: {
+        requiresAuth: true //TODO: how to check at login if user is admin, and navigate here?
+      }
+    }, 
+    {
       path: "/login",
       name: "login",
       component: Login,
@@ -51,6 +64,30 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/discover',
+      name: 'discover',
+      component: DiscoverPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/browse',
+      name: 'browse',
+      component: BrowsePage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfilePage,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
