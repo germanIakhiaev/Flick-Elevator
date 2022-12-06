@@ -8,6 +8,8 @@ import store from '../store/index'
 import DiscoverPage from '../views/DiscoverPage'
 import BrowsePage from '../views/BrowsePage'
 import ProfilePage from '../views/ProfilePage'
+import Admin from '../views/Admin.vue'
+
 
 Vue.use(Router)
 
@@ -32,6 +34,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      meta: {
+        requiresAuth: true //TODO: how to check at login if user is admin, and navigate here?
+      }
+    }, 
     {
       path: "/login",
       name: "login",

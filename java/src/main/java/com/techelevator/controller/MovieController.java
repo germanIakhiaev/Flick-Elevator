@@ -20,17 +20,17 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    private MovieDao movieDao; // TODO match this to DAOs ZL makes, then uncomment
+    private MovieDao movieDao;
 
-//    @GetMapping("/movie")
-//    public List<Movie> getAllMovies() {
-//        return movieDao.getMovies();
-//    }
-//
-//    @PostMapping("/movie")
-//    public Movie postMovie() {
-//        return movieDao.postMovie();
-//    }
+    @GetMapping("/movie")
+    public List<Movie> getAllMovies() {
+        return movieDao.getAllMovies();
+    }
+
+    @PostMapping("/movie")
+    public Movie postMovie(@RequestBody Movie movieToAdd) {
+        return movieDao.addMovie(movieToAdd);
+    }
 
     @DeleteMapping("/movie/{movieId}")
     public void deleteMovie(@PathVariable("movieId") int movieId) {
