@@ -7,23 +7,18 @@ public class Account {
     private int accountId;
     private int userId;
     private List<Integer> preferredGenres;
-    private List<Integer> getLikedMovies;
+    private List<Integer> likedMovies;
     private List<Integer> favoriteMovies;
     private List<Integer> dislikedMovies;
 
     public Account() {}
 
-    public Account(int accountId, int userId, List<Integer> preferredGenres) {
-        this.accountId = accountId;
-        this.userId = userId;
-        this.preferredGenres = preferredGenres;
-    }
 
-    public Account(int accountId, int userId, List<Integer> preferredGenres, List<Integer> getLikedMovies, List<Integer> favoriteMovies, List<Integer> dislikedMovies) {
+    public Account(int accountId, int userId, List<Integer> preferredGenres, List<Integer> likedMovies, List<Integer> favoriteMovies, List<Integer> dislikedMovies) {
         this.accountId = accountId;
         this.userId = userId;
         this.preferredGenres = preferredGenres;
-        this.getLikedMovies = getLikedMovies;
+        this.likedMovies = likedMovies;
         this.favoriteMovies = favoriteMovies;
         this.dislikedMovies = dislikedMovies;
     }
@@ -40,8 +35,8 @@ public class Account {
         return preferredGenres;
     }
 
-    public List<Integer> getGetLikedMovies() {
-        return getLikedMovies;
+    public List<Integer> getLikedMovies() {
+        return likedMovies;
     }
 
     public List<Integer> getFavoriteMovies() {
@@ -50,5 +45,29 @@ public class Account {
 
     public List<Integer> getDislikedMovies() {
         return dislikedMovies;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setPreferredGenres(List<Integer> preferredGenres) {
+        this.preferredGenres = preferredGenres;
+    }
+
+    public void setLikedMovies(List<Integer> likedMovies) {
+        this.likedMovies = likedMovies;
+    }
+
+    public void setFavoriteMovies(List<Integer> favoriteMovies) {
+        this.favoriteMovies = favoriteMovies;
+    }
+
+    public void setDislikedMovies(List<Integer> dislikedMovies) {
+        this.dislikedMovies = dislikedMovies;
     }
 }

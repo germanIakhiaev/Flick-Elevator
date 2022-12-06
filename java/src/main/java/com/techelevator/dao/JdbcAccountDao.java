@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public Account getAccountByAccountId(int accountId) {
+
         return null;
     }
 
@@ -58,5 +60,19 @@ public class JdbcAccountDao implements AccountDao{
     @Override
     public boolean deleteAccount(int accountId) {
         return false;
+    }
+
+    private Account mapRowToAccount(SqlRowSet rowSet) {
+        Account account = new Account();
+
+        account.setAccountId(rowSet.getInt("account_id"));
+        account.setUserId(rowSet.getInt("user_id"));
+//        TODO: How to separate by comma
+//        account.setLikedMovies(rowSet.getString("liked_movies"));
+//        account.setDislikedMovies(rowSet.getString("disliked_movies"));
+//        account.setFavoriteMovies(rowSet.getString("favorites"));
+//        account.setPreferredGenres(rowSet.getString("preferred_genre"));
+//
+        return account;
     }
 }
