@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 import com.techelevator.dao.MovieDao;
 import com.techelevator.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +19,18 @@ import java.util.List;
 @CrossOrigin
 public class MovieController {
 
-    //@Autowired
-    //private MovieDao movieDao; TODO match this to DAOs ZL makes, then uncomment
+    @Autowired
+    private MovieDao movieDao; // TODO match this to DAOs ZL makes, then uncomment
 
-    @GetMapping("/movie")
-    public List<Movie> getAllMovies() {
-        return movieDao.getMovies();
-    }
-
-    @PostMapping("/movie")
-    public Movie postMovie() {
-        return movieDao.postMovie();
-    }
+//    @GetMapping("/movie")
+//    public List<Movie> getAllMovies() {
+//        return movieDao.getMovies();
+//    }
+//
+//    @PostMapping("/movie")
+//    public Movie postMovie() {
+//        return movieDao.postMovie();
+//    }
 
     @DeleteMapping("/movie/{movieId}")
     public void deleteMovie(@PathVariable("movieId") int movieId) {
