@@ -68,10 +68,10 @@ public class JdbcAccountDao implements AccountDao{
         account.setAccountId(rowSet.getInt("account_id"));
         account.setUserId(rowSet.getInt("user_id"));
 //        TODO: How to separate by comma
-//        account.setLikedMovies(rowSet.getString("liked_movies"));
-//        account.setDislikedMovies(rowSet.getString("disliked_movies"));
-//        account.setFavoriteMovies(rowSet.getString("favorites"));
-//        account.setPreferredGenres(rowSet.getString("preferred_genre"));
+        account.setLikedMovies(rowSet.getString("liked_movies").split(","));
+        account.setDislikedMovies(rowSet.getString("disliked_movies"));
+        account.setFavoriteMovies(rowSet.getString("favorites"));
+        account.setPreferredGenres(rowSet.getString("preferred_genre"));
 //
         return account;
     }
