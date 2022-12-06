@@ -30,6 +30,14 @@ const router = new Router({
       }
     },
     {
+      path: '/admin',
+      name: 'admin',
+      component: OfflineAudioCompletionEvent,
+      meta: {
+        requiresAuth: true //TODO: how to check at login if user is admin, and navigate here?
+      }
+    }, 
+    {
       path: "/login",
       name: "login",
       component: Login,
