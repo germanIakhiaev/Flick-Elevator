@@ -1,4 +1,4 @@
-c6ae091c1c0f88bfdab72c969175f430 api key v3
+varchar (1000)c6ae091c1c0f88bfdab72c969175f430 api key v3
 
 example request with v3 key: https://api.themoviedb.org/3/movie/550?api_key=c6ae091c1c0f88bfdab72c969175f430
 
@@ -9,7 +9,7 @@ The process for getting an image URL:
 https://developers.themoviedb.org/3/getting-started/images
 **When the admin is searching for movies to add, there will need to be a seperate API request to get the image. Maybe this is best done near the end of the adding process?
 
-
+varchar (1000)
 base url: https://api.themoviedb.org/3/
 
 ***GETTERS***
