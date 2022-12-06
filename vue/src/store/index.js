@@ -39,8 +39,7 @@ export default new Vuex.Store({
       sciFi: 878,
       thriller: 53,
       war: 10752,
-      western: 37,
-      
+      western: 37
     }
   },
   mutations: {
