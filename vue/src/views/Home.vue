@@ -8,7 +8,6 @@
 
 <script>
 import NavBar from '../components/NavBar.vue';
-//import MovieService from '../services/MovieService'
 export default {
   components: { NavBar },
   name: "home",

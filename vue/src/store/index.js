@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MovieService from '../services/MovieService'
+import AccountService from '../services/AccountService'
 
 Vue.use(Vuex)
 
@@ -21,8 +22,11 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    account: {
 
-    genres: {//genre ids for TMDB admin query
+    },
+
+    genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction
       action: 28,
       adventure: 12,
       animation: 16,
@@ -55,6 +59,11 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+    },
+    SET_ACCOUNT(state, userId) {
+      AccountService.getUserAccount(userId).then(response => {
+        state.account = response.data;
+      });
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
