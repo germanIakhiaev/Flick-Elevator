@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import TmdbService from '../services/TmdbService';
-// import MovieService from '../services/MovieService';
+import TmdbService from '../services/TmdbService.js';
+//import MovieService from '../services/MovieService.js';
 
 import AdminMovieCard from '../components/MovieCard.vue';
 export default {
@@ -39,11 +39,9 @@ export default {
                 this.totalPages = response.data.total_pages;
                 this.totalResults = response.data.total_results;
             });
-        },
-
-        addMovieToDb() {
-
         }
+
+       
 
     }
 
