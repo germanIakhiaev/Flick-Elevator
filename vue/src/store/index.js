@@ -23,7 +23,12 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     account: {
-
+      accountId: 0,
+      userId: 0,
+      preferredGenres: [],
+      likedMovies: [],
+      favoriteMovies: [],
+      dislikedMovies: []
     },
 
     genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction
@@ -59,10 +64,16 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+
     },
-    SET_ACCOUNT(state, userId) {
-      AccountService.getUserAccount(userId).then(response => {
-        state.account = response.data;
+    SET_ACCOUNT(state) {
+      AccountService.getUserAccount(state.user.id).then(response => {
+        state.account.accountId = response.data.accountId;
+        state.account.userId = response.data.userId;
+        state.account.preferredGenres = response.data.preferredGenres.split(",");
+        state.account.likedMovies = response.data.likedMovies.split(",");
+        state.account.favoriteMovies = response.data.favoriteMovies.split(",");
+        state.account.dislikedMovies = response.data.dislikedMovies.split(",");
       });
     },
     LOGOUT(state) {
