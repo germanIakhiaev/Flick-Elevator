@@ -1,43 +1,44 @@
 <template>
   <div class="movie-card">
-      <h2 class="movie-title">movie title</h2>
+      <h2 class="movie-title">{{this.movie.title}}</h2>
       <img class="movie-poster" src="moviepostersourcehere" alt="">
       <h3 class="movie-genre">movie genre</h3>  
-      <h3 class="movie-year">movie year</h3>  
+      <h3 class="movie-year">{{this.movie.release_date}}</h3>  
       <h3 class="movie-director">movie director</h3>  
   </div>
 </template>
 
 <script>
-import MovieService from '../services/MovieService';
+// import MovieService from '../services/MovieService.js';
 
 export default {
   data() {
     return {
-      movies: [],
       movie: {
+        id: 0,
         title: '',
-        poster: '',
-        genre: [],  
-        year: '',
-        director: ''
+        poster_path: '',
+        release_date: '',
       }
     }
   },
 
-  created() {
-    MovieService.getAllMovies().then(response => {
-      this.movies = response.data;
-    })
-  },
+  // created() {
+  //   MovieService.getAllMovies().then(response => {
+  //     this.$store.commit("SET_MOVIES", response.data);
+  //   }),
 
-  methods: {
-    getRandomMovie() {
-      // this.movie.title = this.movies[0].title;
-      // this.movie.poster = this.movies[0].poster;
-      // this.movie.genre = this.movies[0].genre;
-      // this.movie.year = this.movies[0].year;
-      // this.movie.director = this.movies[0].director;
+  //   this.getRandomMovie();
+  // },
+
+
+  // methods: {
+  //   getRandomMovie() {
+  //     let index = Math.floor(Math.random() * this.$store.state.movies.length);
+  //     let movie = this.$store.state.movies[index];
+  //     this.movie = movie;
+  //   }
+  // }
 
     }
   }
