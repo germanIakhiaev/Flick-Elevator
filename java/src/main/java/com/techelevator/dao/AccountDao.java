@@ -26,7 +26,7 @@ public interface AccountDao {
 
     Account updateFavorites(int accountId, String updatedFavorites);
 
-    Account preferredGenres(int accountId, String updatedGenres);
+    Account updatePreferredGenres(int accountId, String updatedGenres);
 
     boolean deleteAccount(int accountId);
 }

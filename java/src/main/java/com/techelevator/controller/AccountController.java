@@ -28,22 +28,22 @@ public class AccountController {
 
     @PutMapping("/accounts/{accountId}/genres")
     public void updatePreferredGenres(@PathVariable("accountId") int accountId, @RequestBody String genres) {
-        //update genres list
+        accountDao.updatePreferredGenres(accountId, genres);
     }
 
     @PutMapping("/accounts/{accountId}/likes")
     public void updateLikedMovies(@PathVariable("accountId") int accountId, @RequestBody String likedMovies) {
-        //update likedMovies
+        accountDao.updateLikedMovies(accountId, likedMovies);
     }
 
     @PutMapping("/accounts/{accountId}/dislikes")
     public void updateDislikedMovies(@PathVariable("accountId") int accountId, @RequestBody String disLikedMovies) {
-        //update dislikedMovies
+        accountDao.updateDislikedMovies(accountId, disLikedMovies);
     }
 
     @PutMapping("/accounts/{accountId}/favorites")
     public void updateFavorites(@PathVariable("accountId") int accountId, @RequestBody String favorites) {
-        //update favorites
+        accountDao.updateFavorites(accountId, favorites);
     }
 
 }
