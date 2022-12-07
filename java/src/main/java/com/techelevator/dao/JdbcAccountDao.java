@@ -176,7 +176,7 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public Account preferredGenres(int accountId, String updatedGenres) {
+    public Account updatePreferredGenres(int accountId, String updatedGenres) {
         String sql = "" +
                 "UPDATE accounts " +
                 "SET preferred_genre = ? " +
