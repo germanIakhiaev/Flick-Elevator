@@ -57,13 +57,13 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public String[] getPreferredGenres(int accountId) {
+    public String getPreferredGenres(int accountId) {
         String sql = "" +
                 "SELECT preferred_genre " +
                 "FROM accounts " +
                 "WHERE account_id = ?;";
         try {
-            String[] genres = jdbcTemplate.queryForObject(sql, String[].class, accountId);
+            String genres = jdbcTemplate.queryForObject(sql, String.class, accountId);
             return genres;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
@@ -72,13 +72,13 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public String[] getLikedMovies(int accountId) {
+    public String getLikedMovies(int accountId) {
         String sql = "" +
                 "SELECT liked_movies " +
                 "FROM accounts " +
                 "WHERE account_id = ?;";
         try {
-            String[] liked = jdbcTemplate.queryForObject(sql, String[].class, accountId);
+            String liked = jdbcTemplate.queryForObject(sql, String.class, accountId);
             return liked;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
@@ -87,13 +87,13 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public String[] getFavoriteMovies(int accountId) {
+    public String getFavoriteMovies(int accountId) {
         String sql = "" +
                 "SELECT favorites " +
                 "FROM accounts " +
                 "WHERE account_id = ?;";
         try {
-            String[] favorites = jdbcTemplate.queryForObject(sql, String[].class, accountId);
+            String favorites = jdbcTemplate.queryForObject(sql, String.class, accountId);
             return favorites;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
@@ -102,13 +102,13 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public String[] getDislikedMovies(int accountId) {
+    public String getDislikedMovies(int accountId) {
         String sql = "" +
                 "SELECT disliked_movies " +
                 "FROM accounts " +
                 "WHERE account_id = ?;";
         try {
-            String[] disliked = jdbcTemplate.queryForObject(sql, String[].class, accountId);
+            String disliked = jdbcTemplate.queryForObject(sql, String.class, accountId);
             return disliked;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
@@ -210,10 +210,10 @@ public class JdbcAccountDao implements AccountDao{
 
         account.setAccountId(rowSet.getInt("account_id"));
         account.setUserId(rowSet.getInt("user_id"));
-        account.setLikedMovies(rowSet.getString("liked_movies").split(","));
-        account.setDislikedMovies(rowSet.getString("disliked_movies").split(","));
-        account.setFavoriteMovies(rowSet.getString("favorites").split(","));
-        account.setPreferredGenres(rowSet.getString("preferred_genre").split(","));
+        account.setLikedMovies(rowSet.getString("liked_movies"));
+        account.setDislikedMovies(rowSet.getString("disliked_movies"));
+        account.setFavoriteMovies(rowSet.getString("favorites"));
+        account.setPreferredGenres(rowSet.getString("preferred_genre"));
 
         return account;
     }

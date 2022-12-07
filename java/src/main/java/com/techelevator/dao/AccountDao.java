@@ -10,13 +10,13 @@ public interface AccountDao {
 
     Account getAccountByUserId(int userId);
 
-    String[] getPreferredGenres(int accountId);
+    String getPreferredGenres(int accountId);
 
-    String[] getLikedMovies(int accountId);
+    String getLikedMovies(int accountId);
 
-    String[] getFavoriteMovies(int accountId);
+    String getFavoriteMovies(int accountId);
 
-    String[] getDislikedMovies(int accountId);
+    String getDislikedMovies(int accountId);
 
     Account createAccount(int userId); //TODO: boolean?
 
