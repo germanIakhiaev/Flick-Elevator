@@ -11,10 +11,11 @@ import NavBar from '../components/NavBar.vue'
 export default {
   name: 'discover',
   components: { NavBar, MovieCard },
-
-  // created() {
-  //   this.$store.commit("SET_RANDOM_MOVIE");
-  // }
+  methods: {
+    newRandomMovie() {
+      this.$store.commit("SET_RANDOM_MOVIE");
+    }
+  }
 
 }
 </script>
