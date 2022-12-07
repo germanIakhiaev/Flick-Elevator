@@ -64,15 +64,16 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+
     },
-    SET_ACCOUNT(state, userId) {
-      AccountService.getUserAccount(userId).then(response => {
-        state.account.id = response.data.accountId;
+    SET_ACCOUNT(state) {
+      AccountService.getUserAccount(state.user.id).then(response => {
+        state.account.accountId = response.data.accountId;
         state.account.userId = response.data.userId;
         state.account.preferredGenres = response.data.preferredGenres.split(",");
         state.account.likedMovies = response.data.likedMovies.split(",");
         state.account.favoriteMovies = response.data.favoriteMovies.split(",");
-        state.account.dislikedMovies = response.data.disliked.split(",");
+        state.account.dislikedMovies = response.data.dislikedMovies.split(",");
       });
     },
     LOGOUT(state) {
