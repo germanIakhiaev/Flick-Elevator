@@ -82,9 +82,7 @@ public class JdbcUserDao implements UserDao {
 
         Integer userId = jdbcTemplate.queryForObject(insertUserSql, Integer.class, username, password_hash, ssRole);
 
-        Integer returnedId = accountDao.createAccount(userId);
-
-        return returnedId != null;
+        return userId != null;
 
     }
 
