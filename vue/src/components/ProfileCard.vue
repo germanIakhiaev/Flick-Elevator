@@ -1,7 +1,7 @@
 <template>
   <div class="profile"> 
     <div class="profile-icon">icon here</div>
-    <div class="username">username</div>
+    <div class="username">{{ user.username }}</div>
     <div class="full-name">full name</div>
     <div class="genres">genres</div>
   </div>
@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  props: [ 'user', 'account' ]
 }
 </script>
 
