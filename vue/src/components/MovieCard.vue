@@ -41,8 +41,7 @@ export default {
   // }
 
     }
-  }
-}
+
 </script>
 
 <style>

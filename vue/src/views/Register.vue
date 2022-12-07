@@ -125,7 +125,7 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-button{
+/* button{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -141,9 +141,8 @@ button{
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
-}
+} */
 button:hover{
 	background: #6d44b8;
 }
-
 </style>
