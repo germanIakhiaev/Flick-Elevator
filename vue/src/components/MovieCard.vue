@@ -24,6 +24,8 @@ export default {
   // },
   props: ['movie']
 
+    }
+  }
 }
 </script>
 
@@ -32,4 +34,5 @@ export default {
   border: 1px solid black;
   border-radius: 10px;
 }
+
 </style>
