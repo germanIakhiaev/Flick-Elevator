@@ -26,7 +26,6 @@ public class AuthenticationController {
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private UserDao userDao;
-    private AccountDao accountDao;
 
     public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDao userDao) {
         this.tokenProvider = tokenProvider;
@@ -58,8 +57,7 @@ public class AuthenticationController {
             User user = userDao.findByUsername(newUser.getUsername());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
         } catch (UsernameNotFoundException e) {
-            int userId = userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
-            accountDao.createAccount(userId);
+            userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
         }
     }
 
