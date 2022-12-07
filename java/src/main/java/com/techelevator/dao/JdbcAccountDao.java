@@ -121,10 +121,10 @@ public class JdbcAccountDao implements AccountDao{
         String sql = "" +
                 "INSERT INTO accounts (user_id, liked_movies, disliked_movies, favorites, preferred_genre) " +
                 "VALUES (?, ?, ?, ?, ?) " +
-                "RETURNING account_id;";
-        Account newAccount = jdbcTemplate.queryForObject(sql, Account.class, userId, "", "", "", "");
-        if (newAccount.getUserId() == userId) {
-            return newAccount;
+                "RETURNING user_id;";
+        Integer returnedId = jdbcTemplate.queryForObject(sql, Integer.class, userId, "", "", "", "");
+        if (returnedId == userId) {
+            return getAccountByUserId(returnedId);
         } else {
             return null;
         }
@@ -176,7 +176,7 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public Account preferredGenres(int accountId, String updatedGenres) {
+    public Account updatePreferredGenres(int accountId, String updatedGenres) {
         String sql = "" +
                 "UPDATE accounts " +
                 "SET preferred_genre = ? " +
