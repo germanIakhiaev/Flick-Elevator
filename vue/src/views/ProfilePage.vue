@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar />
-    <profile-card />
+    <profile-card :user="this.$store.state.user" :account="this.$store.state.account" />
   </div>
 </template>
 
