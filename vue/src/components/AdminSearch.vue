@@ -39,11 +39,9 @@ export default {
                 this.totalPages = response.data.total_pages;
                 this.totalResults = response.data.total_results;
             });
-        },
-
-        addMovieToDb() {
-
         }
+
+       
 
     }
 
