@@ -44,6 +44,7 @@ export default new Vuex.Store({
     }, 
     movies: [],
     randomMovie: {}
+      
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -65,13 +66,16 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-      })
+        state.randomMovie = state.movies[Math.floor(Math.random() * state.movies.length)];
+        
+      });
       
     },
     SET_RANDOM_MOVIE(state) {
-      let index = Math.floor(Math.random() * this.$store.state.movies.length);
+      let index = Math.floor(Math.random() * state.movies.length);
       let movie = state.movies[index];
       state.randomMovie = movie;
     }
   }
+  
 })

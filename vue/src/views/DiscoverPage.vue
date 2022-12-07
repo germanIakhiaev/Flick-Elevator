@@ -12,6 +12,10 @@ export default {
   name: 'discover',
   components: { NavBar, MovieCard },
 
+  // created() {
+  //   this.$store.commit("SET_RANDOM_MOVIE");
+  // }
+
 }
 </script>
 
