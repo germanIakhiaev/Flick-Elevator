@@ -1,8 +1,8 @@
 <template>
   <div class="card movie-card">
       <h2 class="card-content movie-title">{{movie.title}}</h2>
-      <img class="card-image movie-poster" src="moviepostersourcehere" alt="">
-      <h3 class="movie-genre">movie genre</h3>  
+      <img class="card-image movie-poster" src="" alt="">
+      <h3 class="movie-genre">{{movie.genres}}</h3>  
       <h3 class="card-content movie-year">{{movie.release_date}}</h3>  
       <h3 class="movie-director">movie director</h3>  
   </div>
