@@ -10,17 +10,23 @@ public interface AccountDao {
 
     Account getAccountByUserId(int userId);
 
-    String[] getPreferredGenres(int accountId);
+    String getPreferredGenres(int accountId);
 
-    String[] getLikedMovies(int accountId);
+    String getLikedMovies(int accountId);
 
-    String[] getFavoriteMovies(int accountId);
+    String getFavoriteMovies(int accountId);
 
-    String[] getDislikedMovies(int accountId);
+    String getDislikedMovies(int accountId);
 
     Account createAccount(int userId); //TODO: boolean?
 
-    Account updateAccount(int accountId, int userId, List<Integer> preferredGenres, List<Integer> getLikedMovies, List<Integer> favoriteMovies, List<Integer> dislikedMovies);
+    Account updateLikedMovies(int accountId, String updatedLikes);
+
+    Account updateDislikedMovies(int accountId, String updatedDislikes);
+
+    Account updateFavorites(int accountId, String updatedFavorites);
+
+    Account updatePreferredGenres(int accountId, String updatedGenres);
 
     boolean deleteAccount(int accountId);
 }
