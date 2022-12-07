@@ -17,6 +17,7 @@ import com.techelevator.model.User;
 public class JdbcUserDao implements UserDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private AccountDao accountDao;
 
     public JdbcUserDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -73,13 +74,17 @@ public class JdbcUserDao implements UserDao {
         throw new UsernameNotFoundException("User " + username + " was not found.");
     }
 
+
     @Override
     public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?) returning user_id";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+        Integer userId = jdbcTemplate.queryForObject(insertUserSql, Integer.class, username, password_hash, ssRole);
+
+        return userId != null;
+
     }
 
     private User mapRowToUser(SqlRowSet rs) {
