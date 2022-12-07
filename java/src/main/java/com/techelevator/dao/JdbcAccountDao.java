@@ -117,14 +117,14 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public Account createAccount(int userId) {
+    public Integer createAccount(int userId) {
         String sql = "" +
                 "INSERT INTO accounts (user_id, liked_movies, disliked_movies, favorites, preferred_genre) " +
                 "VALUES (?, ?, ?, ?, ?) " +
-                "RETURNING account_id;";
-        Account newAccount = jdbcTemplate.queryForObject(sql, Account.class, userId, "", "", "", "");
-        if (newAccount.getUserId() == userId) {
-            return newAccount;
+                "RETURNING user_id;";
+        int returnedId = jdbcTemplate.queryForObject(sql, Integer.class, userId, "", "", "", "");
+        if (returnedId == userId) {
+            return returnedId;
         } else {
             return null;
         }

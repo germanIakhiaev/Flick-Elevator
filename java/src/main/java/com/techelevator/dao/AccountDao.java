@@ -18,7 +18,7 @@ public interface AccountDao {
 
     String getDislikedMovies(int accountId);
 
-    Account createAccount(int userId); //TODO: boolean?
+    Integer createAccount(int userId); //TODO: boolean?
 
     Account updateLikedMovies(int accountId, String updatedLikes);
 
