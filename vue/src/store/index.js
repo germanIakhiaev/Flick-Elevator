@@ -22,7 +22,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    account: {
+    account: {//what are the fields?
 
     },
 
