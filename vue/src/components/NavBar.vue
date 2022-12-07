@@ -1,5 +1,5 @@
 <template>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
+      <nav class="navbar is-transparent" aria-label="main navigation">
   <div class="navbar-brand">
     <router-link class="navbar-item" :to="{ name: 'discover' }">
       <img src="../assets/film.png" height="50"> Flick Elevator
@@ -23,7 +23,7 @@
           Profile
         </a>
 
-        <div class="navbar-dropdown">
+        <div class="navbar-dropdown is-right">
           <router-link class="navbar-item" :to="{ name: 'profile' }">Profile</router-link>
           <router-link class="navbar-item" :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
         </div>

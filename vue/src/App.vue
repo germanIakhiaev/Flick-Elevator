@@ -1,11 +1,22 @@
 <template>
   <div id="app">
     <router-view />
+    <foot />
   </div>
 </template>
 
+<script>
+import Foot from '../src/components/Foot.vue';
+
+export default {
+  components: { Foot }
+}
+</script>
+
+
 <style>
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -55,5 +66,12 @@ form {
 
 input {
 	width: 50%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
 }
 </style>
