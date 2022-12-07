@@ -25,7 +25,6 @@ export default {
   props: ['movie']
 
     }
-
 </script>
 
 <style>
