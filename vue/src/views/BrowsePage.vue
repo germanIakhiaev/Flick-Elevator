@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
 </style>
