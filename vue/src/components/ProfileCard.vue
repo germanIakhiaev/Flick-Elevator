@@ -18,4 +18,6 @@ export default {
   border-radius: 10px;
   background-color: #FBFEF9;
 }
+
+
 </style>
