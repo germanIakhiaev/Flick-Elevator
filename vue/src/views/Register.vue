@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style>
-body{
+/* body{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -144,5 +144,6 @@ input{
 } */
 button:hover{
 	background: #6d44b8;
-}
+} 
+
 </style>

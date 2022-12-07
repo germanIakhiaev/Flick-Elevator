@@ -1,7 +1,7 @@
 <template>
 <div>
     <nav-bar />
-    <movie-card />
+    <movie-card :movie="this.$store.state.randomMovie"/>
     </div>
 </template>
 
@@ -9,6 +9,7 @@
 import MovieCard from '../components/MovieCard.vue'
 import NavBar from '../components/NavBar.vue'
 export default {
+
   name: 'discover',
   components: { NavBar, MovieCard },
   methods: {
@@ -16,8 +17,8 @@ export default {
       this.$store.commit("SET_RANDOM_MOVIE");
     }
   }
-
 }
+
 </script>
 
 <style>
