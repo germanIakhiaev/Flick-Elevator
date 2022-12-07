@@ -79,6 +79,7 @@ export default {
 <style scoped>
 
 
+/* 
 input{
 	width: 60%;
 	height: 20px;
@@ -110,6 +111,6 @@ button{
 }
 button:hover{
 	background: #6d44b8;
-}
+} */
 
 </style>

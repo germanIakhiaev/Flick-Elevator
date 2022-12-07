@@ -18,6 +18,8 @@ export default {
 .browse-card {
   border: 1px solid black;
   border-radius: 10px;
+  background-color: #BFBDC1;
+  color: #0F0C29;
 }
 
 </style>
