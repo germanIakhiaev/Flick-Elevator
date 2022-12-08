@@ -49,7 +49,7 @@ export default new Vuex.Store({
       878: "sciFi",
       53: "thriller",
       10752: "war",
-      37: western: 37
+      37: "western"
     }, 
     movies: [],
     randomMovie: {}

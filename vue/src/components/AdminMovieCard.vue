@@ -1,10 +1,10 @@
 <template> <!--this is a ripoff of MovieCard, but making the cards from API results -->
-  <section class="movie-card">
-      <h2 class="movie-title">{{movie.title}}</h2>
+  <section class="card movie-card">
+      <h2 class="movie-title">{{result.title}}</h2>
       <img class="movie-poster" src="moviepostersourcehere" alt="">
-      <h3 class="movie-genre">{{/**computed variable for getting genre from store */}}</h3>  
-      <h3 class="movie-year">{{movie.release_date}}</h3>  
-      <h3 class="movie-overview">{{movie.overview}}</h3>
+      <h3>{{convertedGenres}}</h3>  
+      <h3 class="movie-year">{{result.release_date}}</h3>  
+      <h3 class="card-content">{{result.overview}}</h3>
         <button @click="addMovieToDb">Add to Database</button>
   </section> 
 </template>
@@ -12,14 +12,25 @@
 <script>
 export default {
 
-    props:['movie'],
+
 
     data() {
         return {
             movieToAdd: {
-
-            }
+            
+            },
         }
+    },
+
+    props:['result'],
+
+    computed: {
+      convertedGenres() {
+          this.movie.genre_ids.forEach((genre) => {
+              genre = this.$store.state.genres.genre;
+          });
+          return this.movie.genre_ids.join(" ");
+      }  
     },
 
     methods: {
