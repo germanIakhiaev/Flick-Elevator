@@ -63,13 +63,13 @@ public class JdbcMovieDao implements MovieDao {
                 "INSERT INTO movies (movie_id, title, release_date, genres_id, description, popularity, picture_path) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?) " +
                 "RETURNING movie_id;";
-        Movie addedMovie = jdbcTemplate.queryForObject(sql, Movie.class, movieToAdd.getId(),
+        int addedMovieId = jdbcTemplate.queryForObject(sql, Integer.class, movieToAdd.getId(),
                                                 movieToAdd.getTitle(), movieToAdd.getRelease_date(),
                                                 movieToAdd.getGenres(), movieToAdd.getOverview(), movieToAdd.getPopularity(),
                                                 movieToAdd.getPoster_path());
 
-        if (addedMovie.getId() == movieToAdd.getId()) {
-            return addedMovie;
+        if (addedMovieId == movieToAdd.getId()) {
+            return movieToAdd;
         } else {
             return null;
         }
@@ -98,7 +98,7 @@ public class JdbcMovieDao implements MovieDao {
         movie.setId(rowSet.getInt("movie_id"));
         movie.setTitle(rowSet.getString("title"));
         movie.setRelease_date(rowSet.getDate("release_date").toLocalDate());
-        movie.setGenres(rowSet.getString("genres_id").split(","));
+        movie.setGenres(rowSet.getString("genres_id"));
         movie.setOverview(rowSet.getString("description"));
         movie.setPopularity(rowSet.getDouble("popularity"));
         movie.setPoster_path(rowSet.getString("picture_path"));

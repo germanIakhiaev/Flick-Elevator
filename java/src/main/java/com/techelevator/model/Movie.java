@@ -7,7 +7,7 @@ public class Movie {
 
     private int id;
     private String title;
-    private String[] genres;
+    private String genres;
     private LocalDate release_date;
     private String overview;
     private double popularity;
@@ -15,7 +15,7 @@ public class Movie {
 
     public Movie() {}
 
-    public Movie(int id, String title, String[] genres, LocalDate release_date, String overview, double popularity, String poster_path) {
+    public Movie(int id, String title, String genres, LocalDate release_date, String overview, double popularity, String poster_path) {
         this.id = id;
         this.title = title;
         this.genres = genres;
@@ -33,7 +33,7 @@ public class Movie {
         return title;
     }
 
-    public String[] getGenres() {
+    public String getGenres() {
         return genres;
     }
 
@@ -61,7 +61,7 @@ public class Movie {
         this.title = title;
     }
 
-    public void setGenres(String[] genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 
