@@ -2,7 +2,7 @@
       <nav class="navbar is-transparent" aria-label="main navigation">
   <div class="navbar-brand">
     <router-link class="navbar-item" :to="{ name: 'discover' }">
-      <img src="../assets/film.png" height="50"> Flick Elevator
+      <img src="../assets/film.png" height="50"><p class="is-size-5 has-text-weight-bold" id="name">Flick Elevator</p>
     </router-link>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -41,7 +41,11 @@ export default {
 </script>
 
 <style>
-    nav {
-      margin-bottom: 50px;
+    .navbar {
+      background-color: hsl(0 0% 100% / 0.5);
+      border-radius: 5px;
+    }
+    #name {
+      padding-left: 5px;
     }
 </style>

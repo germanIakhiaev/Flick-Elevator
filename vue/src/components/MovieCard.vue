@@ -1,10 +1,14 @@
 <template>
   <div class="card movie-card">
-      <h2 class="card-content movie-title">{{movie.title}}</h2>
-      <img v-bind:src="'https://image.tmdb.org/t/p/w400' + movie.poster_path">
-      <h3 class="movie-genre">{{movie.genres}}</h3>  
-      <h3 class="card-content movie-year">{{movie.release_date}}</h3>  
-      <h3 class="movie-popularity">{{ movie.popularity }}</h3>  
+    <div class="card-image">
+      <img v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+    </div>
+    <div class="card-content">
+      <h2 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h2>
+      <h3 class="movie-info is-size-5 has-text-weight-semi-bold">{{movie.genres}}</h3>  
+      <h3 class="movie-info has-text-left">{{movie.release_date}}</h3>  
+      <h3 class="movie-info has-text-left">{{ movie.overview }}</h3>  
+      </div>
   </div>
 </template>
 
@@ -29,10 +33,29 @@ export default {
 
 <style>
 .movie-card {
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #BFBDC1;
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.5);
   color: #0F0C29;
+  margin: 25px 0px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
 }
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-info {
+  padding: 20px;
+}
+
 
 </style>
