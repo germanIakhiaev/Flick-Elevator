@@ -25,10 +25,10 @@ export default new Vuex.Store({
     account: {
       accountId: 0,
       userId: 0,
-      preferredGenres: [],
-      likedMovies: [],
-      favoriteMovies: [],
-      dislikedMovies: []
+      preferredGenres: "",
+      likedMovies: "",
+      favoriteMovies: "",
+      dislikedMovies: ""
     },
 
     genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction
@@ -70,10 +70,10 @@ export default new Vuex.Store({
       AccountService.getUserAccount(state.user.id).then(response => {
         state.account.accountId = response.data.accountId;
         state.account.userId = response.data.userId;
-        state.account.preferredGenres = response.data.preferredGenres.split(",");
-        state.account.likedMovies = response.data.likedMovies.split(",");
-        state.account.favoriteMovies = response.data.favoriteMovies.split(",");
-        state.account.dislikedMovies = response.data.dislikedMovies.split(",");
+        state.account.preferredGenres = response.data.preferredGenres;
+        state.account.likedMovies = response.data.likedMovies;
+        state.account.favoriteMovies = response.data.favoriteMovies;
+        state.account.dislikedMovies = response.data.dislikedMovies;
       });
     },
     LOGOUT(state) {

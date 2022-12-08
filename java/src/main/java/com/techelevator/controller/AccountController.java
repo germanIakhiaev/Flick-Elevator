@@ -31,9 +31,9 @@ public class AccountController {
         accountDao.updatePreferredGenres(accountId, genres);
     }
 
-    @PutMapping("/accounts/{accountId}/likes")
-    public void updateLikedMovies(@PathVariable("accountId") int accountId, @RequestBody String likedMovies) {
-        accountDao.updateLikedMovies(accountId, likedMovies);
+    @PutMapping("/accounts/{accountId}")
+    public void updateLikedMovies(@PathVariable("accountId") int accountId, @RequestBody Account account) {
+        accountDao.updateAccount(accountId, account);
     }
 
     @PutMapping("/accounts/{accountId}/dislikes")
