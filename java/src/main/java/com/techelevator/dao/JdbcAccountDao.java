@@ -131,13 +131,15 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public Account updateLikedMovies(int accountId, String updatedLikes) {
+    public Account updateAccount(int accountId, Account account) {
         String sql = "" +
                 "UPDATE accounts " +
-                "SET liked_movies = ? " +
+                "SET account_id = ?, user_id = ?, liked_movies = ?, disliked_movies = ?, favorites = ?, preferred_genre = ? " +
                 "WHERE account_id = ?;";
         try {
-            jdbcTemplate.update(sql, updatedLikes, accountId);
+            jdbcTemplate.update(sql, account.getAccountId(), account.getUserId(),
+                    account.getLikedMovies(), account.getDislikedMovies(),
+                    account.getFavoriteMovies(), account.getPreferredGenres(), accountId);
             return getAccountByAccountId(accountId);
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 

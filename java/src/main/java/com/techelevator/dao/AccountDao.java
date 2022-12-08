@@ -20,7 +20,7 @@ public interface AccountDao {
 
     Account createAccount(int userId); //TODO: boolean?
 
-    Account updateLikedMovies(int accountId, String updatedLikes);
+    Account updateAccount(int accountId, Account account);
 
     Account updateDislikedMovies(int accountId, String updatedDislikes);
 
