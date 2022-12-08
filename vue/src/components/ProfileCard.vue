@@ -15,9 +15,10 @@ export default {
 
 <style>
 .profile {
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #BFBDC1;
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.5);
   color: #0F0C29;
+  margin: 25px 0px;
 }
 </style>
