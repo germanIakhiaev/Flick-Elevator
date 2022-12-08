@@ -10,8 +10,8 @@ export default {
         return axios.put(`/accounts/${accountId}/genres`, genres);
     },
 
-    updateLikedMovies(accountId, likedMovies) {
-        return axios.put(`/accounts/${accountId}/likes`, likedMovies);
+    updateAccount(accountId, account) {
+        return axios.put(`/accounts/${accountId}`, account);
     },
 
     updateDislikedMovies(accountId, dislikedMovies) {

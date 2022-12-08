@@ -13,6 +13,7 @@
 <script>
 import MovieCard from '../components/MovieCard.vue'
 import NavBar from '../components/NavBar.vue'
+import accountService from '../services/AccountService.js'
 export default {
   created() {
     this.$store.commit("SET_MOVIES");
@@ -32,14 +33,21 @@ export default {
 
     likeMovie() {
       //add this random movie info to account list
+      this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
+
       //update database with new list every x likes, then wipe the count
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      
       this.$store.commit("SET_RANDOM_MOVIE");
 
     },
 
     dislikeMovie() {
       //add this random movie info to account list
-      //update database with new list every x dislikes, then wipe count
+      this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
+      
+      //update database with new list every x likes, then wipe the count
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
       this.$store.commit("SET_RANDOM_MOVIE");
 
     },
