@@ -36,12 +36,14 @@ export default {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.5);
-  color: #0F0C29;
+  background-image: url("C:/Users/Student/Downloads/theater.webp"); /* ../src/img/theater.webp */
+  color: #f1edf3;
   margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
 }
+
 
 .card-image img {
   height: 100%;
@@ -55,6 +57,18 @@ export default {
 
 .movie-info {
   padding: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .movie-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.5);
+  color: #fcfcfc;
+  margin: 25px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
 }
 
 

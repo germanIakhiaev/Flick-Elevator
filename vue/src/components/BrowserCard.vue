@@ -16,7 +16,7 @@ export default {
 
 <style>
 .browse-card {
-  bborder: 1px transparent;
+  border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.5);
   color: #0F0C29;
