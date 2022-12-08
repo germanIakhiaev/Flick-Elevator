@@ -1,8 +1,12 @@
 import axios from 'axios';
 
 const tmdb = axios.create({
-    baseURL: process.env.TMDB_API_BASE_URL
-  });
+    baseURL: 'https://api.themoviedb.org/3',
+    headers: {
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmFlMDkxYzFjMGY4OGJmZGFiNzJjOTY5MTc1ZjQzMCIsInN1YiI6IjYzOGEyNzFhM2Y4ZWRlMDA4NmU5ZDg5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.or024JB5VTtHlI6gMCEvLKgOwnyAahbo9opxbJZJ7oM' 
+      }
+}
+  );
 
 export default {
 
