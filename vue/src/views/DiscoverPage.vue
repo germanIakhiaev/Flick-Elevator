@@ -3,9 +3,9 @@
     <nav-bar />
     <div>
     <movie-card :movie="this.$store.state.randomMovie"/>
-    <button @click="likeMovie">I like this!</button>
-    <button @click="dislikeMovie">Don't show me this again</button>
-    <button @click="newRandomMovie">I don't feel either way about this</button>
+    <button class="button is-focused is-success" @click="likeMovie">I like this!</button>
+    <button class="button is-focused is-danger" @click="dislikeMovie">Don't show me this again</button>
+    <button class="button is-focused is-info" @click="newRandomMovie">I don't feel either way about this</button>
     </div>
     </div>
 </template>
