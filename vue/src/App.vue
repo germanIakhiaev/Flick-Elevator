@@ -25,11 +25,15 @@ export default {
   color: #D6F8D6;
   margin: 60px;
   width: 100%;
+  position: relative;
+  min-height: 100vh;
 }
 
 html {
   height: 100%;
   background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body {
@@ -71,7 +75,6 @@ input {
 #footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
-  
+  width: 100%;    
 }
 </style>

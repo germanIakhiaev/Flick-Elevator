@@ -3,9 +3,9 @@
     <nav-bar />
     <div>
     <movie-card :movie="this.$store.state.randomMovie"/>
-    <button class="button is-focused is-success" @click="likeMovie">I like this!</button>
-    <button class="button is-focused is-danger" @click="dislikeMovie">Don't show me this again</button>
-    <button class="button is-focused is-info" @click="newRandomMovie">I don't feel either way about this</button>
+    <button class="button is-focused is-success" @click="likeMovie"><i class="fa-solid fa-heart"></i>&nbsp;I like this!</button>
+    <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Don't show me this again</button>
+    <button class="button is-focused is-info" @click="newRandomMovie"><i class="fa-solid fa-face-meh"></i>&nbsp;I don't feel either way about this</button>
     </div>
     </div>
 </template>
@@ -14,6 +14,11 @@
 import MovieCard from '../components/MovieCard.vue'
 import NavBar from '../components/NavBar.vue'
 export default {
+  created() {
+    this.$store.commit("SET_MOVIES");
+    this.$store.commit("SET_ACCOUNT");
+      
+  },
 
   name: 'discover',
   components: { NavBar, MovieCard },
