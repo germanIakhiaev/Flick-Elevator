@@ -6,21 +6,21 @@ public class Account {
 
     private int accountId;
     private int userId;
-    private String preferredGenres;
     private String likedMovies;
     private String favoriteMovies;
     private String dislikedMovies;
+    private String preferredGenres;
 
     public Account() {}
 
 
-    public Account(int accountId, int userId, String preferredGenres, String likedMovies, String favoriteMovies, String dislikedMovies) {
+    public Account(int accountId, int userId, String likedMovies, String favoriteMovies, String dislikedMovies, String preferredGenres) {
         this.accountId = accountId;
         this.userId = userId;
-        this.preferredGenres = preferredGenres;
         this.likedMovies = likedMovies;
         this.favoriteMovies = favoriteMovies;
         this.dislikedMovies = dislikedMovies;
+        this.preferredGenres = preferredGenres;
     }
 
     public int getAccountId() {
