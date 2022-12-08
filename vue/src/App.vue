@@ -67,27 +67,6 @@ form {
 input {
 	width: 50%;
 }
-<<<<<<< HEAD
-button{
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-
-
-=======
 
 #footer {
   position: fixed;
@@ -95,5 +74,4 @@ button{
   width: 100%;
   
 }
->>>>>>> 35b2b46db6b5eaaaf415111bf77124d26c84154f
 </style>
