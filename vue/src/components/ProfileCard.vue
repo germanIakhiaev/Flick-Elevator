@@ -4,7 +4,9 @@
     <div class="username">{{ user.username }}</div>
     <div class="full-name">full name</div>
     <div class="genres">genres</div>
-    <div v-for="monkey in userLikedMovies" :key="monkey.id">{{monkey.title}}</div>
+    <div v-for="profileMovie in this.$store.state.likedMoviesArr" :key="profileMovie.id">
+      <h1>{{profileMovie.title}}</h1>
+    </div>
   </div>
 </template>
 
@@ -17,36 +19,11 @@ export default {
   },
   props: [ 'user', 'account' ],
 
-  created() {
-    this.generateLikedMoviesToDisplay();
-  },
+  // created() {
+  //   this.generateLikedMoviesToDisplay();
+  // },
 
-  methods: {
-    // findMovieById(id) {
-    //   this.$store.state.movies.forEach(movie => {
-    //     const title = movie.title;
-    //     console.log(title);
-    //     console.log(id);
-    //     if(movie.id === id) {
-    //       console.log(movie.title);
-    //       return movie;
-    //     }
-    //   });
-    // },
-    generateLikedMoviesToDisplay() {
-      // let array = this.$store.state.account.likedMovies.split(',');
-      // array.forEach(id => {
-      //   this.userLikedMovies.push(this.findMovieById(id));
-      // })
-      let likedMovieIds = this.$store.state.account.likedMovies.split(',');
-      this.userLikedMovies = this.$store.state.movies.filter(monkey => {
-        console.log(monkey.id);
-        console.log(monkey.title);
-        console.log(likedMovieIds.includes(monkey.id.toString()));
-        return likedMovieIds.includes(monkey.id.toString());
-      })
-    }
-  }
+  
 }
 </script>
 

@@ -52,6 +52,8 @@ export default new Vuex.Store({
       37: "western"
     }, 
     movies: [],
+    likedMoviesArr: [],
+    dislikedMovies: [],
     randomMovie: {}
       
   },
@@ -74,6 +76,7 @@ export default new Vuex.Store({
         state.account.likedMovies = response.data.likedMovies;
         state.account.favoriteMovies = response.data.favoriteMovies;
         state.account.dislikedMovies = response.data.dislikedMovies;
+        this.commit("SET_LIKED_MOVIES");
       });
     },
     LOGOUT(state) {
@@ -90,6 +93,15 @@ export default new Vuex.Store({
         
       });
       
+    },
+    SET_LIKED_MOVIES(state) {
+      const likedMovieIds = state.account.likedMovies.split(',');
+
+      state.movies.forEach(likedMovie => {
+        if (likedMovieIds.includes(likedMovie.id.toString())) {
+          state.likedMoviesArr.push(likedMovie);
+        }
+      });
     },
     SET_RANDOM_MOVIE(state) {
       let index = Math.floor(Math.random() * state.movies.length);
