@@ -31,6 +31,8 @@ export default {
       //add this random movie info to account list
       this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
 
+      //TODO update likedMovieArr
+
       //update database with new list every x likes, then wipe the count
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
       
@@ -41,7 +43,8 @@ export default {
     dislikeMovie() {
       //add this random movie info to account list
       this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
-      
+      //TODO update dislikedMovieArr
+
       //update database with new list every x likes, then wipe the count
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
       this.$store.commit("SET_RANDOM_MOVIE");
