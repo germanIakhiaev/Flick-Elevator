@@ -35,9 +35,8 @@ export default {
 .movie-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.5);
-  background-image: url("C:/Users/Student/workspace/capstones/java-purple-finalcapstone-team3/vue/src/assets/pexels-monica-silvestre-713149.jpg"); 
-  color: #f1edf3;
+  background-color: hsl(0 0% 100% / 0.8);
+  color: #0F0C29;
   margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;
