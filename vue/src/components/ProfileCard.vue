@@ -19,9 +19,6 @@ export default {
   },
   props: [ 'user', 'account' ],
 
-  // created() {
-  //   this.generateLikedMoviesToDisplay();
-  // },
 
   
 }
