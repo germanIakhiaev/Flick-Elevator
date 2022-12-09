@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav-bar />
-     <browser-card  />
+     <browser-card v-bind:browse="browse" v-for="browse in $store.state.movies" v-bind:key="browse.id"/>
     </div>
 </template>
 
