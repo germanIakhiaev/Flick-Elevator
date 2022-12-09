@@ -35,7 +35,7 @@ export default {
 .movie-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.5);
+  background-color: hsl(0 0% 100% / 0.8);
   color: #0F0C29;
   margin: 25px 0px;
   display: grid;
