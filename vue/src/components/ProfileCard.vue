@@ -4,7 +4,7 @@
     <div class="username">{{ user.username }}</div>
     <div class="full-name">full name</div>
     <div class="genres">genres</div>
-    <div v-for="movie in userLikedMovies" :key="movie.id">{{movie.title}}</div>
+    <div v-for="monkey in userLikedMovies" :key="monkey.id">{{monkey.title}}</div>
   </div>
 </template>
 
@@ -39,8 +39,11 @@ export default {
       //   this.userLikedMovies.push(this.findMovieById(id));
       // })
       let likedMovieIds = this.$store.state.account.likedMovies.split(',');
-      this.userLikedMovies = this.$store.state.movies.filter(movie => {
-        return likedMovieIds.includes(movie.id);
+      this.userLikedMovies = this.$store.state.movies.filter(monkey => {
+        console.log(monkey.id);
+        console.log(monkey.title);
+        console.log(likedMovieIds.includes(monkey.id.toString()));
+        return likedMovieIds.includes(monkey.id.toString());
       })
     }
   }
