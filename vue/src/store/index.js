@@ -53,7 +53,8 @@ export default new Vuex.Store({
     }, 
     movies: [],
     likedMoviesArr: [],
-    dislikedMovies: [],
+    dislikedMoviesArr: [],
+    favoriteMoviesArr: [],
     randomMovie: {}
       
   },
@@ -66,6 +67,9 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+      this.commit("SET_MOVIES");
+      this.commit("SET_ACCOUNT");
+
 
     },
     SET_ACCOUNT(state) {
@@ -77,6 +81,9 @@ export default new Vuex.Store({
         state.account.favoriteMovies = response.data.favoriteMovies;
         state.account.dislikedMovies = response.data.dislikedMovies;
         this.commit("SET_LIKED_MOVIES");
+        this.commit("SET_DISLIKED_MOVIES");
+        this.commit("SET_FAVORITES");
+        this.commit("SET_RANDOM_MOVIE");
       });
     },
     LOGOUT(state) {
@@ -89,7 +96,6 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-        state.randomMovie = state.movies[Math.floor(Math.random() * state.movies.length)];
         
       });
       
@@ -103,10 +109,43 @@ export default new Vuex.Store({
         }
       });
     },
+    SET_DISLIKED_MOVIES(state) {
+      const dislikedMovieIds = state.account.dislikedMovies.split(',');
+
+      state.movies.forEach(dislikedMovie => {
+        if (dislikedMovieIds.includes(dislikedMovie.id.toString())) {
+          state.dislikedMoviesArr.push(dislikedMovie);
+        }
+      });
+    },
+    SET_FAVORITES(state) {
+      const favoriteMovieIds = state.account.favoriteMovies.split(',');
+
+      state.movies.forEach(favoriteMovie => {
+        if (favoriteMovieIds.includes(favoriteMovie.id.toString())) {
+          state.favoriteMoviesArr.push(favoriteMovie);
+        }
+      });
+    },
+
     SET_RANDOM_MOVIE(state) {
-      let index = Math.floor(Math.random() * state.movies.length);
-      let movie = state.movies[index];
+      const dislikedMovieIds = state.account.dislikedMovies.split(',');
+      let isValid = true;
+      let index = 0;
+      let movie;
+      do {
+        index = Math.floor(Math.random() * state.movies.length);
+        movie = state.movies[index];
+
+        if (dislikedMovieIds.includes(movie.id.toString())) { //or not interested wait time
+          isValid = false;
+        } else {
+          isValid = true;
+        }
+
+      } while (isValid == false);
       state.randomMovie = movie;
+      
     }
   }
   

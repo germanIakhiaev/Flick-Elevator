@@ -1,13 +1,19 @@
 <template>
   <section>
     <!--for searching TMDB -->
-    <input type="text" placeholder="Search Movies" v-model="searchString" />
-    <button @click="searchMovies">Search</button>
-    <div class="admin-card" v-for="result in results" :key="result.id">
+    <form class="field" id="search-card" >
+      <label for="search-term" class="label">Search By Keyword</label>
+      <div class="control">
+    <input id="search-term" class="input" type="text" placeholder="Search Movies" v-model="searchString" />
+    </div>
+    <button id="search-button" v-on:click.prevent="searchMovies">Search</button>
+    </form>
+
+    <div class="result-card" v-for="result in results" :key="result.id">
       <div class="card-image">
         <img
           class="movie-poster"
-          :src="'https://image.tmdb.org/t/p/w400' + result.poster_path"
+          :src="'https://image.tmdb.org/t/p/original' + result.poster_path"
           alt=""
         />
       </div>
@@ -94,7 +100,7 @@ export default {
 </script>
 
 <style>
-.admin-card {
+.result-card {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.8);
@@ -118,4 +124,21 @@ export default {
 .movie-info {
   padding: 20px;
 }
+#search-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.8);
+  color: #0F0C29;
+  margin: 25px 0px;
+}
+#search-term {
+  width: 700px;
+  max-width: 75vw;
+}
+#search-button {
+  width: 700px;
+  max-width: 75vw;
+}
+
+
 </style>
