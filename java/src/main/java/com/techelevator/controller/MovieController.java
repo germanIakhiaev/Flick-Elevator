@@ -26,12 +26,12 @@ public class MovieController {
     public List<Movie> getAllMovies() {
         return movieDao.getAllMovies();
     }
-
+// add authorization
     @PostMapping("/movie")
     public Movie postMovie(@RequestBody Movie movieToAdd) {
         return movieDao.addMovie(movieToAdd);
     }
-
+// add authorization
     @DeleteMapping("/movie/{movieId}")
     public void deleteMovie(@PathVariable("movieId") int movieId) {
         movieDao.deleteMovie(movieId);

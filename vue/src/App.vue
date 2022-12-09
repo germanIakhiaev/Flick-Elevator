@@ -30,11 +30,9 @@ export default {
 }
 
 html {
-  height: 100%;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+  background-image: url("assets/dark-background.jpeg");
+  background-size: 50%;
+} 
 
 body {
   text-align: center;
