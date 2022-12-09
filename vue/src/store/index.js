@@ -28,7 +28,7 @@ export default new Vuex.Store({
       preferredGenres: "",
       likedMovies: "",
       favoriteMovies: "",
-      dislikedMovies: ""
+      dislikedMovies: "",
     },
 
     genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction
@@ -107,7 +107,8 @@ export default new Vuex.Store({
       let index = Math.floor(Math.random() * state.movies.length);
       let movie = state.movies[index];
       state.randomMovie = movie;
-    }
+    },
+    
   }
   
 })

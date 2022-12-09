@@ -26,24 +26,10 @@ public class AccountController {
         return accountDao.getAccountByUserId(userId);
     }
 
-    @PutMapping("/accounts/{accountId}/genres")
-    public void updatePreferredGenres(@PathVariable("accountId") int accountId, @RequestBody String genres) {
-        accountDao.updatePreferredGenres(accountId, genres);
-    }
-
     @PutMapping("/accounts/{accountId}")
     public void updateLikedMovies(@PathVariable("accountId") int accountId, @RequestBody Account account) {
         accountDao.updateAccount(accountId, account);
     }
 
-    @PutMapping("/accounts/{accountId}/dislikes")
-    public void updateDislikedMovies(@PathVariable("accountId") int accountId, @RequestBody String disLikedMovies) {
-        accountDao.updateDislikedMovies(accountId, disLikedMovies);
-    }
-
-    @PutMapping("/accounts/{accountId}/favorites")
-    public void updateFavorites(@PathVariable("accountId") int accountId, @RequestBody String favorites) {
-        accountDao.updateFavorites(accountId, favorites);
-    }
 
 }

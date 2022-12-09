@@ -70,4 +70,5 @@ public class Account {
     public void setDislikedMovies(String dislikedMovies) {
         this.dislikedMovies = dislikedMovies;
     }
+
 }
