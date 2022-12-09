@@ -1,12 +1,12 @@
 <template>
   <section>
     <!--for searching TMDB -->
-    <form class="field" id="search-card">
+    <form class="field" id="search-card" >
       <label for="search-term" class="label">Search By Keyword</label>
       <div class="control">
     <input id="search-term" class="input" type="text" placeholder="Search Movies" v-model="searchString" />
     </div>
-    <button id="search-button" @click="searchMovies">Search</button>
+    <button id="search-button" v-on:click.prevent="searchMovies">Search</button>
     </form>
 
     <div class="result-card" v-for="result in results" :key="result.id">
