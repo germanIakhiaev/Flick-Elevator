@@ -53,7 +53,8 @@ export default new Vuex.Store({
     }, 
     movies: [],
     likedMoviesArr: [],
-    dislikedMovies: [],
+    dislikedMoviesArr: [],
+    favoriteMoviesArr: [],
     randomMovie: {}
       
   },
@@ -103,6 +104,25 @@ export default new Vuex.Store({
         }
       });
     },
+    SET_DISLIKED_MOVIES(state) {
+      const dislikedMovieIds = state.account.dislikedMovies.split(',');
+
+      state.movies.forEach(dislikedMovie => {
+        if (dislikedMovieIds.includes(dislikedMovie.id.toString())) {
+          state.dislikedMoviesArr.push(dislikedMovie);
+        }
+      });
+    },
+    SET_FAVORITES(state) {
+      const favoriteMovieIds = state.account.favoriteMovies.split(',');
+
+      state.movies.forEach(favoriteMovie => {
+        if (favoriteMovieIds.includes(favoriteMovie.id.toString())) {
+          state.favoriteMoviesArr.push(favoriteMovie);
+        }
+      });
+    },
+
     SET_RANDOM_MOVIE(state) {
       let index = Math.floor(Math.random() * state.movies.length);
       let movie = state.movies[index];
