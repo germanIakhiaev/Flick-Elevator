@@ -1,7 +1,7 @@
 <template>
    <div class="card browse-card">
     <div class="card-image">
-      <img v-bind:src="'https://image.tmdb.org/t/p/w500' + browse.poster_path">
+      <img v-bind:src="'https://image.tmdb.org/t/p/original' + browse.poster_path">
     </div>
     <div class="card-content">
       <h2 class="browse-info is-size-3 has-text-weight-bold">{{browse.title}}</h2>

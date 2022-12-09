@@ -8,7 +8,7 @@
 
       <div v-for="profileMovie in this.$store.state.likedMoviesArr" :key="profileMovie.id" class="card profileMovie-card">
     <div class="card-image">
-      <img v-bind:src="'https://image.tmdb.org/t/p/w500' + profileMovie.poster_path">
+      <img v-bind:src="'https://image.tmdb.org/t/p/original' + profileMovie.poster_path">
     </div>
     <div class="card-content">
       <h3 class="profileMovie-info is-size-3 has-text-weight-bold">{{profileMovie.title}}</h3>

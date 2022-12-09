@@ -13,7 +13,7 @@
       <div class="card-image">
         <img
           class="movie-poster"
-          :src="'https://image.tmdb.org/t/p/w400' + result.poster_path"
+          :src="'https://image.tmdb.org/t/p/original' + result.poster_path"
           alt=""
         />
       </div>
