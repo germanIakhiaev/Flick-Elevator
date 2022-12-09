@@ -1,10 +1,10 @@
 <template>
   <div class="card movie-card">
     <div class="card-image">
-      <img v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
+      <img v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path">
     </div>
     <div class="card-content">
-      <h2 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h2>
+      <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
       <h3 class="movie-info is-size-5 has-text-weight-semi-bold">{{movie.genres}}</h3>  
       <h3 class="movie-info has-text-left">{{movie.release_date}}</h3>  
       <h3 class="movie-info has-text-left">{{ movie.overview }}</h3>  
@@ -44,8 +44,8 @@ export default {
 }
 
 .card-image img {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
   border-radius: 5px;
 }
 .card-content {
@@ -58,4 +58,17 @@ export default {
 }
 
 
+@media only screen and (max-width: 991px) {
+  .movie-card {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    padding: 0px;
+  }
+
+  .card-content {
+    padding: 0px;
+  }
+}
 </style>

@@ -25,6 +25,11 @@ export default {
       dislikeCount: 0
     }
   },
+  created() {
+    this.$store.commit("SET_MOVIES");
+    this.$store.commit("SET_ACCOUNT");
+      
+  },
   methods: {
 
     likeMovie() {
