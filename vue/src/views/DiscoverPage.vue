@@ -15,11 +15,7 @@ import MovieCard from '../components/MovieCard.vue'
 import NavBar from '../components/NavBar.vue'
 import accountService from '../services/AccountService.js'
 export default {
-  created() {
-    this.$store.commit("SET_MOVIES");
-    this.$store.commit("SET_ACCOUNT");
-  },
-
+  
   name: 'discover',
   components: { NavBar, MovieCard },
   data() {

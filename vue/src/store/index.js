@@ -67,6 +67,9 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
+      this.commit("SET_MOVIES");
+      this.commit("SET_ACCOUNT");
+
 
     },
     SET_ACCOUNT(state) {
@@ -78,6 +81,8 @@ export default new Vuex.Store({
         state.account.favoriteMovies = response.data.favoriteMovies;
         state.account.dislikedMovies = response.data.dislikedMovies;
         this.commit("SET_LIKED_MOVIES");
+        this.commit("SET_DISLIKED_MOVIES");
+        this.commit("SET_FAVORITES");
       });
     },
     LOGOUT(state) {
