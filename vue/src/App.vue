@@ -30,8 +30,8 @@ export default {
 }
 
 html {
-  background-image: url("assets/dark-background.jpeg");
-  background-size: 50%;
+  background-image: url("assets/dark-blue-background.jpeg");
+  background-size: 90%;
 } 
 
 body {

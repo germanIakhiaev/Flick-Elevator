@@ -3,7 +3,8 @@
     <!--for searching TMDB -->
     <input type="text" placeholder="Search Movies" v-model="searchString" />
     <button @click="searchMovies">Search</button>
-    <div class="admin-card" v-for="result in results" :key="result.id">
+
+    <div class="result-card" v-for="result in results" :key="result.id">
       <div class="card-image">
         <img
           class="movie-poster"
@@ -94,7 +95,7 @@ export default {
 </script>
 
 <style>
-.admin-card {
+.result-card {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.8);
