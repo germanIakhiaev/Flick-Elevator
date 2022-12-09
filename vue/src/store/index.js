@@ -139,6 +139,8 @@ export default new Vuex.Store({
 
         if (dislikedMovieIds.includes(movie.id.toString())) { //or not interested wait time
           isValid = false;
+        } else {
+          isValid = true;
         }
 
       } while (isValid == false);
