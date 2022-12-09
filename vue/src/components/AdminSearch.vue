@@ -95,7 +95,7 @@ export default {
    border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.5);
-   /* background-image: url("C:/Users/Student/Downloads/cinema.jpg"); */
+   background-image: src="../assets/pexels-monica-silvestre-713149.jpg";
   color: #0F0C29;
   margin: 25px 0px;
   display: grid;

@@ -1,5 +1,5 @@
 <template>
-  <div class="card movie-card">
+  <div class="card movie-card">   
     <div class="card-image">
       <img v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path">
     </div>
@@ -36,7 +36,7 @@ export default {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.5);
-  background-image: url("C:/Users/Student/Downloads/theater.webp"); /* ../src/img/theater.webp */
+  background-image: url("C:/Users/Student/workspace/capstones/java-purple-finalcapstone-team3/vue/src/assets/pexels-monica-silvestre-713149.jpg"); 
   color: #f1edf3;
   margin: 25px 0px;
   display: grid;
