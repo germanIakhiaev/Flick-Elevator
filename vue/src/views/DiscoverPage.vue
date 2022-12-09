@@ -19,7 +19,6 @@ export default {
   created() {
     this.$store.commit("SET_MOVIES");
     this.$store.commit("SET_ACCOUNT");
-      
   },
 
   name: 'discover',
