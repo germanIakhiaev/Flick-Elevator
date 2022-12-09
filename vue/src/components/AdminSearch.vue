@@ -1,8 +1,13 @@
 <template>
   <section>
     <!--for searching TMDB -->
-    <input type="text" placeholder="Search Movies" v-model="searchString" />
-    <button @click="searchMovies">Search</button>
+    <form class="field" id="search-card">
+      <label for="search-term" class="label">Search By Keyword</label>
+      <div class="control">
+    <input id="search-term" class="input" type="text" placeholder="Search Movies" v-model="searchString" />
+    </div>
+    <button id="search-button" @click="searchMovies">Search</button>
+    </form>
 
     <div class="result-card" v-for="result in results" :key="result.id">
       <div class="card-image">
@@ -119,4 +124,21 @@ export default {
 .movie-info {
   padding: 20px;
 }
+#search-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.8);
+  color: #0F0C29;
+  margin: 25px 0px;
+}
+#search-term {
+  width: 700px;
+  max-width: 75vw;
+}
+#search-button {
+  width: 700px;
+  max-width: 75vw;
+}
+
+
 </style>

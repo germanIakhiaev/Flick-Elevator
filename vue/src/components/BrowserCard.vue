@@ -46,6 +46,19 @@ export default {
   padding: 20px;
 }
 
+@media only screen and (max-width: 991px) {
+  .browse-card {
+    grid-template-columns: 1fr;
+  }
+
+  h3 {
+    padding: 0px;
+  }
+
+  .card-content {
+    padding: 0px;
+  }
+}
 
 
 </style>

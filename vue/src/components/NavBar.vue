@@ -22,6 +22,10 @@
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
+        <router-link class="navbar-item" :to="{ name: 'admin' }"
+          >Admin</router-link
+        >
+
         <router-link class="navbar-item" :to="{ name: 'discover' }"
           >Discover</router-link
         >
