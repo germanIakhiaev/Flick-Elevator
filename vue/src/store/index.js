@@ -83,6 +83,7 @@ export default new Vuex.Store({
         this.commit("SET_LIKED_MOVIES");
         this.commit("SET_DISLIKED_MOVIES");
         this.commit("SET_FAVORITES");
+        this.commit("SET_RANDOM_MOVIE");
       });
     },
     LOGOUT(state) {
@@ -95,7 +96,6 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-        state.randomMovie = state.movies[Math.floor(Math.random() * state.movies.length)];
         
       });
       
@@ -129,9 +129,21 @@ export default new Vuex.Store({
     },
 
     SET_RANDOM_MOVIE(state) {
-      let index = Math.floor(Math.random() * state.movies.length);
-      let movie = state.movies[index];
+      const dislikedMovieIds = state.account.dislikedMovies.split(',');
+      let isValid = true;
+      let index = 0;
+      let movie;
+      do {
+        index = Math.floor(Math.random() * state.movies.length);
+        movie = state.movies[index];
+
+        if (dislikedMovieIds.includes(movie.id.toString())) { //or not interested wait time
+          isValid = false;
+        }
+
+      } while (isValid == false);
       state.randomMovie = movie;
+      
     }
   }
   
