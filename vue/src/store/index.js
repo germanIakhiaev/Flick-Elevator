@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import MovieService from '../services/MovieService'
 import AccountService from '../services/AccountService'
+import AuthService from '../services/AuthService'
 
 Vue.use(Vuex)
 
@@ -51,6 +52,7 @@ export default new Vuex.Store({
       10752: "war",
       37: "western"
     }, 
+    allUsers: [],
     movies: [],
     likedMoviesArr: [],
     dislikedMoviesArr: [],
@@ -69,9 +71,15 @@ export default new Vuex.Store({
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
       this.commit("SET_ACCOUNT");
-
-
+      // this.commit("SET_ALL_USERS");
     },
+
+    SET_ALL_USERS(state) {
+      AuthService.getAllUsers().then(response => {
+        state.allUsers = response.data;
+      })
+    },
+
     SET_ACCOUNT(state) {
       AccountService.getUserAccount(state.user.id).then(response => {
         state.account.accountId = response.data.accountId;
