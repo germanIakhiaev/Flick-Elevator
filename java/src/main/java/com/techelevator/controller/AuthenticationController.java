@@ -19,6 +19,8 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -33,6 +35,11 @@ public class AuthenticationController {
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userDao = userDao;
         this.accountDao = accountDao;
+    }
+
+    @GetMapping("/user")
+    public List<User> getAllUsers() {
+        return userDao.findAll();
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -60,7 +67,7 @@ public class AuthenticationController {
             User user = userDao.findByUsername(newUser.getUsername());
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
         } catch (UsernameNotFoundException e) {
-            userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
+            userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole(), newUser.getMadeAdminRequest());
             accountDao.createAccount(userDao.findByUsername(newUser.getUsername()).getId());
         }
     }

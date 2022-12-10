@@ -9,6 +9,7 @@ import DiscoverPage from '../views/DiscoverPage'
 import BrowsePage from '../views/BrowsePage'
 import ProfilePage from '../views/ProfilePage'
 import Admin from '../views/Admin.vue'
+import Notifications from '../views/Notifications'
 
 
 Vue.use(Router)
@@ -42,6 +43,14 @@ const router = new Router({
         requiresAuth: true //TODO: how to check at login if user is admin, and navigate here?
       }
     }, 
+    {
+      path: '/admin/notifications',
+      name: 'notifications',
+      component: Notifications,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: "/login",
       name: "login",

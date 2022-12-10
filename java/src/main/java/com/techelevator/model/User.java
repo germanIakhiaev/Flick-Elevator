@@ -16,15 +16,17 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private boolean madeAdminRequest;
 
    public User() { }
 
-   public User(int id, String username, String password, String authorities) {
+   public User(int id, String username, String password, String authorities, boolean madeAdminRequest) {
       this.id = id;
       this.username = username;
       this.password = password;
       if(authorities != null) this.setAuthorities(authorities);
       this.activated = true;
+      this.madeAdminRequest = madeAdminRequest;
    }
 
    public int getId() {
@@ -73,6 +75,14 @@ public class User {
          String authority = role.contains("ROLE_") ? role : "ROLE_" + role;
          this.authorities.add(new Authority(authority));
       }
+   }
+
+   public boolean getMadeAdminRequest() {
+      return madeAdminRequest;
+   }
+
+   public void setMadeAdminRequest(boolean madeAdminRequest) {
+      this.madeAdminRequest = madeAdminRequest;
    }
 
    @Override

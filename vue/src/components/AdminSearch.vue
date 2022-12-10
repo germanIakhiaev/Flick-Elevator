@@ -1,7 +1,11 @@
 <template>
   <section>
     <!--for searching TMDB -->
+    
     <form class="field" id="search-card" >
+      <div>
+      <router-link :to="{ name: 'notifications'}">Notifications</router-link>
+    </div>
       <label for="search-term" class="label">Search By Keyword</label>
       <div class="control">
     <input id="search-term" class="input" type="text" placeholder="Search Movies" v-model="searchString" />

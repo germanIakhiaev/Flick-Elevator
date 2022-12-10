@@ -1,6 +1,12 @@
 package com.techelevator.model;
 
+import org.springframework.beans.factory.annotation.Required;
+
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /*
     The acronym DTO is being used for "data transfer object". It means that this type of class is specifically
     created to transfer data between the client and the server. For example, CredentialsDto represents the data a client must
@@ -17,6 +23,8 @@ public class RegisterUserDto {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    @NotNull
+    private boolean madeAdminRequest;
 
     public String getUsername() {
         return username;
@@ -48,5 +56,13 @@ public class RegisterUserDto {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public boolean getMadeAdminRequest() {
+        return madeAdminRequest;
+    }
+
+    public void setMadeAdminRequest(boolean madeAdminRequest) {
+        this.madeAdminRequest = madeAdminRequest;
     }
 }

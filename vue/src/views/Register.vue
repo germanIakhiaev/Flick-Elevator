@@ -32,6 +32,12 @@
         v-model="user.confirmPassword"
         required
       />
+      Request Admin Role<input 
+      type="checkbox"
+      id="adminCheck"
+      v-model="user.madeAdminRequest"
+      >
+
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -52,6 +58,7 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
+        madeAdminRequest: false
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -63,6 +70,7 @@ export default {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else {
+        console.log(this.user);
         authService
           .register(this.user)
           .then((response) => {
