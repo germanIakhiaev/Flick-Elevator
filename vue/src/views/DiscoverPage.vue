@@ -25,21 +25,25 @@ export default {
       dislikeCount: 0
     }
   },
-  created() {
-    this.$store.commit("SET_MOVIES");
-    this.$store.commit("SET_ACCOUNT");
+  // created() {
+  //   this.$store.commit("SET_MOVIES");
+  //   this.$store.commit("SET_ACCOUNT");
       
-  },
+  // },
   methods: {
 
     likeMovie() {
+  
       //add this random movie info to account list
       this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
 
       //TODO update likedMovieArr
 
       //update database with new list every x likes, then wipe the count
+      //TODO also update db when leaving view
+      
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      
       
       this.$store.commit("SET_RANDOM_MOVIE");
 
