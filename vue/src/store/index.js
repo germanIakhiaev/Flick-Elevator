@@ -104,6 +104,7 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
+        //TODO - update this to filter by preferred genres
         
       });
       
@@ -150,8 +151,9 @@ export default new Vuex.Store({
       do {
         index = Math.floor(Math.random() * state.movies.length);
         movie = state.movies[index];
+        // const movieGenreArr = movie.genres.split(",");
 
-        if (dislikedMovieIds.includes(movie.id.toString())) { //or not interested wait time
+        if (dislikedMovieIds.includes(movie.id.toString()) /*|| !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))*/) { //or not interested wait time
           isValid = false;
         } else {
           isValid = true;

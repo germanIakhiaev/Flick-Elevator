@@ -70,6 +70,7 @@ export default {
 
     newRandomMovie() {
       this.$store.commit("SET_RANDOM_MOVIE");
+      //TODO check against time-out
     }
   }
 }
