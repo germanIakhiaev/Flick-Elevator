@@ -54,7 +54,7 @@ public class JdbcMovieDao implements MovieDao {
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
         }
-        return null;
+        return movieList;
     }
 
     @Override
