@@ -25,26 +25,30 @@ export default {
       dislikeCount: 0
     }
   },
-  // created() {
-  //   this.$store.commit("SET_MOVIES");
-  //   this.$store.commit("SET_ACCOUNT");
-      
-  // },
+
+  destroyed() {
+    //update db with unadded responses
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      this.likeCount = 0;
+      this.dislikeCount = 0;
+    //update front-end movie arrays
+  },
+    
   methods: {
 
     likeMovie() {
-  
+      this.likeCount++;
       //add this random movie info to account list
       this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
-
+      this.$store.commit("SET_LIKED_MOVIES");
       //TODO update likedMovieArr
 
       //update database with new list every x likes, then wipe the count
       //TODO also update db when leaving view
-      
+      if (this.likeCount >= 5) {
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
-      
-      
+      this.likeCount = 0;
+      }
       this.$store.commit("SET_RANDOM_MOVIE");
 
     },
@@ -52,10 +56,14 @@ export default {
     dislikeMovie() {
       //add this random movie info to account list
       this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
+      this.$store.commit("SET_DISLIKED_MOVIES");
       //TODO update dislikedMovieArr
 
       //update database with new list every x likes, then wipe the count
+      if (this.dislikeCount >= 5) {
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      this.dislikeCount = 0;
+      }
       this.$store.commit("SET_RANDOM_MOVIE");
 
     },

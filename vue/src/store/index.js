@@ -110,29 +110,35 @@ export default new Vuex.Store({
     },
     SET_LIKED_MOVIES(state) {
       const likedMovieIds = state.account.likedMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(likedMovie => {
         if (likedMovieIds.includes(likedMovie.id.toString())) {
-          state.likedMoviesArr.push(likedMovie);
+          tempArray.push(likedMovie);
         }
+        state.likedMoviesArr = tempArray;
       });
     },
     SET_DISLIKED_MOVIES(state) {
       const dislikedMovieIds = state.account.dislikedMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(dislikedMovie => {
         if (dislikedMovieIds.includes(dislikedMovie.id.toString())) {
-          state.dislikedMoviesArr.push(dislikedMovie);
+          tempArray.push(dislikedMovie);
         }
+        state.dislikedMoviesArr = tempArray;
       });
     },
     SET_FAVORITES(state) {
       const favoriteMovieIds = state.account.favoriteMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(favoriteMovie => {
         if (favoriteMovieIds.includes(favoriteMovie.id.toString())) {
-          state.favoriteMoviesArr.push(favoriteMovie);
+          tempArray.push(favoriteMovie);
         }
+        state.favoriteMoviesArr = tempArray;
       });
     },
 
