@@ -22,11 +22,5 @@ public interface AccountDao {
 
     Account updateAccount(int accountId, Account account);
 
-    Account updateDislikedMovies(int accountId, String updatedDislikes);
-
-    Account updateFavorites(int accountId, String updatedFavorites);
-
-    Account updatePreferredGenres(int accountId, String updatedGenres);
-
     boolean deleteAccount(int accountId);
 }

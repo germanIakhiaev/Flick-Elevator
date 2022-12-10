@@ -28,7 +28,7 @@ export default new Vuex.Store({
       preferredGenres: "",
       likedMovies: "",
       favoriteMovies: "",
-      dislikedMovies: ""
+      dislikedMovies: "",
     },
 
     genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction

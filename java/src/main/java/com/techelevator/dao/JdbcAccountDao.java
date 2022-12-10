@@ -148,51 +148,6 @@ public class JdbcAccountDao implements AccountDao{
     }
 
     @Override
-    public Account updateDislikedMovies(int accountId, String updatedDislikes) {
-        String sql = "" +
-                "UPDATE accounts " +
-                "SET disliked_movies = ? " +
-                "WHERE account_id = ?;";
-        try {
-            jdbcTemplate.update(sql, updatedDislikes, accountId);
-            return getAccountByAccountId(accountId);
-        } catch (EmptyResultDataAccessException | NullPointerException e) {
-
-        }
-        return null;
-    }
-
-    @Override
-    public Account updateFavorites(int accountId, String updatedFavorites) {
-        String sql = "" +
-                "UPDATE accounts " +
-                "SET favorites = ? " +
-                "WHERE account_id = ?;";
-        try {
-            jdbcTemplate.update(sql, updatedFavorites, accountId);
-            return getAccountByAccountId(accountId);
-        } catch (EmptyResultDataAccessException | NullPointerException e) {
-
-        }
-        return null;
-    }
-
-    @Override
-    public Account updatePreferredGenres(int accountId, String updatedGenres) {
-        String sql = "" +
-                "UPDATE accounts " +
-                "SET preferred_genre = ? " +
-                "WHERE account_id = ?;";
-        try {
-            jdbcTemplate.update(sql, updatedGenres, accountId);
-            return getAccountByAccountId(accountId);
-        } catch (EmptyResultDataAccessException | NullPointerException e) {
-
-        }
-        return null;
-    }
-
-    @Override
     public boolean deleteAccount(int accountId) {
         String sql = "" +
                 "DELETE * " +
