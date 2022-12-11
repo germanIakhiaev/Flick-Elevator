@@ -73,7 +73,7 @@ export default {
     moviesToBrowse() { //filtered based on drop-downs, replaces $store reference in template
       switch (this.criteria) {
         case "":
-          return this.$store.state.movies;
+          return this.$store.state.movies.filter(movie => movie.genres.includes(this.genre1) && movie.genres.includes(this.genre2));
         case "liked":
           return this.$store.state.likedMoviesArr.filter(likedMovie => likedMovie.genres.includes(this.genre1) && likedMovie.genres.includes(this.genre2));
         case "favorite":
