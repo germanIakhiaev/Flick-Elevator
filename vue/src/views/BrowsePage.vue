@@ -48,7 +48,7 @@
       <option value="war">War</option>
       <option value="western">Western</option>
     </select>
-     <browser-card v-bind:browse="browse" v-for="browse in $store.state.movies" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
+     <browser-card v-bind:browse="browse" v-for="browse in moviesToBrowse" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
     </div>
 </template>
 
@@ -61,7 +61,6 @@ export default {
 
   data() {
     return {
-       
       criteria: "",
       genre1: "", //modeled to dropdown menus
       genre2: ""
@@ -87,20 +86,6 @@ export default {
     }
 
   },
-
-  methods: {
-
-    setMoviesToBrowse(criteria) {
-      //join genre1 and genre2 as string or array
-
-      //filter $store movies based on criteria selection
-        //further filter by genre selection
-      
-      //assign final array to moviesToBrowse
-      return criteria;
-    }
-
-  }
   
 }
 </script>
