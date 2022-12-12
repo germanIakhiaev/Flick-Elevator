@@ -8,6 +8,8 @@
       <h3 class="browse-info is-size-5 has-text-weight-semi-bold">{{browse.genres}}</h3>  
       <h3 class="browse-info has-text-left">{{browse.release_date}}</h3>  
       <h3 class="browse-info has-text-left">{{ browse.overview }}</h3>  
+      <button class="favorite button is-success" v-on:click.prevent="favorite(true)" v-if="!isFavorited"><i class="fa-solid fa-star"></i>&nbsp;Favorite Movie</button>
+        <button class="unfavorite button is-danger" v-on:click.prevent="favorite(false)" v-if="isFavorited"><i class="fa-regular fa-star"></i>&nbsp;Unfavorite Movie</button>
       </div>
   </div>
 </template>
@@ -15,8 +17,14 @@
 <script>
 export default {
   props: [
-    'browse'
-  ]
+    'browse', 'account'
+  ], 
+  isFavorited: false,
+   methods: {
+     favorite(favoriteStatus) {
+       this.isFavorited = favoriteStatus;
+     }
+   }
 }
 </script>
 
