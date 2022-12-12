@@ -37,12 +37,13 @@ export default {
   methods: {
 
     likeMovie() {
+      if (!this.$store.state.account.likedMovies.includes(this.$store.state.randomMovie.id)) {
       this.likeCount++;
       //add this random movie info to account list
       this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
       this.$store.commit("SET_LIKED_MOVIES");
       //TODO update likedMovieArr
-
+      }
       //update database with new list every x likes, then wipe the count
       //TODO also update db when leaving view
       if (this.likeCount >= 5) {
@@ -54,6 +55,7 @@ export default {
     },
 
     dislikeMovie() {
+      this.dislikeCount++
       //add this random movie info to account list
       this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
       this.$store.commit("SET_DISLIKED_MOVIES");
