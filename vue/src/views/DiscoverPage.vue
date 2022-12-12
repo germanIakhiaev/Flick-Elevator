@@ -54,6 +54,7 @@ export default {
     },
 
     dislikeMovie() {
+      this.dislikeCount++
       //add this random movie info to account list
       this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
       this.$store.commit("SET_DISLIKED_MOVIES");

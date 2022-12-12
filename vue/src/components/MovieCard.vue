@@ -8,7 +8,7 @@
       <h3 class="movie-info is-size-5 has-text-weight-semi-bold">{{movie.genres}}</h3>  
       <h3 class="movie-info has-text-left">{{movie.release_date}}</h3>  
       <h3 class="movie-info has-text-left">{{ movie.overview }}</h3>  
-            <button class="add-to-watchlist" v-on:click.prevent="addToWatchlist()" ><i class="fa-solid fa-plus"></i>&nbsp;Add To My Watchlist</button>
+    
 
       </div>
   </div>

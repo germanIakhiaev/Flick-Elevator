@@ -11,6 +11,7 @@
     </select>
     </div>
     <div class="select">
+      <label class="label" for="genre-select">First Genre</label>
     <select name="genre-select" id="genre-select" v-model="genre1">
       <option value="">Pick a Genre</option>
       <option value="action">Action</option>
@@ -34,6 +35,7 @@
     </select>
     </div>
     <div class="select">
+      <label class="label" for="genre-select-2">Second Genre</label>
     <select name="genre-select-2" id="genre-select-2" v-model="genre2">
       <option value="">Pick a Second Genre</option>
        <option value="action">Action</option>
@@ -107,9 +109,14 @@ export default {
   background-color: hsl(0 0% 100% / 0.8);
   color: #0F0C29;
   margin: 25px 0px;
-padding: 25px;
+  padding-top: 15px;
+padding-bottom: 50px;
 display: flex;
 justify-content: space-evenly;
+}
+
+select::-ms-expand {
+    display: none;
 }
 
 select {
