@@ -62,6 +62,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
+            //if genres 0 - push genre set view, else -
             this.$router.push("/discover");
             
           }
