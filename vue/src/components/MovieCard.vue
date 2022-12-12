@@ -1,5 +1,5 @@
 <template>
-  <div class="card movie-card">
+  <div class="card movie-card">   
     <div class="card-image">
       <img v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path">
     </div>
@@ -69,6 +69,18 @@ export default {
 
 .movie-info {
   padding: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .movie-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.5);
+  color: #fcfcfc;
+  margin: 25px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
 }
 
 

@@ -3,6 +3,15 @@
     <div class="field" id="notif-housing">
       <div>
         <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
+        <article class="message is-info">
+           <div class="message-header">
+            <p>Info</p>
+           <button class="delete" aria-label="delete"></button>
+           </div>
+        <div class="message-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+        </div>
+        </article>
       </div>
       <form>
       <table>
@@ -37,6 +46,15 @@ export default {};
 </script>
 
 <style>
+article {
+  margin: 20px;
+  padding-bottom: 20px;
+  
+}
+.message.is-info .message-header {
+    background-color: #573b8a;
+    color: #fff;
+}
 .result-card {
   border: 1px transparent;
   border-radius: 5px;
@@ -68,12 +86,5 @@ export default {};
   color: #0f0c29;
   margin: 25px 0px;
 }
-#search-term {
-  width: 700px;
-  max-width: 75vw;
-}
-#search-button {
-  width: 700px;
-  max-width: 75vw;
-}
+
 </style>
