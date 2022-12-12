@@ -19,6 +19,9 @@ public class Authority {
       this.name = name;
    }
 
+   public Authority() {
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;

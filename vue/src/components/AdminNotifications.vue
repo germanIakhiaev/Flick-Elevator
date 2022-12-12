@@ -1,9 +1,9 @@
 <template>
   <section>
+    <div class="admin-home-link">
+      <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
+    </div>
     <div class="field" id="notif-housing">
-      <div>
-        <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
-      </div>
       <form id="allUsersForm">
         <table>
           <thead>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import authService from '../services/AuthService.js'
+import authService from "../services/AuthService.js";
 export default {
   data() {
     return {
@@ -52,7 +52,10 @@ export default {
           if (this.$store.state.allUsers[i] === this.selectedUsers[j]) {
             this.$store.state.allUsers[i].authorities[0].name = "ROLE_ADMIN";
             this.$store.state.allUsers[i].madeAdminRequest = false;
-            authService.updateUser(this.$store.state.allUsers[i].id, this.$store.state.allUsers[i])
+            authService.updateUser(
+              this.$store.state.allUsers[i].id,
+              this.$store.state.allUsers[i]
+            );
           }
         }
       }
@@ -64,7 +67,10 @@ export default {
           if (this.$store.state.allUsers[i] === this.selectedUsers[j]) {
             this.$store.state.allUsers[i].authorities[0].name = "ROLE_USER";
             this.$store.state.allUsers[i].madeAdminRequest = false;
-            authService.updateUser(this.$store.state.allUsers[i].id, this.$store.state.allUsers[i])
+            authService.updateUser(
+              this.$store.state.allUsers[i].id,
+              this.$store.state.allUsers[i]
+            );
           }
         }
       }
@@ -78,6 +84,16 @@ export default {
 .button {
   color: #fff;
   background: #573b8a;
+}
+
+.admin-home-link {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.8);
+  color: #0f0c29;
+  margin: 25px 0px;
+  display: grid;
+  overflow: hidden;
 }
 
 #notif-housing {
