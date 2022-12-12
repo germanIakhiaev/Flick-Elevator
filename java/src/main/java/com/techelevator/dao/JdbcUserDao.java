@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.techelevator.model.Account;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -85,6 +86,21 @@ public class JdbcUserDao implements UserDao {
 
         return userId != null;
 
+    }
+
+    @Override
+    public User updateUser(int userId, User user) {
+        String sql = "" +
+                "UPDATE users " +
+                "SET user_id = ?, username = ?, password_hash = ?, role = ?, made_admin_request = ? " +
+                "WHERE user_id = ?;";
+        try {
+            jdbcTemplate.update(sql, user.getId(), user.getUsername(), user.getPassword(), user.getAuthorities(), user.getMadeAdminRequest());
+            return getUserById(userId);
+        } catch (EmptyResultDataAccessException | NullPointerException e) {
+
+        }
+        return null;
     }
 
     private User mapRowToUser(SqlRowSet rs) {

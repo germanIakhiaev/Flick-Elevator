@@ -27,7 +27,7 @@ public class AccountController {
     }
 
     @PutMapping("/accounts/{accountId}")
-    public void updateLikedMovies(@PathVariable("accountId") int accountId, @RequestBody Account account) {
+    public void updateAccount(@PathVariable("accountId") int accountId, @RequestBody Account account) {
         accountDao.updateAccount(accountId, account);
     }
 

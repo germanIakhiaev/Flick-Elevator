@@ -4,7 +4,7 @@
     
     <form class="field" id="search-card" >
       <div>
-      <router-link :to="{ name: 'notifications'}">Notifications</router-link>
+      <router-link :to="{ name: 'notifications'}">User Management</router-link>
     </div>
       <label for="search-term" class="label">Search By Keyword</label>
       <div class="control">
