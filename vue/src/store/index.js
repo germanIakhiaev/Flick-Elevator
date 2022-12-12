@@ -71,7 +71,7 @@ export default new Vuex.Store({
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
       this.commit("SET_ACCOUNT");
-      // this.commit("SET_ALL_USERS");
+      this.commit("SET_ALL_USERS");
     },
 
     SET_ALL_USERS(state) {

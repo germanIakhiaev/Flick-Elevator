@@ -4,7 +4,27 @@
       <div>
         <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
       </div>
-      
+      <form>
+      <table>
+          <thead>
+              <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Request Admin</th>
+                  <th>Approve/Reject Request</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="user in this.$store.state.allUsers" v-bind:key="user.id">
+                  <td>{{user.username}}</td>
+                  <td>{{user.authorities}}</td>
+                  <td>{{user.madeAdminRequest}}</td>
+                  <td><input type="checkbox"></td>
+              </tr>
+          </tbody>
+      </table>
+      <input type="submit" name="" id="">
+      </form>
       
     </div>
 
