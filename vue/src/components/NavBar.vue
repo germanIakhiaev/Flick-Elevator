@@ -22,23 +22,23 @@
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
-        <router-link class="navbar-item" :to="{ name: 'admin' }"
+        <router-link class="navbar-item is-size-5" :to="{ name: 'admin' }"
           >Admin</router-link
         >
 
-        <router-link class="navbar-item" :to="{ name: 'discover' }"
+        <router-link class="navbar-item is-size-5" :to="{ name: 'discover' }"
           >Discover</router-link
         >
 
-        <router-link class="navbar-item" :to="{ name: 'browse' }"
+        <router-link class="navbar-item is-size-5" :to="{ name: 'browse' }"
           >Browse</router-link
         >
 
-        <router-link class="navbar-item" :to="{ name: 'profile' }"
+        <router-link class="navbar-item is-size-5" :to="{ name: 'profile' }"
           >Profile</router-link
         >
         <router-link
-          class="navbar-item"
+          class="navbar-item is-size-5"
           :to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           >Logout</router-link
