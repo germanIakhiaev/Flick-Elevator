@@ -8,7 +8,12 @@
         <table>
           <thead>
             <tr>
-              <th>&nbsp;</th>
+              <th>
+                <!-- <label for="selectAllBox">
+                    Select
+                  <input type="checkbox" name="" id="selectAllBox" />
+                </label> -->
+              </th>
               <th>Username</th>
               <th>Role</th>
               <th>Request Admin</th>
