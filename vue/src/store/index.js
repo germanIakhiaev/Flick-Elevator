@@ -71,7 +71,7 @@ export default new Vuex.Store({
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
       this.commit("SET_ACCOUNT");
-      // this.commit("SET_ALL_USERS");
+      this.commit("SET_ALL_USERS");
     },
 
     SET_ALL_USERS(state) {
@@ -104,35 +104,42 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
+        //TODO - update this to filter by preferred genres
         
       });
       
     },
     SET_LIKED_MOVIES(state) {
       const likedMovieIds = state.account.likedMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(likedMovie => {
         if (likedMovieIds.includes(likedMovie.id.toString())) {
-          state.likedMoviesArr.push(likedMovie);
+          tempArray.push(likedMovie);
         }
+        state.likedMoviesArr = tempArray;
       });
     },
     SET_DISLIKED_MOVIES(state) {
       const dislikedMovieIds = state.account.dislikedMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(dislikedMovie => {
         if (dislikedMovieIds.includes(dislikedMovie.id.toString())) {
-          state.dislikedMoviesArr.push(dislikedMovie);
+          tempArray.push(dislikedMovie);
         }
+        state.dislikedMoviesArr = tempArray;
       });
     },
     SET_FAVORITES(state) {
       const favoriteMovieIds = state.account.favoriteMovies.split(',');
+      const tempArray = [];
 
       state.movies.forEach(favoriteMovie => {
         if (favoriteMovieIds.includes(favoriteMovie.id.toString())) {
-          state.favoriteMoviesArr.push(favoriteMovie);
+          tempArray.push(favoriteMovie);
         }
+        state.favoriteMoviesArr = tempArray;
       });
     },
 
@@ -144,8 +151,9 @@ export default new Vuex.Store({
       do {
         index = Math.floor(Math.random() * state.movies.length);
         movie = state.movies[index];
+        // const movieGenreArr = movie.genres.split(",");
 
-        if (dislikedMovieIds.includes(movie.id.toString())) { //or not interested wait time
+        if (dislikedMovieIds.includes(movie.id.toString()) /*|| !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))*/) { //or not interested wait time
           isValid = false;
         } else {
           isValid = true;

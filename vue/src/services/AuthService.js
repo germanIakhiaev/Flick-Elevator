@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+
 export default {
 
   getAllUsers() {
-    return axios.get('/user');
+    return axios.get('/user', {
+      headers: {'Access-Control-Allow-Origin': 'https://localhost:9000'}
+    });
 },
 
   login(user) {
