@@ -24,7 +24,7 @@ public class User {
       this.id = id;
       this.username = username;
       this.password = password;
-      if(authorities != null) this.setAuthorities(authorities);
+      if(authorities != null) this.setAuthoritiesAsString(authorities);
       this.activated = true;
       this.madeAdminRequest = madeAdminRequest;
    }
@@ -69,7 +69,7 @@ public class User {
       this.authorities = authorities;
    }
 
-   public void setAuthorities(String authorities) {
+   public void setAuthoritiesAsString(String authorities) {
       String[] roles = authorities.split(",");
       for(String role : roles) {
          String authority = role.contains("ROLE_") ? role : "ROLE_" + role;

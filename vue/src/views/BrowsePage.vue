@@ -28,7 +28,7 @@
       <option value="music">Music</option>
       <option value="mystery">Mystery</option>
       <option value="romance">Romance</option>
-      <option value="scifi">Science Fiction</option>
+      <option value="sciFi">Science Fiction</option>
       <option value="thriller">Thriller</option>
       <option value="war">War</option>
       <option value="western">Western</option>

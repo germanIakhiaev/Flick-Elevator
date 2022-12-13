@@ -1,16 +1,25 @@
 <template>
   <section>
     <!--for searching TMDB -->
-    
-    <form class="field" id="search-card" >
-      <div>
-      <router-link :to="{ name: 'notifications'}">Notifications</router-link>
+
+    <div class="user-mgmt">
+      <router-link :to="{ name: 'notifications' }">User Management</router-link>
     </div>
+
+    <form class="field" id="search-card">
       <label for="search-term" class="label">Search By Keyword</label>
       <div class="control">
-    <input id="search-term" class="input" type="text" placeholder="Search Movies" v-model="searchString" />
-    </div>
-    <button id="search-button" v-on:click.prevent="searchMovies">Search</button>
+        <input
+          id="search-term"
+          class="input"
+          type="text"
+          placeholder="Search Movies"
+          v-model="searchString"
+        />
+      </div>
+      <button id="search-button" v-on:click.prevent="searchMovies">
+        Search
+      </button>
     </form>
 
     <div class="result-card" v-for="result in results" :key="result.id">
@@ -108,10 +117,20 @@ export default {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
+  color: #0f0c29;
   margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  overflow: hidden;
+}
+
+.user-mgmt {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 100% / 0.8);
+  color: #0f0c29;
+  margin: 25px 0px;
+  display: grid;
   overflow: hidden;
 }
 
@@ -132,7 +151,7 @@ export default {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
+  color: #0f0c29;
   margin: 25px 0px;
 }
 #search-term {
@@ -143,6 +162,4 @@ export default {
   width: 700px;
   max-width: 75vw;
 }
-
-
 </style>

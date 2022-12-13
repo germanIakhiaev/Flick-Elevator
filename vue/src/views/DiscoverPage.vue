@@ -3,9 +3,9 @@
     <nav-bar />
     <div>
     <movie-card :movie="this.$store.state.randomMovie"/>
-    <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Don't show me this again</button>
-    <button class="button is-focused is-success" @click="likeMovie"><i class="fa-solid fa-heart"></i>&nbsp;I like this!</button>
-    <button class="button is-focused is-info" @click="newRandomMovie"><i class="fa-solid fa-face-meh"></i>&nbsp;I don't feel either way about this</button>
+    <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike</button>
+    <button class="button is-focused is-success" @click="likeMovie"><i class="fa-solid fa-heart"></i>&nbsp;Like!</button>
+    <button class="button is-focused is-info" @click="newRandomMovie"><i class="fa-solid fa-face-meh"></i>&nbsp;Skip</button>
     </div>
     </div>
 </template>
@@ -26,6 +26,9 @@ export default {
     }
   },
 
+  created() {
+    this.$store.commit("SET_RANDOM_MOVIE")
+  },
   destroyed() {
     //update db with unadded responses
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
@@ -80,4 +83,10 @@ export default {
 
 <style>
 
+button:hover{
+  
+    transform: scale(1.02);
+    box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
+    transition: all 0.4s;
+  }
 </style>
