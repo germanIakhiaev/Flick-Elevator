@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style>
-
+img{
+      height: 30vw;
+}
 </style>
