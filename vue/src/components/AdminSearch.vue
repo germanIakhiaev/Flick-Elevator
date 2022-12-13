@@ -25,9 +25,9 @@
         <h2 class="movie-info is-size-3 has-text-weight-bold">
           {{ result.title }}
         </h2>
-        <h3 class="movie-info is-size-5">{{ convertGenres(result) }}</h3>
-        <h3 class="movie-info has-text-left">{{ result.release_date }}</h3>
-        <h3 class="movie-info has-text-left">{{ result.overview }}</h3>
+        <h3 class="movie-info is-size-4">{{ convertGenres(result) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5"> Release date: <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
+        <h3 class="movie-info has-text-left is-size-4">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
         </button>
