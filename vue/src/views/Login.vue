@@ -65,11 +65,13 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
+            if (this.$store.state.account.preferredGenres === "") {
+              this.$router.push("/setgenres");
+            } else {
             this.$router.push("/discover");
-            
+            }
           }
-        })
-        .catch(error => {
+        }).catch(error => {
           const response = error.response;
 
           if (response.status === 401) {
