@@ -76,5 +76,10 @@ input {
   bottom: 0;
   width: 100%;    
 }
+.genre {
+
+  text-transform: capitalize;
+;
+}
 
 </style>

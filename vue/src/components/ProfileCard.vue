@@ -12,8 +12,8 @@
     </div>
     <div class="card-content">
       <h3 class="profileMovie-info is-size-3 has-text-weight-bold">{{profileMovie.title}}</h3>
-      <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold">{{profileMovie.genres}}</h3>  
-      <h3 class="profileMovie-info has-text-left">{{profileMovie.release_date}}</h3>  
+      <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
+      <h3 class="profileMovie-info has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
       <h3 class="profileMovie-info has-text-left">{{ profileMovie.overview }}</h3>  
 
  <button
@@ -24,7 +24,7 @@
         <i class="fa-solid fa-star"></i>&nbsp;Favorite Movie
       </button>
       <button
-        class="unfavorite is-danger"
+        class="unfavorite"
         @click="unfavoriteMovie(profileMovie.id)"
         v-if="$store.state.account.favoriteMovies.includes(profileMovie.id)"
       >
@@ -58,45 +58,7 @@ export default {
   props: [ 'user', 'account' ],
 
   methods: {
-    likeMovie() {
-      this.likeCount++;
-      //add this random movie info to account list
-      this.$store.state.account.likedMovies +=
-        this.$store.state.randomMovie.id + ",";
-      this.$store.commit("SET_LIKED_MOVIES");
-      //TODO update likedMovieArr
-
-      //update database with new list every x likes, then wipe the count
-      //TODO also update db when leaving view
-      if (this.likeCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.likeCount = 0;
-      }
-      this.$store.commit("SET_RANDOM_MOVIE");
-    },
-
-    dislikeMovie() {
-      this.dislikeCount++;
-      //add this random movie info to account list
-      this.$store.state.account.dislikedMovies +=
-        this.$store.state.randomMovie.id + ",";
-      this.$store.commit("SET_DISLIKED_MOVIES");
-      //TODO update dislikedMovieArr
-
-      //update database with new list every x likes, then wipe the count
-      if (this.dislikeCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.dislikeCount = 0;
-      }
-      this.$store.commit("SET_RANDOM_MOVIE");
-    },
-
+    
     favoriteMovie(id) {
       this.favoriteCount++;
       this.$store.state.account.favoriteMovies += id + ",";
@@ -114,7 +76,14 @@ export default {
     },
     unfavoriteMovie(id) {
       this.favoriteCount++;
-      this.$store.state.account.favoriteMovies.replaceAll(id + ',', '');
+      let favoriteMovieIds = this.$store.state.account.favoriteMovies.split(',');
+
+      const index = favoriteMovieIds.indexOf(id);
+      
+      favoriteMovieIds = favoriteMovieIds.splice(index, 1);
+
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.toString();
+
       this.$store.commit("SET_FAVORITES");
       
       if (this.favoriteCount >= 5) {
@@ -136,16 +105,16 @@ export default {
 .profile-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8); 
+  color: #ffffff;
   margin: 25px 0px;
 }
 
 .profileMovie-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8); 
+  color: #ffffff;
   margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;

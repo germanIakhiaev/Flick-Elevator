@@ -3,7 +3,7 @@
     <nav-bar />
 <div id="container">
     <div class="select">
-      <label class="label" for="collection-type">Collection</label>
+      <label class="label has-text-white" for="collection-type">Collection</label>
     <select name="criteria" v-model="criteria" id="collection-type">
       <option value="">All Movies</option>
       <option value="liked">Liked Movies</option>
@@ -11,7 +11,7 @@
     </select>
     </div>
     <div class="select">
-      <label class="label" for="genre-select">First Genre</label>
+      <label class="label has-text-white" for="genre-select">First Genre</label>
     <select name="genre-select" id="genre-select" v-model="genre1">
       <option value="">Pick a Genre</option>
       <option value="action">Action</option>
@@ -35,7 +35,7 @@
     </select>
     </div>
     <div class="select">
-      <label class="label" for="genre-select-2">Second Genre</label>
+      <label class="label has-text-white" for="genre-select-2">Second Genre</label>
     <select name="genre-select-2" id="genre-select-2" v-model="genre2">
       <option value="">Pick a Second Genre</option>
        <option value="action">Action</option>
@@ -112,8 +112,8 @@ export default {
 #container {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8); 
+  color: #ffffff;
   margin: 25px 0px;
   padding-top: 15px;
 padding-bottom: 50px;
