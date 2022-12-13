@@ -23,14 +23,14 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    account: currentAccount || {},//{
-    //   accountId: 0,
-    //   userId: 0,
-    //   preferredGenres: "",
-    //   likedMovies: "",
-    //   favoriteMovies: "",
-    //   dislikedMovies: "",
-    // },
+    account: currentAccount || {
+      accountId: 0,
+      userId: 0,
+      preferredGenres: "",
+      likedMovies: "",
+      favoriteMovies: "",
+      dislikedMovies: "",
+    },
 
     genres: {//genre ids for TMDB admin query TODO swap these values for admin movie construction
       28: "action",
@@ -108,7 +108,10 @@ export default new Vuex.Store({
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-        //TODO - update this to filter by preferred genres
+        this.commit("SET_LIKED_MOVIES");
+        this.commit("SET_DISLIKED_MOVIES");
+        this.commit("SET_RANDOM_MOVIE");
+        this.commit("SET_FAVORITES");
         
       });
       

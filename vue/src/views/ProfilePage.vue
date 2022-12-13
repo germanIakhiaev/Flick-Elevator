@@ -12,6 +12,12 @@ export default {
   components: { ProfileCard, NavBar },
   name: 'profile',
 
+  created() {
+    if (this.$store.state.movies.length === 0) {
+      this.$store.commit("SET_MOVIES");
+    }
+  }
+
 }
 
 
