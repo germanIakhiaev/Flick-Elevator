@@ -3,7 +3,7 @@
       <nav-bar></nav-bar>
     
     <section class="movie-card">
-      <h3>such lorem wow ipsum</h3>
+      <h3>To finish account creation, please select your favorite genres!</h3>
       <section>
           <div class="genre-selection">
                   <div class="genre-choice"><input type="checkbox" id="action" value="action" v-model="preferredGenres"><br><label for="action">Action</label></div>

@@ -69,6 +69,7 @@ export default {
             AccountService.getUserAccount(this.$store.state.user.id).then(response => {
              if (response.status == 200) { 
                this.$store.commit("SET_ACCOUNT", response.data);
+               this.$store.commit("SET_MOVIES");
               if (this.$store.state.account.preferredGenres === "") {
                 this.$router.push("/setgenres");
                 } else {
