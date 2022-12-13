@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MovieService from '../services/MovieService'
-import AccountService from '../services/AccountService'
 import AuthService from '../services/AuthService'
 
 Vue.use(Vuex)
@@ -57,7 +56,8 @@ export default new Vuex.Store({
     likedMoviesArr: [],
     dislikedMoviesArr: [],
     favoriteMoviesArr: [],
-    randomMovie: {}
+    randomMovie: {},
+    isAdmin: false
       
   },
   mutations: {
@@ -70,7 +70,7 @@ export default new Vuex.Store({
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
-      this.commit("SET_ACCOUNT");
+      this.commit("SET_IS_ADMIN");
       this.commit("SET_ALL_USERS");
     },
 
@@ -80,19 +80,19 @@ export default new Vuex.Store({
       })
     },
 
-    SET_ACCOUNT(state) {
-      AccountService.getUserAccount(state.user.id).then(response => {
-        state.account.accountId = response.data.accountId;
-        state.account.userId = response.data.userId;
-        state.account.preferredGenres = response.data.preferredGenres;
-        state.account.likedMovies = response.data.likedMovies;
-        state.account.favoriteMovies = response.data.favoriteMovies;
-        state.account.dislikedMovies = response.data.dislikedMovies;
-        this.commit("SET_LIKED_MOVIES");
-        this.commit("SET_DISLIKED_MOVIES");
-        this.commit("SET_FAVORITES");
-        this.commit("SET_RANDOM_MOVIE");
-      });
+    SET_ACCOUNT(state, response) {
+      // AccountService.getUserAccount(state.user.id).then(response => {
+        state.account.accountId = response.accountId;
+        state.account.userId = response.userId;
+        state.account.preferredGenres = response.preferredGenres;
+        state.account.likedMovies = response.likedMovies;
+        state.account.favoriteMovies = response.favoriteMovies;
+        state.account.dislikedMovies = response.dislikedMovies;
+        // this.commit("SET_LIKED_MOVIES");
+        // this.commit("SET_DISLIKED_MOVIES");
+        // this.commit("SET_FAVORITES");
+        //this.commit("SET_RANDOM_MOVIE");
+      // });
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -151,9 +151,9 @@ export default new Vuex.Store({
       do {
         index = Math.floor(Math.random() * state.movies.length);
         movie = state.movies[index];
-        // const movieGenreArr = movie.genres.split(",");
+        const movieGenreArr = movie.genres.split(" ");
 
-        if (dislikedMovieIds.includes(movie.id.toString()) /*|| !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))*/) { //or not interested wait time
+        if (dislikedMovieIds.includes(movie.id.toString()) || !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))) { //or not interested wait time
           isValid = false;
         } else {
           isValid = true;
@@ -162,6 +162,13 @@ export default new Vuex.Store({
       } while (isValid == false);
       state.randomMovie = movie;
       
+    },
+    SET_IS_ADMIN(state) {
+      if(state.user.authorities[0].name === "ROLE_ADMIN") {
+        state.isAdmin = true;
+      } else {
+        state.isAdmin = false;
+      }
     }
   }
   

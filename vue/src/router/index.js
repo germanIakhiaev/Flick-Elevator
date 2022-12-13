@@ -10,6 +10,7 @@ import BrowsePage from '../views/BrowsePage'
 import ProfilePage from '../views/ProfilePage'
 import Admin from '../views/Admin.vue'
 import Notifications from '../views/Notifications'
+import SetGenres from '../views/SetGenres.vue'
 
 
 Vue.use(Router)
@@ -57,6 +58,14 @@ const router = new Router({
       component: Login,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/setgenres",
+      name: "setGenres",
+      component: SetGenres,
+      meta: {
+        requiresAuth: true
       }
     },
     {

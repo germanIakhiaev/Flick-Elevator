@@ -44,6 +44,7 @@
 <script>
 import AboutUs from '../components/AboutUs.vue';
 import authService from "../services/AuthService";
+import AccountService from "../services/AccountService.js"
 
 export default {
   name: "login",
@@ -65,11 +66,18 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/discover");
-            
+            AccountService.getUserAccount(this.$store.state.user.id).then(response => {
+             if (response.status == 200) { 
+               this.$store.commit("SET_ACCOUNT", response.data);
+              if (this.$store.state.account.preferredGenres === "") {
+                this.$router.push("/setgenres");
+                } else {
+                  this.$router.push("/discover");
+                }
+              }
+            });
           }
-        })
-        .catch(error => {
+        }).catch(error => {
           const response = error.response;
 
           if (response.status === 401) {

@@ -26,6 +26,13 @@ export default {
     }
   },
 
+  created() {
+    this.$store.commit("SET_LIKED_MOVIES");
+    this.$store.commit("SET_DISLIKED_MOVIES");
+    this.$store.commit("SET_FAVORITES");
+    this.$store.commit("SET_RANDOM_MOVIE");
+    
+  },
   destroyed() {
     //update db with unadded responses
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
