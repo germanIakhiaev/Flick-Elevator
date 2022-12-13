@@ -13,7 +13,7 @@
       <h3 class="browse-info is-size-5 has-text-weight-semi-bold">
         {{ browse.genres }}
       </h3>
-      <h3 class="browse-info has-text-left">{{ browse.release_date }}</h3>
+      <h3 class="browse-info has-text-left"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
       <h3 class="browse-info has-text-left">{{ browse.overview }}</h3>
       
       <button class="button is-focused is-success" @click="likeMovie(browse.id)">
@@ -148,7 +148,7 @@ data() {
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
 }
-.browse-card:hover{
+.brow-card:hover{
     transform: scale(1.02);
     box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
     transition: all 0.4s;
