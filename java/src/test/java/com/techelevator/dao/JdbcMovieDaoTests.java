@@ -20,4 +20,6 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
         sut = new JdbcMovieDao(jdbcTemplate);
     }
 
+
+
 }
