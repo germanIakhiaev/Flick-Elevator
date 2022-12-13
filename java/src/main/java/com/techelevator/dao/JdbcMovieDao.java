@@ -59,6 +59,8 @@ public class JdbcMovieDao implements MovieDao {
 
     @Override
     public Movie addMovie(Movie movieToAdd) {
+        if (movieToAdd == null) throw new IllegalArgumentException("Invalid Movie");
+
         String sql = "" +
                 "INSERT INTO movies (movie_id, title, release_date, genres_id, description, popularity, picture_path) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?) " +
@@ -81,15 +83,16 @@ public class JdbcMovieDao implements MovieDao {
     }
 
     @Override
-    public boolean deleteMovie(int movieId) {
-        String sql = "DELETE * FROM movies WHERE movie_id = ?;";
+    public void deleteMovie(int movieId) {
+        if (movieId < 1) throw new IllegalArgumentException("This movie does not exist.");
+
+        String sql = "DELETE FROM movies WHERE movie_id = ?;";
 
         try {
-            return jdbcTemplate.update(sql, movieId) == 1;
+            jdbcTemplate.update(sql, movieId);
         } catch (DataAccessException e) {
 
         }
-        return false;
     }
 
     private Movie mapRowToMovie(SqlRowSet rowSet) {
