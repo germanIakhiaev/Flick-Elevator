@@ -3,7 +3,7 @@
       <nav-bar></nav-bar>
     
     <section class="movie-card">
-      <h3>To finish account creation, please select your favorite genres!</h3>
+      <h3 class="instruction">To finish account creation, please select your favorite genres!</h3>
       <section>
           <div class="genre-selection">
                   <div class="genre-choice"><input type="checkbox" id="action" value="action" v-model="preferredGenres"><br><label for="action">Action</label></div>
@@ -30,7 +30,7 @@
               
           </div>
       </section>
-      <button v-if="showButton" @click="setPreferredGenres">Save Profile</button>
+      <button class="setbutton" v-if="showButton" @click="setPreferredGenres">Save Profile</button>
       </section>
   </section>
 </template>
@@ -71,9 +71,16 @@ methods: {
 }
 </script>
 
-<style>
+<style scoped>
     .genre-selection {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .instruction {
+        font-size:24pt;
+        margin-top: 30%;
+    }
+    .setbutton {
+        margin-bottom: 20%;
     }
 </style>
