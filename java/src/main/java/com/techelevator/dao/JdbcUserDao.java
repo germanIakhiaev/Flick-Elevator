@@ -3,7 +3,10 @@ package com.techelevator.dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
+import com.techelevator.model.Account;
+import com.techelevator.model.Authority;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -87,12 +90,34 @@ public class JdbcUserDao implements UserDao {
 
     }
 
+    @Override
+    public User updateUser(int userId, User user) {
+        String sql = "" +
+                "UPDATE users " +
+                "SET role = ?, made_admin_request = ? " +
+                "WHERE user_id = ?;";
+
+        String authorityName = "";
+        Optional<Authority> authority = user.getAuthorities().stream().findFirst();
+        if (authority.isPresent()) {
+            authorityName = authority.get().getName();
+        }
+
+        try {
+            jdbcTemplate.update(sql, authorityName, user.getMadeAdminRequest(), userId);
+            return getUserById(userId);
+        } catch (EmptyResultDataAccessException | NullPointerException e) {
+
+        }
+        return null;
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
-        user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
+        user.setAuthoritiesAsString(Objects.requireNonNull(rs.getString("role")));
         user.setActivated(true);
         user.setMadeAdminRequest(rs.getBoolean("made_admin_request"));
         return user;

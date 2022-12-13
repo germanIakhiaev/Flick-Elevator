@@ -56,7 +56,8 @@ export default new Vuex.Store({
     likedMoviesArr: [],
     dislikedMoviesArr: [],
     favoriteMoviesArr: [],
-    randomMovie: {}
+    randomMovie: {},
+    isAdmin: false
       
   },
   mutations: {
@@ -69,7 +70,7 @@ export default new Vuex.Store({
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
-      //this.commit("SET_ACCOUNT");
+      this.commit("SET_IS_ADMIN");
       this.commit("SET_ALL_USERS");
     },
 
@@ -161,6 +162,13 @@ export default new Vuex.Store({
       } while (isValid == false);
       state.randomMovie = movie;
       
+    },
+    SET_IS_ADMIN(state) {
+      if(state.user.authorities[0].name === "ROLE_ADMIN") {
+        state.isAdmin = true;
+      } else {
+        state.isAdmin = false;
+      }
     }
   }
   

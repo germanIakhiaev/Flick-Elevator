@@ -42,6 +42,11 @@ public class AuthenticationController {
         return userDao.findAll();
     }
 
+    @PutMapping("/user/{userId}")
+    public void updateUser(@PathVariable("userId") int userId, @RequestBody User user) {
+        userDao.updateUser(userId, user);
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<LoginResponseDto> login(@Valid @RequestBody LoginDto loginDto) {
 
