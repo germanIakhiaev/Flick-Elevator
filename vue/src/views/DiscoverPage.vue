@@ -26,6 +26,9 @@ export default {
     }
   },
 
+  created() {
+    this.$store.commit("SET_RANDOM_MOVIE")
+  },
   destroyed() {
     //update db with unadded responses
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);

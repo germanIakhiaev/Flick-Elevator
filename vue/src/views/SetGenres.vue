@@ -1,7 +1,8 @@
 <template>
   <section>
       <nav-bar></nav-bar>
-
+    
+    <section class="movie-card">
       <h3>such lorem wow ipsum</h3>
       <section>
           <table>
@@ -31,12 +32,14 @@
               </tr>
           </table>
       </section>
+      <button v-if="showButton" @click="setPreferredGenres">Save Profile</button>
+      </section>
   </section>
 </template>
 
 <script>
 import NavBar from '../components/NavBar.vue'
-//import accountService from '../services/AccountService.js'
+import AccountService from '../services/AccountService.js'
 
 export default {
 
@@ -47,6 +50,25 @@ components: {
 data() {
     return {
         preferredGenres: []
+    }
+},
+
+computed : {
+
+    showButton() {
+        return this.preferredGenres.length > 0;
+    }
+
+},
+
+methods: {
+    setPreferredGenres() {//conditional to make sure they select something?
+        this.$store.state.account.preferredGenres = this.preferredGenres.join(" ");
+        AccountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account).then(() => {
+            this.$store.commit("SET_ACCOUNT");
+            this.$router.push("/discover");
+        });
+        
     }
 }
 }

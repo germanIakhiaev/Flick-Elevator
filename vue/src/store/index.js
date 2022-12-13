@@ -91,7 +91,7 @@ export default new Vuex.Store({
         this.commit("SET_LIKED_MOVIES");
         this.commit("SET_DISLIKED_MOVIES");
         this.commit("SET_FAVORITES");
-        this.commit("SET_RANDOM_MOVIE");
+        //this.commit("SET_RANDOM_MOVIE");
       });
     },
     LOGOUT(state) {
@@ -151,9 +151,9 @@ export default new Vuex.Store({
       do {
         index = Math.floor(Math.random() * state.movies.length);
         movie = state.movies[index];
-        // const movieGenreArr = movie.genres.split(",");
+        const movieGenreArr = movie.genres.split(" ");
 
-        if (dislikedMovieIds.includes(movie.id.toString()) /*|| !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))*/) { //or not interested wait time
+        if (dislikedMovieIds.includes(movie.id.toString()) || !movieGenreArr.some(genre => state.account.preferredGenres.includes(genre))) { //or not interested wait time
           isValid = false;
         } else {
           isValid = true;
