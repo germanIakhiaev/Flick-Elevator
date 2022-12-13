@@ -15,8 +15,9 @@ export default {
   name: "home",
 
   created() {
-    this.$store.commit("SET_MOVIES");
-    this.$store.commit("SET_ACCOUNT");
+    // this.$store.commit("SET_MOVIES");
+    // this.$store.commit("SET_ACCOUNT");
+    this.$router.push('/login');
       
   }
 };
