@@ -103,6 +103,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       state.account = {};
+      state.movies = [];
+      state.allUsers = [];
+      state.dislikedMoviesArr = [];
+      state.likedMoviesArr = [];
+      state.favoriteMoviesArr = [];
+      state.randomMovie = {};
       axios.defaults.headers.common = {};
     },
     SET_MOVIES(state) {
