@@ -7,7 +7,7 @@
       />
     </div>
     <div class="card-content">
-      <h2 class="browse-info is-size-3 has-text-weight-bold">
+      <h2 class="browse-info is-size-2 has-text-weight-bold">
         {{ browse.title }}
       </h2>
       <h3 class="browse-info is-size-4 has-text-weight-semi-bold genre">

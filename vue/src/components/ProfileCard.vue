@@ -1,9 +1,9 @@
 <template>
   <div class="profile"> 
     <div class="profile-card">
-    <div class="username">{{ user.username }}</div>
+    <div class="username profileMovie-info is-size-3 has-text-weight-bold">{{ user.username }}</div>
 
-    <div class="genres">genres</div>
+    <div class="genres profileMovie-info is-size-4 has-text-weight-bold">genres</div>
     </div>
 
       <div v-for="profileMovie in this.$store.state.likedMoviesArr" :key="profileMovie.id" class="card profileMovie-card">
