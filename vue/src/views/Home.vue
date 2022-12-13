@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <nav-bar />
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+     <h1>The World of Cinema</h1>
+        <p>Instant movie search and convenient database surfing.
+          You'll always know what to watch and when.</p> 
+         <p>You must be authenticated to see this</p>
   </div>
 </template>
 
