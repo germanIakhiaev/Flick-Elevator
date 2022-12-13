@@ -1,12 +1,12 @@
 <template>
-  <section class="search">
+  <section class="search container">
     <!--for searching TMDB -->
 
     <div class="user-mgmt">
       <router-link :to="{ name: 'notifications' }">User Management</router-link>
     </div>
 
-    <form class="field" id="search-card">
+    <form class="field container" id="search-card">
       <label for="search-term" class="label">Search By Keyword</label>
       <div class="control">
         <input
@@ -22,7 +22,7 @@
       </button>
     </form>
 
-    <div class="result-card" v-for="result in results" :key="result.id">
+    <div class="result-card container" v-for="result in results" :key="result.id">
       <div class="card-image">
         <img
           class="movie-poster"
@@ -36,7 +36,7 @@
         </h2>
         <h3 class="movie-info is-size-4 genre">{{ convertGenres(result) }}</h3>
         <h3 class="movie-info has-text-left is-size-5"> Release date: <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
-        <h3 class="movie-info has-text-left is-size-4">{{ result.overview }}</h3>
+        <h3 class="movie-info has-text-left is-size-5">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
         </button>
@@ -188,5 +188,10 @@ export default {
 #search-button {
   width: 700px;
   max-width: 75vw;
+}
+.card-image img {
+  height: auto;
+  width: auto;
+  border-radius: 5px;
 }
 </style>

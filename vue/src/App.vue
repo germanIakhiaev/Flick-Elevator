@@ -22,7 +22,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #D6F8D6;  

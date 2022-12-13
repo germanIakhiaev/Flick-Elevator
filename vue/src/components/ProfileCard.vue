@@ -12,9 +12,9 @@
     </div>
     <div class="card-content">
       <h3 class="profileMovie-info is-size-3 has-text-weight-bold">{{profileMovie.title}}</h3>
-      <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
-      <h3 class="profileMovie-info has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
-      <h3 class="profileMovie-info has-text-left">{{ profileMovie.overview }}</h3>  
+      <h3 class="profileMovie-info is-size-4 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
+      <h3 class="profileMovie-info is-size-5 has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
+      <h3 class="profileMovie-info is-size-5 has-text-left">{{ profileMovie.overview }}</h3>  
 
  <button
         class="favorite"
