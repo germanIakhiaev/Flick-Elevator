@@ -44,7 +44,7 @@ export default {
   overflow: hidden;
   position: relative;
   width: 80vw;
-  height: 40vw;
+  height: 30vw;
   margin: 80px auto; 
   margin-bottom: 10px;
   border-radius: 10px;
