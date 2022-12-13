@@ -65,7 +65,6 @@ methods: {
     setPreferredGenres() {//conditional to make sure they select something?
         this.$store.state.account.preferredGenres = this.preferredGenres.join(" ");
         AccountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account).then(() => {
-            this.$store.commit("SET_ACCOUNT");
             this.$router.push("/discover");
         });
         

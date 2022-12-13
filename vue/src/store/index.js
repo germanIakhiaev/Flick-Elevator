@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MovieService from '../services/MovieService'
-import AccountService from '../services/AccountService'
 import AuthService from '../services/AuthService'
 
 Vue.use(Vuex)
@@ -70,7 +69,7 @@ export default new Vuex.Store({
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
-      this.commit("SET_ACCOUNT");
+      //this.commit("SET_ACCOUNT");
       this.commit("SET_ALL_USERS");
     },
 
@@ -80,19 +79,19 @@ export default new Vuex.Store({
       })
     },
 
-    SET_ACCOUNT(state) {
-      AccountService.getUserAccount(state.user.id).then(response => {
-        state.account.accountId = response.data.accountId;
-        state.account.userId = response.data.userId;
-        state.account.preferredGenres = response.data.preferredGenres;
-        state.account.likedMovies = response.data.likedMovies;
-        state.account.favoriteMovies = response.data.favoriteMovies;
-        state.account.dislikedMovies = response.data.dislikedMovies;
-        this.commit("SET_LIKED_MOVIES");
-        this.commit("SET_DISLIKED_MOVIES");
-        this.commit("SET_FAVORITES");
+    SET_ACCOUNT(state, response) {
+      // AccountService.getUserAccount(state.user.id).then(response => {
+        state.account.accountId = response.accountId;
+        state.account.userId = response.userId;
+        state.account.preferredGenres = response.preferredGenres;
+        state.account.likedMovies = response.likedMovies;
+        state.account.favoriteMovies = response.favoriteMovies;
+        state.account.dislikedMovies = response.dislikedMovies;
+        // this.commit("SET_LIKED_MOVIES");
+        // this.commit("SET_DISLIKED_MOVIES");
+        // this.commit("SET_FAVORITES");
         //this.commit("SET_RANDOM_MOVIE");
-      });
+      // });
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
