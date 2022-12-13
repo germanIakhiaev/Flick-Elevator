@@ -1,7 +1,9 @@
 <template>
 <div>
-  <h2>About Us</h2>
-  <p>lorem epsom salt dolores afn ce anfn</p>
+   <h1 class="is-size-1">The World of Cinema</h1>
+    <p class="is-size-3">Instant movie search and convenient database surfing.
+          You'll always know what to watch and when.</p> 
+    <img src="../assets/Walt-Cyclist.jpg" alt="img-cyclist">
 </div>
 </template>
 

@@ -1,7 +1,10 @@
 <template>
+    
+  
   <div id="login" class="card">
+    <about-us class="aboutUs"/>
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal is-size-3">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -12,7 +15,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="label">Username</label>
+      <label for="username" class="label is-size-4">Username</label>
       <input
         type="text"
         id="username"
@@ -22,7 +25,7 @@
         required
         autofocus
       />
-      <label for="password" class="label">Password</label>
+      <label for="password" class="label is-size-4">Password</label>
       <input
         type="password"
         id="password"
@@ -31,10 +34,10 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <router-link :to="{ name: 'register' }" class="is-size-5">Need an account?</router-link>
+      <button type="submit" class="is-size-4">Sign in</button>
     </form>
-    <about-us />
+    
   </div>
 </template>
 
@@ -80,43 +83,26 @@ export default {
 };
 </script>
 <style scoped>
-
-
-/* 
-input{
-	width: 60%;
-	height: 20px;
-	background: #e0dede;
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
+.card {
+  display: flex;
+  justify-content: flex-start;
+  background-color: hsl(0 0% 100% / 0.8);
+  
 }
-button{
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
-button:hover{
-	background: #6d44b8;
-} */
-#login {
+#login{
   background-color: hsl(0 0% 100% / 0.8);
 }
+
+.aboutUs{
+  background-color:cadetblue;
+  width: 130%;
+}
+.form-signin{
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+
+
 
 </style>
