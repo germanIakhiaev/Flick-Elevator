@@ -34,7 +34,7 @@
         <h2 class="movie-info is-size-2 has-text-weight-bold">
           {{ result.title }}
         </h2>
-        <h3 class="movie-info is-size-4">{{ convertGenres(result) }}</h3>
+        <h3 class="movie-info is-size-4 genre">{{ convertGenres(result) }}</h3>
         <h3 class="movie-info has-text-left is-size-5"> Release date: <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
         <h3 class="movie-info has-text-left is-size-4">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
@@ -121,8 +121,8 @@ export default {
 .result-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: rgb(172, 169, 221);
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
@@ -154,8 +154,8 @@ export default {
 .user-mgmt {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0f0c29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
   margin: 25px 0px;
   display: grid;
   overflow: hidden;
@@ -177,8 +177,8 @@ export default {
 #search-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0f0c29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
   margin: 25px 0px;
 }
 #search-term {

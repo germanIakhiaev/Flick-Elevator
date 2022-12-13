@@ -1,6 +1,6 @@
 <template>
-<div class="card">
-  <div class="card browse-card">
+<div>
+  <div class="browse-card">
     <div class="card-image">
       <img
         v-bind:src="'https://image.tmdb.org/t/p/original' + browse.poster_path"
@@ -10,7 +10,7 @@
       <h2 class="browse-info is-size-3 has-text-weight-bold">
         {{ browse.title }}
       </h2>
-      <h3 class="browse-info is-size-5 has-text-weight-semi-bold">
+      <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre">
         {{ browse.genres }}
       </h3>
       <h3 class="browse-info has-text-left"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
@@ -138,16 +138,7 @@ data() {
 </script>
 
 <style>
-.browse-card {
-  border: 1px transparent;
-  border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0F0C29;
-  margin: 25px 0px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  overflow: hidden;
-}
+
 .brow-card:hover{
     transform: scale(1.02);
     box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
@@ -160,8 +151,19 @@ data() {
   border-radius: 5px;
 }
 .card-content {
+  
   display: flex;
   flex-direction: column;
+}
+.browse-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 0% / 0.8); 
+  color: #ffffff;
+  margin: 25px 0px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
 }
 
 .browse-info {
@@ -182,7 +184,4 @@ data() {
   }
 }
 
-html {
-  background-color: hsl(0 0% 100% / 0.8);
-}
 </style>

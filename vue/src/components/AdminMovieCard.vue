@@ -50,7 +50,7 @@ export default {
 .movie-card {
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #BFBDC1;
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
 }
 </style>
