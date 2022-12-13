@@ -5,38 +5,37 @@
     </div>
     <div class="field" id="notif-housing">
       <table>
-          <thead>
-            <tr>
-              <th>
-                <!-- <label for="selectAllBox">
+        <thead>
+          <tr>
+            <th>
+              <!-- <label for="selectAllBox">
                     Select
                   <input type="checkbox" name="" id="selectAllBox" />
                 </label> -->
-              </th>
-              <th>Username</th>
-              <th>Role</th>
-              <th>Request Admin</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="user in this.$store.state.allUsers" v-bind:key="user.id">
-              <td>
-                <input
-                  type="checkbox"
-                  v-bind:id="user.id"
-                  v-bind:value="user"
-                  v-model="selectedUsers"
-                />
-              </td>
-              <td>{{ user.username }}</td>
-              <td>{{ user.authorities[0].name }}</td>
-              <td>{{ user.madeAdminRequest }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <button @click.prevent="approveRequest()">Approve Selected</button>
-        <button @click.prevent="rejectRequest()">Reject Selected</button>
-      
+            </th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Request Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in this.$store.state.allUsers" v-bind:key="user.id">
+            <td>
+              <input
+                type="checkbox"
+                v-bind:id="user.id"
+                v-bind:value="user"
+                v-model="selectedUsers"
+              />
+            </td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.authorities[0].name }}</td>
+            <td>{{ user.madeAdminRequest }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button @click.prevent="approveRequest()">Approve Selected</button>
+      <button @click.prevent="rejectRequest()">Reject Selected</button>
     </div>
   </section>
 </template>
