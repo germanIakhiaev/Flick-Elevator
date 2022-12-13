@@ -3,11 +3,11 @@
     <!--for searching TMDB -->
 
     <div class="user-mgmt">
-      <router-link :to="{ name: 'notifications' }">User Management</router-link>
+      <router-link class="has-text-white is-size-5" :to="{ name: 'notifications' }">User Management</router-link>
     </div>
 
     <form class="field" id="search-card">
-      <label for="search-term" class="label">Search By Keyword</label>
+      <label for="search-term" class="label has-text-white is-size-5">Search By Keyword</label>
       <div class="control">
         <input
           id="search-term"

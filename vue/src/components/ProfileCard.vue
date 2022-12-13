@@ -1,9 +1,9 @@
 <template>
   <div class="profile"> 
     <div class="profile-card">
-    <div class="username">{{ user.username }}</div>
+    <div class="username profileMovie-info is-size-3 has-text-weight-bold">{{ user.username }}</div>
 
-    <div class="genres">genres</div>
+    <div class="genres profileMovie-info is-size-4 has-text-weight-bold">genres</div>
     </div>
 
       <div v-for="profileMovie in this.$store.state.likedMoviesArr" :key="profileMovie.id" class="card profileMovie-card">
@@ -11,10 +11,10 @@
       <img v-bind:src="'https://image.tmdb.org/t/p/original' + profileMovie.poster_path">
     </div>
     <div class="card-content">
-      <h3 class="profileMovie-info is-size-3 has-text-weight-bold">{{profileMovie.title}}</h3>
-      <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
-      <h3 class="profileMovie-info has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
-      <h3 class="profileMovie-info has-text-left">{{ profileMovie.overview }}</h3>  
+      <h3 class="profileMovie-info is-size-2 has-text-weight-bold">{{profileMovie.title}}</h3>
+      <h3 class="profileMovie-info is-size-4 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
+      <h3 class="profileMovie-info is-size-4 has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
+      <h3 class="profileMovie-info is-size-3 has-text-left">{{ profileMovie.overview }}</h3>  
 
  <button
         class="favorite"
