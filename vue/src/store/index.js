@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import MovieService from '../services/MovieService'
-import AccountService from '../services/AccountService'
 import AuthService from '../services/AuthService'
 
 Vue.use(Vuex)
@@ -14,6 +13,7 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+const currentAccount = JSON.parse(localStorage.getItem('account'));
 
 if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
@@ -23,7 +23,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    account: {
+    account: currentAccount || {
       accountId: 0,
       userId: 0,
       preferredGenres: "",
@@ -71,7 +71,6 @@ export default new Vuex.Store({
       state.user = user;
       localStorage.setItem('user',JSON.stringify(user));
       this.commit("SET_MOVIES");
-      this.commit("SET_ACCOUNT");
       this.commit("SET_IS_ADMIN");
       this.commit("SET_ALL_USERS");
     },
@@ -82,31 +81,43 @@ export default new Vuex.Store({
       })
     },
 
-    SET_ACCOUNT(state) {
-      AccountService.getUserAccount(state.user.id).then(response => {
-        state.account.accountId = response.data.accountId;
-        state.account.userId = response.data.userId;
-        state.account.preferredGenres = response.data.preferredGenres;
-        state.account.likedMovies = response.data.likedMovies;
-        state.account.favoriteMovies = response.data.favoriteMovies;
-        state.account.dislikedMovies = response.data.dislikedMovies;
-        this.commit("SET_LIKED_MOVIES");
-        this.commit("SET_DISLIKED_MOVIES");
-        this.commit("SET_FAVORITES");
+    SET_ACCOUNT(state, response) {
+      // AccountService.getUserAccount(state.user.id).then(response => {
+        localStorage.setItem('account', JSON.stringify(response));
+        state.account.accountId = response.accountId;
+        state.account.userId = response.userId;
+        state.account.preferredGenres = response.preferredGenres;
+        state.account.likedMovies = response.likedMovies;
+        state.account.favoriteMovies = response.favoriteMovies;
+        state.account.dislikedMovies = response.dislikedMovies;
+        // this.commit("SET_LIKED_MOVIES");
+        // this.commit("SET_DISLIKED_MOVIES");
+        // this.commit("SET_FAVORITES");
         //this.commit("SET_RANDOM_MOVIE");
-      });
+      // });
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('account');
       state.token = '';
       state.user = {};
+      state.account = {};
+      state.movies = [];
+      state.allUsers = [];
+      state.dislikedMoviesArr = [];
+      state.likedMoviesArr = [];
+      state.favoriteMoviesArr = [];
+      state.randomMovie = {};
       axios.defaults.headers.common = {};
     },
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-        //TODO - update this to filter by preferred genres
+        this.commit("SET_LIKED_MOVIES");
+        this.commit("SET_DISLIKED_MOVIES");
+        this.commit("SET_RANDOM_MOVIE");
+        this.commit("SET_FAVORITES");
         
       });
       

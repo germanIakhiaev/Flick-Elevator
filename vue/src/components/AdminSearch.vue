@@ -1,13 +1,13 @@
 <template>
-  <section>
+  <section class="search container">
     <!--for searching TMDB -->
 
     <div class="user-mgmt">
-      <router-link :to="{ name: 'notifications' }">User Management</router-link>
+      <router-link class="has-text-white is-size-5" :to="{ name: 'notifications' }">User Management</router-link>
     </div>
 
     <form class="field" id="search-card">
-      <label for="search-term" class="label">Search By Keyword</label>
+      <label for="search-term" class="label has-text-white is-size-5">Search By Keyword</label>
       <div class="control">
         <input
           id="search-term"
@@ -22,7 +22,7 @@
       </button>
     </form>
 
-    <div class="result-card" v-for="result in results" :key="result.id">
+    <div class="result-card container" v-for="result in results" :key="result.id">
       <div class="card-image">
         <img
           class="movie-poster"
@@ -31,12 +31,12 @@
         />
       </div>
       <div class="movie-info card-content">
-        <h2 class="movie-info is-size-3 has-text-weight-bold">
+        <h2 class="movie-info is-size-2 has-text-weight-bold">
           {{ result.title }}
         </h2>
-        <h3 class="movie-info is-size-5">{{ convertGenres(result) }}</h3>
-        <h3 class="movie-info has-text-left">{{ result.release_date }}</h3>
-        <h3 class="movie-info has-text-left">{{ result.overview }}</h3>
+        <h3 class="movie-info is-size-4 genre">{{ convertGenres(result) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
         </button>
@@ -113,7 +113,39 @@ export default {
 </script>
 
 <style>
+form {
+  width: 880px;
+  margin: 80px auto; 
+  align-content: center;
+}
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .result-card {
+  border: 1px transparent;
+  border-radius: 5px;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
+  position: relative;
+  width: 80vw;
+  height: 40vw;
+  margin: 80px auto; 
+  border-radius: 10px;
+  transition: all 0.4s;
+  box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
+}
+
+  .result-card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
+    transition: all 0.4s;
+  }
+/* .result-card {
   border: 1px transparent;
   border-radius: 5px;
   background-color: hsl(0 0% 100% / 0.8);
@@ -122,13 +154,13 @@ export default {
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
-}
+} */
 
 .user-mgmt {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0f0c29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
   margin: 25px 0px;
   display: grid;
   overflow: hidden;
@@ -150,8 +182,8 @@ export default {
 #search-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.8);
-  color: #0f0c29;
+  background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
   margin: 25px 0px;
 }
 #search-term {
@@ -161,5 +193,10 @@ export default {
 #search-button {
   width: 700px;
   max-width: 75vw;
+}
+.card-image img {
+  height: auto;
+  width: auto;
+  border-radius: 5px;
 }
 </style>

@@ -4,10 +4,10 @@
       <img v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path">
     </div>
     <div class="card-content">
-      <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
-      <h3 class="movie-info is-size-5 has-text-weight-semi-bold">{{movie.genres}}</h3>  
-      <h3 class="movie-info has-text-left" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
-      <h3 class="movie-info has-text-left">{{ movie.overview }}</h3>  
+      <h3 class="movie-info is-size-2 has-text-weight-bold">{{movie.title}}</h3>
+      <h3 class="movie-info is-size-4 has-text-weight-semi-bold genre">{{movie.genres}}</h3>  
+      <h3 class="movie-info is-size-4 has-text-left" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left">{{ movie.overview }}</h3>  
     
 
       </div>
@@ -37,9 +37,8 @@ export default {
 .movie-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: rgb(172, 169, 221);
-  /* background-color: hsl(0 0% 100% / 0.8); */
-  color: #0F0C29;
+  background-color: hsl(0 0% 0% / 0.8);  /* background-color: hsl(0 0% 100% / 0.8); */
+  color: #ffffff;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
@@ -47,6 +46,7 @@ export default {
   width: 80vw;
   height: 40vw;
   margin: 80px auto; 
+  margin-bottom: 10px;
   border-radius: 10px;
   transition: all 0.4s;
   box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
