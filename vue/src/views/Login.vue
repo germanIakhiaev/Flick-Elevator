@@ -101,7 +101,7 @@ export default {
 }
 
 .aboutUs{
-  background-color:cadetblue;
+  background-color:rgb(92, 95, 95);
   width: 130%;
 }
 .form-signin{
