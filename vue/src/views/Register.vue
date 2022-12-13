@@ -1,11 +1,11 @@
 <template>
   <div id="register" class="text-center card">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal is-size-3">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="label">Username</label>
+      <label for="username" class="label is-size-5">Username</label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="label">Password</label>
+      <label for="password" class="label is-size-5">Password</label>
       <input
         type="password"
         id="password"
@@ -24,6 +24,7 @@
         v-model="user.password"
         required
       />
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -38,8 +39,8 @@
       v-model="user.madeAdminRequest"
       >
 
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <router-link :to="{ name: 'login' }" class="is-size-5">Have an account?</router-link>
+      <button  class="btn btn-lg btn-primary btn-block is-size-4" type="submit">
         Create Account
       </button>
     </form>
@@ -99,61 +100,26 @@ export default {
 </script>
 
 <style>
-/* body{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-}
 
-
-label{
-	color: #fff;
-	font-size: 2.3em;
-	justify-content: center;
-	display: flex;
-	margin: 60px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
-}
-input{
-	width: 60%;
-	height: 20px;
-	background: #e0dede;
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
-	padding: 10px;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-button{
-	width: 60%;
-	height: 40px;
-	margin: 10px auto;
-	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
-	font-size: 1em;
-	font-weight: bold;
-	margin-top: 20px;
-	outline: none;
-	border: none;
-	border-radius: 5px;
-	transition: .2s ease-in;
-	cursor: pointer;
-}
 button:hover{
 	background: #6d44b8;
-} */
+} 
+
  #register {
+   display: flex;
+   margin-left: 20vw;
+   width: 50vw;
   background-color: hsl(0 0% 100% / 0.8);
  }
+ form {
+  display: flex; 
+  flex-direction: column;
+  width: 60vw;
+  align-items: center;
+  
+  
+  
+  
+}
+ 
 </style>

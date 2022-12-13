@@ -4,8 +4,7 @@
       <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
     </div>
     <div class="field" id="notif-housing">
-      <form id="allUsersForm">
-        <table>
+      <table>
           <thead>
             <tr>
               <th>
@@ -37,7 +36,7 @@
         </table>
         <button @click.prevent="approveRequest()">Approve Selected</button>
         <button @click.prevent="rejectRequest()">Reject Selected</button>
-      </form>
+      
     </div>
   </section>
 </template>
@@ -107,13 +106,5 @@ export default {
   background-color: hsl(0 0% 100% / 0.8);
   color: #0f0c29;
   margin: 25px 0px;
-}
-#search-term {
-  width: 700px;
-  max-width: 75vw;
-}
-#search-button {
-  width: 700px;
-  max-width: 75vw;
 }
 </style>

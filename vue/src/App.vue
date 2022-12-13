@@ -22,11 +22,12 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #D6F8D6;
+  color: #D6F8D6;  
   margin: 60px;
   width: 100%;
   position: relative;
   min-height: 100vh;
+  
 }
 
 html {
@@ -34,10 +35,10 @@ html {
   background-size: 90%;
 } 
 
-body {
-  text-align: center;
+body { 
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 button{
@@ -60,14 +61,11 @@ button{
 button:hover{
 	background: #6d44b8;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 input {
 	width: 50%;
+  
 }
 
 #footer {
