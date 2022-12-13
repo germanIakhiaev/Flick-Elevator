@@ -14,9 +14,7 @@ export default {
 </script>
 
 <style>
- .card-image {
-height: auto;
-  width: auto;
-  border-radius: 5px;
- }
+img{
+      height: 30vw;
+}
 </style>
