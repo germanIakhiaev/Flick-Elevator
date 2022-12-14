@@ -131,10 +131,6 @@ export default {
   flex-direction: column;
 }
 
-.profileMovie-info {
-
-}
-
 @media only screen and (max-width: 991px) {
   .profileMovie-card {
     grid-template-columns: 1fr;

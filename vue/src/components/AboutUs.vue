@@ -1,9 +1,10 @@
 <template>
 <div>
-   <h1 class="is-size-1">The World of Cinema</h1>
-    <p class="is-size-3">Instant movie search and convenient database surfing.
+      <h1 class="is-size-1 has-text-weight-bold">Flick Elevator</h1>
+   <h2 class="is-size-2">The World of Cinema</h2>
+    <p class="is-size-4">Instant movie search and convenient database surfing. <br>
           You'll always know what to watch and when.</p> 
-    <img class= "card-image" src="../assets/Walt-Cyclist.jpg" alt="img-cyclist">
+    <img class= "walt card-image" src="../assets/walt.png" alt="img-cyclist">
 </div>
 </template>
 
@@ -14,7 +15,9 @@ export default {
 </script>
 
 <style>
-img{
+.walt{
+      margin: 20px;
+      margin-left: 20vw;
       height: 30vw;
 }
 </style>
