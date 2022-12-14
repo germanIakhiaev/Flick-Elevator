@@ -92,6 +92,12 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User updateUser(int userId, User user) {
+        if (userId < 1) {
+            throw new IllegalArgumentException("Invalid ID");
+        } else if (userId != user.getId()) {
+            throw new IllegalArgumentException("ID does not match User");
+        }
+
         String sql = "" +
                 "UPDATE users " +
                 "SET role = ?, made_admin_request = ? " +

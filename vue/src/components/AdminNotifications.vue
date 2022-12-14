@@ -8,6 +8,7 @@
         <thead>
           <tr>
             <th>
+                Select
               <!-- <label for="selectAllBox">
                     Select
                   <input type="checkbox" name="" id="selectAllBox" />
