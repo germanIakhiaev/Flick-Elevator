@@ -4,7 +4,7 @@
       <router-link class="has-text-white is-size-5" :to="{ name: 'admin' }">Back to Admin Home</router-link>
     </div>
     <div class="profile-card is-size-3" v-if="!hasRequestsPending">No Requests Currently Pending</div>
-    <div class="field" id="notif-housing" v-if="hasRequestsPending">
+    <div class="field" id="notif-housing">
       <table>
         <thead> 
           <tr>
@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in this.usersRequesting" v-bind:key="user.id">
+          <tr v-for="user in this.$store.state.allUsers" v-bind:key="user.id">
             <td>
               <input
                 type="checkbox"
@@ -36,8 +36,8 @@
           </tr>
         </tbody>
       </table>
-      <button @click.prevent="approveRequest()">Approve Selected</button>
-      <button @click.prevent="rejectRequest()">Reject Selected</button>
+      <button @click.prevent="approveRequest()">Give Admin Access</button>
+      <button @click.prevent="rejectRequest()">Revoke Admin Access</button>
     </div>
   </section>
 </template>
