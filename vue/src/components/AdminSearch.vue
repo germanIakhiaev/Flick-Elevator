@@ -114,8 +114,9 @@ export default {
 
 <style>
 form {
-  width: 880px;
-  margin: 80px auto; 
+  width: 100%;
+  margin: 80px auto;
+  
   align-content: center;
 }
 .search {

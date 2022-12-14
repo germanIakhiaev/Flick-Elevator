@@ -14,6 +14,7 @@ public class JdbcUserDaoTests extends BaseDaoTests {
     protected static final User USER_1 = new User(1, "user1", "user1", "ROLE_USER", false);
     protected static final User USER_2 = new User(2, "user2", "user2", "ROLE_USER", false);
     private static final User USER_3 = new User(3, "user3", "user3", "ROLE_USER", false);
+    private static final User USER_4 = new User(4, "user4", "user4", "ROLE_USER", false);
 
     private JdbcUserDao sut;
 
@@ -102,6 +103,7 @@ public class JdbcUserDaoTests extends BaseDaoTests {
 
         boolean userWasCreated = sut.create(newUser.getUsername(), newUser.getPassword(), "ROLE_USER", newUser.getMadeAdminRequest());
 
+
         Assert.assertTrue(userWasCreated);
 
         User actualUser = sut.findByUsername(newUser.getUsername());
@@ -109,5 +111,24 @@ public class JdbcUserDaoTests extends BaseDaoTests {
 
         actualUser.setPassword(newUser.getPassword()); // reset password back to unhashed password for testing
         Assert.assertEquals(newUser, actualUser);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void updateUser_given_invalid_id_throws_exception() {
+        sut.updateUser(-1, USER_1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void updateUser_given_non_matching_id_throws_exception() {
+        sut.updateUser(3, USER_1);
+    }
+
+    @Test
+    public void updateUser_given_valid_params_returns_updated_user() {
+        User test = sut.updateUser(1, USER_1);
+        Assert.assertEquals(USER_1.getId(), test.getId());
+        Assert.assertEquals(USER_1.getUsername(), test.getUsername());
+        Assert.assertEquals(USER_1.getAuthorities(), test.getAuthorities());
+        Assert.assertEquals(USER_1.getMadeAdminRequest(), test.getMadeAdminRequest());
     }
 }

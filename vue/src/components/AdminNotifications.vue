@@ -1,13 +1,14 @@
 <template>
   <section>
     <div class="admin-home-link">
-      <router-link :to="{ name: 'admin' }">Back to Admin Home</router-link>
+      <router-link class="has-text-white is-size-5" :to="{ name: 'admin' }">Back to Admin Home</router-link>
     </div>
     <div class="field" id="notif-housing">
       <table>
-        <thead>
+        <thead >
           <tr>
             <th>
+                Select
               <!-- <label for="selectAllBox">
                     Select
                   <input type="checkbox" name="" id="selectAllBox" />
@@ -106,4 +107,6 @@ export default {
   color: #ffffff;
   margin: 25px 0px;
 }
+
+
 </style>
