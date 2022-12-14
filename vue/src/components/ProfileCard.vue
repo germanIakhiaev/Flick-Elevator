@@ -49,6 +49,7 @@
         >
           <i class="fa-regular fa-star"></i>&nbsp;Unfavorite Movie
         </button>
+
       </div>
     </div>
   </div>
@@ -77,7 +78,9 @@ export default {
   methods: {
     favoriteMovie(id) {
       this.favoriteCount++;
-      this.$store.state.account.favoriteMovies += id + ",";
+      let favoriteMovieIds = this.$store.state.account.favoriteMovies.split(",");
+      favoriteMovieIds.push(id);
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(",");
       this.$store.commit("SET_FAVORITES");
 
       if (this.favoriteCount >= 5) {
@@ -93,11 +96,11 @@ export default {
       let favoriteMovieIds =
         this.$store.state.account.favoriteMovies.split(",");
 
-      const index = favoriteMovieIds.indexOf(id);
+      const index = favoriteMovieIds.indexOf(id.toString());
 
-      favoriteMovieIds = favoriteMovieIds.splice(index, 1);
+      favoriteMovieIds.splice(index, 1);
 
-      this.$store.state.account.favoriteMovies = favoriteMovieIds.toString();
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(',');
 
       this.$store.commit("SET_FAVORITES");
 
