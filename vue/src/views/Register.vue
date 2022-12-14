@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="label is-size-5">Username</label>
+      <label for="username" class="label is-size-5 has-text-white">Username</label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="label is-size-5">Password</label>
+      <label for="password" class="label is-size-5 has-text-white">Password</label>
       <input
         type="password"
         id="password"
@@ -109,8 +109,8 @@ button:hover{
    display: flex;
    margin-left: 20vw;
    width: 50vw;
-  background-color: hsl(0 0% 100% / 0.8);
- }
+background-color: hsl(0 0% 0% / 0.8);
+  color: white; }
  form {
   display: flex; 
   flex-direction: column;

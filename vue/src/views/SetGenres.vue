@@ -1,10 +1,9 @@
 <template>
-  <section>
+  <div>
       <nav-bar></nav-bar>
-    
-    <section class="movie-card">
-      <h3 class="instruction">To finish account creation, please select your favorite genres!</h3>
-      <section>
+    <div class="genre-card">
+      <h2>Almost There!</h2>
+      <p>To help us best curate your experience, please select some genres you enjoy or want to see!</p>
           <div class="genre-selection">
                   <div class="genre-choice"><input type="checkbox" id="action" value="action" v-model="preferredGenres"><br><label for="action">Action</label></div>
                   <div class="genre-choice"><input type="checkbox" id="adventure" value="adventure" v-model="preferredGenres"><br><label for="adventure">Adventure</label></div>
@@ -29,10 +28,9 @@
                   <div class="genre-choice"><input type="checkbox" id="western" value="western" v-model="preferredGenres"><br><label for="western">Western</label></div>
               
           </div>
-      </section>
-      <button class="setbutton" v-if="showButton" @click="setPreferredGenres">Save Profile</button>
-      </section>
-  </section>
+      <button v-if="showButton" @click="setPreferredGenres">Save Profile</button>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -71,7 +69,12 @@ methods: {
 }
 </script>
 
-<style scoped>
+<style>
+.genre-card {
+    background-color: hsl(0 0% 0% / 0.8);  
+  color: #ffffff;
+  border-radius: 5px;
+}
     .genre-selection {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

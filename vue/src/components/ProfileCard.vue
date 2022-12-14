@@ -1,12 +1,14 @@
 <template>
   <div class="profile">
     <div class="profile-card">
-      <div class="username profileMovie-info is-size-3 has-text-weight-bold">
+      <div class="username profileMovie-info is-size-2 has-text-weight-bold">
         {{ user.username }}
       </div>
 
-      <div class="genres profileMovie-info is-size-4 has-text-weight-bold">
-        
+      <p class="is-size-3">My Genres:</p>
+
+      <div class="genre profileMovie-info is-size-4 has-text-weight-bold">
+        {{ account.preferredGenres }}
       </div>
     </div>
 
@@ -146,7 +148,6 @@ export default {
 }
 
 .profileMovie-info {
-  padding: 20px;
 }
 
 @media only screen and (max-width: 991px) {
