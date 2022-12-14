@@ -4,10 +4,10 @@
       <img v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path">
     </div>
     <div class="card-content">
-      <h3 class="movie-info is-size-2 has-text-weight-bold">{{movie.title}}</h3>
-      <h3 class="movie-info is-size-4 has-text-weight-semi-bold genre py-5">{{movie.genres}}</h3>  
-      <h3 class="movie-info is-size-4 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
+      <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
+      <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre">{{movie.genres}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left pb-2" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info is-size-6 has-text-left pb-5">{{ movie.overview }}</h3>  
 
 <div class="inline-buttons">
        <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike</button>

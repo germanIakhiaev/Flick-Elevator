@@ -7,10 +7,10 @@
       />
     </div>
     <div class="card-content">
-      <h2 class="browse-info is-size-2 has-text-weight-bold">
+      <h2 class="browse-info is-size-3 has-text-weight-bold">
         {{ browse.title }}
       </h2>
-      <h3 class="browse-info is-size-4 has-text-weight-semi-bold genre mt-3">
+      <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre mt-3">
         {{ browse.genres }}
       </h3>
       <h3 class="browse-info is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
