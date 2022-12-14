@@ -41,6 +41,20 @@ public class JdbcMovieDaoTests extends BaseDaoTests{
         sut.addMovie(null);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void addMovie_given_null_date_throws_exception() {
+        Movie nullDateMovie = new Movie(-1, "title", "comedy", null, "overview", 60.0, "www.poster.com");
+
+        sut.addMovie(nullDateMovie);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void addMovie_given_current_date_throws_exception() {
+        Movie currentDateMovie = new Movie(-1, "title", "comedy", LocalDate.now(), "overview", 60.0, "www.poster.com");
+
+        sut.addMovie(currentDateMovie);
+    }
+
     @Test public void addMovie_given_valid_movie_returns_added_movie() {
         Movie test = sut.addMovie(MOVIE_4);
 
