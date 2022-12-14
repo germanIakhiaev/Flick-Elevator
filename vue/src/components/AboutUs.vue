@@ -1,7 +1,7 @@
 <template>
 <div>
-   <h1 class="is-size-1">The World of Cinema</h1>
-    <p class="is-size-3">Instant movie search and convenient database surfing.
+   <h1 class="is-size-1">Flick Elevator</h1>
+    <p class="is-size-3">Instant movie discovery and convenient film library surfing.
           You'll always know what to watch and when.</p> 
     <img class= "card-image" src="../assets/Walt-Cyclist.jpg" alt="img-cyclist">
 </div>
