@@ -5,10 +5,15 @@
     </div>
     <div class="card-content">
       <h3 class="movie-info is-size-2 has-text-weight-bold">{{movie.title}}</h3>
-      <h3 class="movie-info is-size-4 has-text-weight-semi-bold genre">{{movie.genres}}</h3>  
-      <h3 class="movie-info is-size-4 has-text-left" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left">{{ movie.overview }}</h3>  
-    
+      <h3 class="movie-info is-size-4 has-text-weight-semi-bold genre py-5">{{movie.genres}}</h3>  
+      <h3 class="movie-info is-size-4 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
+
+<div class="inline-buttons">
+       <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike</button>
+    <button class="button is-focused is-success" @click="likeMovie"><i class="fa-solid fa-heart"></i>&nbsp;Like!</button>
+</div>
+    <button class="button is-focused is-info" @click="newRandomMovie"><i class="fa-solid fa-face-meh"></i>&nbsp;Skip</button>
 
       </div>
   </div>
@@ -16,19 +21,77 @@
 
 <script>
 // import MovieService from '../services/MovieService.js';
+import accountService from '../services/AccountService.js'
+
 
 export default {
-  // data() {
-  //   return {
-  //     movie: {
-  //       id: 0,
-  //       title: '',
-  //       poster_path: '',
-  //       release_date: '',
-  //     }
-  //   }
-  // },
-  props: ['movie']
+
+  props: ['movie'],
+  data() {
+    return {
+      likeCount: 0,
+      dislikeCount: 0
+    }
+  },
+
+  created() {
+    if (this.$store.state.movies.length === 0) {
+      this.$store.commit("SET_MOVIES");
+    }
+    // this.$store.commit("SET_LIKED_MOVIES");
+    // this.$store.commit("SET_DISLIKED_MOVIES");
+    // this.$store.commit("SET_FAVORITES");
+    // this.$store.commit("SET_RANDOM_MOVIE");
+    
+  },
+  destroyed() {
+    //update db with unadded responses
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      this.likeCount = 0;
+      this.dislikeCount = 0;
+    //update front-end movie arrays
+  },
+    
+  methods: {
+
+    likeMovie() {
+      if (!this.$store.state.account.likedMovies.includes(this.$store.state.randomMovie.id)) {
+      this.likeCount++;
+      //add this random movie info to account list
+      this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
+      this.$store.commit("SET_LIKED_MOVIES");
+      
+      }
+      //update database with new list every x likes, then wipe the count
+      if (this.likeCount >= 5) {
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      this.likeCount = 0;
+      }
+      this.$store.commit("SET_RANDOM_MOVIE");
+
+    },
+
+    dislikeMovie() {
+      this.dislikeCount++
+      //add this random movie info to account list
+      this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
+      this.$store.commit("SET_DISLIKED_MOVIES");
+      
+
+      //update database with new list every x likes, then wipe the count
+      if (this.dislikeCount >= 5) {
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+      this.dislikeCount = 0;
+      }
+      this.$store.commit("SET_RANDOM_MOVIE");
+
+    },
+
+    newRandomMovie() {
+      this.$store.commit("SET_RANDOM_MOVIE");
+      //TODO check against time-out
+    }
+  }
 
     }
 </script>
@@ -66,10 +129,10 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
-.movie-info {
-  padding: 20px;
+.genre {
+  color: #FFFD82;
 }
+
 @media only screen and (max-width: 600px) {
   .movie-card {
   border: 1px transparent;

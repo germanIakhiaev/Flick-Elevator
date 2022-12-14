@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <router-link class="navbar-item" :to="{ name: 'discover' }">
         <img src="../assets/film.png" height="50" />
-        <p class="is-size-3 has-text-weight-bold has-text-white	" id="name">Flick Elevator</p>
+        <p class="is-size-3 has-text-weight-bold has-text-white" id="name">Flick Elevator</p>
       </router-link>
 
       <a
@@ -86,5 +86,6 @@ a.navbar-item:hover {
 }
 #name {
   padding-left: 5px;
+  font-family: 'Unbounded','Roboto','Avenir', Helvetica, Arial, sans-serif;
 }
 </style>

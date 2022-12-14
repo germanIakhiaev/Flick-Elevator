@@ -10,32 +10,34 @@
       <h2 class="browse-info is-size-2 has-text-weight-bold">
         {{ browse.title }}
       </h2>
-      <h3 class="browse-info is-size-4 has-text-weight-semi-bold genre">
+      <h3 class="browse-info is-size-4 has-text-weight-semi-bold genre mt-3">
         {{ browse.genres }}
       </h3>
-      <h3 class="browse-info is-size-5 has-text-left"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
-      <h3 class="browse-info is-size-5 has-text-left">{{ browse.overview }}</h3>
-      
-      <button class="button is-focused is-success" @click="likeMovie(browse.id)">
-        <i class="fa-solid fa-heart"></i>&nbsp;I like this!
-      </button>
+      <h3 class="browse-info is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
+      <h3 class="browse-info is-size-5 has-text-left pb-6">{{ browse.overview }}</h3>
+
+      <div class="inline-buttons">
       <button class="button is-focused is-danger" @click="dislikeMovie(browse.id)">
-        <i class="fa-solid fa-thumbs-down"></i>&nbsp;Don't show me this again
+        <i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike
       </button>
+      <button class="button is-focused is-success" @click="likeMovie(browse.id)">
+        <i class="fa-solid fa-heart"></i>&nbsp;Like!
+      </button>
+      </div>
 
       <button
         class="favorite"
         @click="favoriteMovie(browse.id)"
         v-if="!$store.state.account.favoriteMovies.includes(browse.id)"
       >
-        <i class="fa-solid fa-star"></i>&nbsp;Favorite Movie
+        <i class="fa-solid fa-star"></i>&nbsp;Favorite
       </button>
       <button
         class="unfavorite is-danger"
         @click="unfavoriteMovie(browse.id)"
         v-if="$store.state.account.favoriteMovies.includes(browse.id)"
       >
-        <i class="fa-regular fa-star"></i>&nbsp;Unfavorite Movie
+        <i class="fa-regular fa-star"></i>&nbsp;Unfavorite
       </button>
 
     </div>
@@ -166,8 +168,8 @@ data() {
   overflow: hidden;
 }
 
-.browse-info {
-  padding: 20px;
+.inline-buttons {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 991px) {
