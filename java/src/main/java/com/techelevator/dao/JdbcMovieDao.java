@@ -59,7 +59,7 @@ public class JdbcMovieDao implements MovieDao {
 
     @Override
     public Movie addMovie(Movie movieToAdd) {
-        if (movieToAdd == null) throw new IllegalArgumentException("Invalid Movie");
+        if (movieToAdd == null || movieToAdd.getRelease_date() == null || (movieToAdd.getRelease_date().compareTo(LocalDate.now().minusMonths(3)) > 0)) throw new IllegalArgumentException("Invalid Movie");
 
         String sql = "" +
                 "INSERT INTO movies (movie_id, title, release_date, genres_id, description, popularity, picture_path) " +
