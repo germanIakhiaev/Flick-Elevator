@@ -31,12 +31,12 @@
         />
       </div>
       <div class="movie-info card-content">
-        <h2 class="movie-info is-size-2 has-text-weight-bold">
+        <h2 class="movie-info is-size-3 has-text-weight-bold">
           {{ result.title }}
         </h2>
-        <h3 class="movie-info is-size-4 genre">{{ convertGenres(result) }}</h3>
-        <h3 class="movie-info has-text-left is-size-5"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
-        <h3 class="movie-info has-text-left is-size-5">{{ result.overview }}</h3>
+        <h3 class="movie-info is-size-5 genre py-4">{{ convertGenres(result) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5 pb-4"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5 pb-5">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
         </button>
@@ -125,20 +125,13 @@ form {
   justify-content: center;
 }
 .result-card {
-  border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 0% / 0.8);  
+  background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
+  margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
-  position: relative;
-  width: 80vw;
-  height: 40vw;
-  margin: 80px auto; 
-  border-radius: 10px;
-  transition: all 0.4s;
-  box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
 }
 
   .result-card:hover{
@@ -198,4 +191,6 @@ form {
   width: auto;
   border-radius: 5px;
 }
+
+
 </style>
