@@ -171,9 +171,7 @@ export default {
   flex-direction: column;
 }
 
-.movie-info {
-  padding: 20px;
-}
+
 #search-card {
   border: 1px transparent;
   border-radius: 5px;

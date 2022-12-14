@@ -12,23 +12,23 @@
     </div>
     <div class="card-content">
       <h3 class="profileMovie-info is-size-3 has-text-weight-bold">{{profileMovie.title}}</h3>
-      <h3 class="profileMovie-info is-size-4 has-text-weight-semi-bold genre">{{profileMovie.genres}}</h3>  
-      <h3 class="profileMovie-info is-size-5 has-text-left"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
-      <h3 class="profileMovie-info is-size-5 has-text-left">{{ profileMovie.overview }}</h3>  
+      <h3 class="profileMovie-info is-size-4 has-text-weight-semi-bold genre mt-3">{{profileMovie.genres}}</h3>  
+      <h3 class="profileMovie-info is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{profileMovie.release_date.substring(0,4)}}</h3>  
+      <h3 class="profileMovie-info is-size-5 has-text-left pb-6">{{ profileMovie.overview }}</h3>  
 
  <button
         class="favorite"
         @click="favoriteMovie(profileMovie.id)"
         v-if="!$store.state.account.favoriteMovies.includes(profileMovie.id)"
       >
-        <i class="fa-solid fa-star"></i>&nbsp;Favorite Movie
+        <i class="fa-solid fa-star"></i>&nbsp;Favorite
       </button>
       <button
         class="unfavorite"
         @click="unfavoriteMovie(profileMovie.id)"
         v-if="$store.state.account.favoriteMovies.includes(profileMovie.id)"
       >
-        <i class="fa-regular fa-star"></i>&nbsp;Unfavorite Movie
+        <i class="fa-regular fa-star"></i>&nbsp;Unfavorite
       </button>
 
       </div>
@@ -132,7 +132,7 @@ export default {
 }
 
 .profileMovie-info {
-  padding: 20px;
+
 }
 
 @media only screen and (max-width: 991px) {
