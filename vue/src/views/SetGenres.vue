@@ -1,34 +1,164 @@
 <template>
   <div>
       <nav-bar></nav-bar>
-    <div class="genre-card">
-      <h2>Almost There!</h2>
-      <p>To help us best curate your experience, please select some genres you enjoy or want to see!</p>
-          <div class="genre-selection">
-                  <div class="genre-choice"><input type="checkbox" id="action" value="action" v-model="preferredGenres"><br><label for="action">Action</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="adventure" value="adventure" v-model="preferredGenres"><br><label for="adventure">Adventure</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="animation" value="animation" v-model="preferredGenres"><br><label for="animation">Animation</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="comedy" value="comedy" v-model="preferredGenres"><br><label for="comedy">Comedy</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="crime" value="crime" v-model="preferredGenres"><br><label for="crime">Crime</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="documentary" value="documentary" v-model="preferredGenres"><br><label for="documentary">Documentary</label></div>
-              
-                  <div class="genre-choice"><input type="checkbox" id="drama" value="drama" v-model="preferredGenres"><br><label for="drama">Drama</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="family" value="family" v-model="preferredGenres"><br><label for="family">Family</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="fantasy" value="fantasy" v-model="preferredGenres"><br><label for="fantasy">Fantasy</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="history" value="history" v-model="preferredGenres"><br><label for="history">History</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="horror" value="horror" v-model="preferredGenres"><br><label for="horror">Horror</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="music" value="music" v-model="preferredGenres"><br><label for="music">Music</label></div>
-            
-              
-                  <div class="genre-choice"><input type="checkbox" id="mystery" value="mystery" v-model="preferredGenres"><br><label for="mystery">Mystery</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="romance" value="romance" v-model="preferredGenres"><br><label for="romance">Romance</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="sciFi" value="sciFi" v-model="preferredGenres"><br><label for="sciFi">Science Fiction</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="thriller" value="thriller" v-model="preferredGenres"><br><label for="thriller">Thriller</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="war" value="war" v-model="preferredGenres"><br><label for="war">War</label></div>
-                  <div class="genre-choice"><input type="checkbox" id="western" value="western" v-model="preferredGenres"><br><label for="western">Western</label></div>
-              
-          </div>
-      <button v-if="showButton" @click="setPreferredGenres">Save Profile</button>
+    <div class="genre-card mt-5">
+      <h2 class="is-size-2 has-text-weight-bold">Almost There!</h2>
+      <p class="is-size-5">To help us best curate your experience, please select some genres you enjoy or want to see:</p>
+
+<div class="container">
+  <div class="genre-container">
+    <label class="option_item">
+      <input type="checkbox" class="checkbox" id="action" value="action" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-person-running"></i></div>
+        <div class="name">Action</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="adventure" value="adventure" v-model="preferredGenres">     
+<div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-route"></i></div>
+        <div class="name">Adventure</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="animation" value="animation" v-model="preferredGenres">      
+<div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-paintbrush"></i></div>
+        <div class="name">Animation</div>
+      </div>
+    </label>
+    <label class="option_item">
+      <input type="checkbox" class="checkbox" id="comedy" value="comedy" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-face-laugh-squint"></i></div>
+        <div class="name">Comedy</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="crime" value="crime" v-model="preferredGenres">     
+ <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-sack-dollar"></i></div>
+        <div class="name">Crime</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="documentary" value="documentary" v-model="preferredGenres">      
+<div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-video"></i></div>
+        <div class="name">Documentary</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="drama" value="drama" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-masks-theater"></i></div>
+        <div class="name">Drama</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="family" value="family" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-people-roof"></i></div>
+        <div class="name">Family</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="fantasy" value="fantasy" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-hat-wizard"></i></div>
+        <div class="name">Fantasy</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="history" value="history" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-landmark"></i></div>
+        <div class="name">History</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="horror" value="horror" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-ghost"></i></div>
+        <div class="name">Horror</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="music" value="music" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-music"></i></div>
+        <div class="name">Music</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="mystery" value="mystery" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="name">Mystery</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="romance" value="romance" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-sharp fa-solid fa-heart"></i></div>
+        <div class="name">Romance</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="sciFi" value="sciFi" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-brands fa-space-awesome"></i></div>
+        <div class="name">Science Fiction</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="thriller" value="thriller" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-exclamation"></i></div>
+        <div class="name">Thriller</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="war" value="war" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-person-rifle"></i></div>
+        <div class="name">War</div>
+      </div>
+    </label>
+    <label class="option_item">
+<input type="checkbox" class="checkbox" id="western" value="western" v-model="preferredGenres">
+      <div class="option_inner">
+        <div class="tickmark"></div>
+        <div class="icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+        <div class="name">Western</div>
+      </div>
+    </label>
+    
+  </div>
+  </div> 
+
+
+
+          
+      <button v-if="showButton" @click="setPreferredGenres">Save Genres</button>
       </div>
   </div>
 </template>
@@ -74,11 +204,13 @@ methods: {
     background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
-    .genre-selection {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+
     .instruction {
         font-size:24pt;
         margin-top: 30%;
@@ -86,4 +218,84 @@ methods: {
     .setbutton {
         margin-bottom: 20%;
     }
+
+
+    .genre-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container .option_item {
+  display: block;
+  position: relative;
+  width: 175px;
+  height: 175px;
+  margin: 10px;
+}
+
+.container .option_item .checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+}
+
+.option_item .option_inner {
+  width: 100%;
+  height: 100%;
+  background: #CFCCC9;
+  border-radius: 5px;
+  text-align: center;
+  padding: 58px 40px;
+  cursor: pointer;
+  color: #363430;
+  display: block;
+  border: 5px solid transparent;
+  position: relative;
+}
+
+.option_item .option_inner .icon {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.option_item .option_inner .icon .fab {
+  font-size: 32px;
+}
+
+.option_item .option_inner .name {
+  user-select: none;
+}
+
+.option_item .checkbox:checked ~ .option_inner {
+  border-color: #6d44b8;
+  color: #6d44b8;
+}
+
+.option_item .option_inner .tickmark {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  border: 20px solid;
+  border-color: #6d44b8 transparent transparent #6d44b8;
+  display: none;
+}
+
+.option_item .option_inner .tickmark:before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: -20px;
+  width: 15px;
+  height: 5px;
+  border: 3px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+}
+
+.option_item .checkbox:checked ~ .option_inner .tickmark {
+  display: block;
+}
+
 </style>

@@ -1,16 +1,12 @@
 <template>
   <div class="profile">
     <div class="profile-card">
-      <div class="username profileMovie-info is-size-2 has-text-weight-bold">
-        {{ user.username }}
-      </div>
-
-      <p class="is-size-3">My Genres:</p>
-
-      <div class="genre profileMovie-info is-size-4 has-text-weight-bold">
-        {{ account.preferredGenres }}
-      </div>
+    <div class="username profileMovie-info is-size-2 has-text-weight-bold">{{ user.username }}</div>
+      <p class="is-size-4">My Genres:</p>
+    <div class="genre profileMovie-info is-size-5 has-text-weight-bold">{{ account.preferredGenres }}</div>
+    <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
     </div>
+    
 
     <div
       v-for="profileMovie in this.$store.state.likedMoviesArr"
