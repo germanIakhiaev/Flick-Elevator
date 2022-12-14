@@ -67,86 +67,89 @@ data() {
   methods: {
      likeMovie(id) {
       if (!this.$store.state.account.likedMovies.includes(id)) {
-      this.likeCount++;
-      //add this random movie info to account list
-      this.$store.state.account.likedMovies += id + ',';
-      this.$store.commit("SET_LIKED_MOVIES");
       
-      }
-      //update database with new list every x likes, then wipe the count
-      if (this.likeCount >= 5) {
-      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
-      this.likeCount = 0;
-      }
-      this.$store.commit("SET_RANDOM_MOVIE");
+      this.$store.state.account.likedMovies += ',' + id;
+      this.$store.commit("SET_LIKED_MOVIES");
 
+      let dislikedMovieIds = this.$store.state.account.dislikedMovies.split(',');
+
+      if (dislikedMovieIds.includes(id.toString())) {
+      const index = dislikedMovieIds.indexOf(id.toString());
+      
+      dislikedMovieIds.splice(index, 1);
+
+      this.$store.state.account.dislikedMovies = dislikedMovieIds.join(",");
+
+      this.$store.commit("SET_DISLIKED_MOVIES");
+      }
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
+
+      accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+    
+      this.$store.commit("SET_RANDOM_MOVIE");
+      }
+      
     },
 
     dislikeMovie(id) {
-      this.dislikeCount++
+      if (!this.$store.state.account.dislikedMovies.includes(id)) {
       //add this movie info to account list
-      this.$store.state.account.dislikedMovies += id + ',';
+      this.$store.state.account.dislikedMovies += ',' + id;
       this.$store.commit("SET_DISLIKED_MOVIES");
 
       let likedMovieIds = this.$store.state.account.likedMovies.split(',');
 
-      if (likedMovieIds.includes(id)) {
-      const index = likedMovieIds.indexOf(id);
+      if (likedMovieIds.includes(id.toString())) {
+      const index = likedMovieIds.indexOf(id.toString());
       
-      likedMovieIds = likedMovieIds.splice(index, 1);
+      likedMovieIds.splice(index, 1);
 
-      this.$store.state.account.likedMovies = likedMovieIds.toString();
+      this.$store.state.account.likedMovies = likedMovieIds.join(",");
 
       this.$store.commit("SET_LIKED_MOVIES");
       }
       
-
-      //update database with new list every x likes, then wipe the count
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
       
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
-      this.dislikeCount = 0;
-      
+    
       this.$store.commit("SET_RANDOM_MOVIE");
+      }
 
     },
 
     favoriteMovie(id) {
-      this.favoriteCount++;
-      this.$store.state.account.favoriteMovies += id + ",";
+      let favoriteMovieIds =
+        this.$store.state.account.favoriteMovies.split(",");
+      favoriteMovieIds.push(id);
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(",");
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
       this.$store.commit("SET_FAVORITES");
-      
-      if (this.favoriteCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.favoriteCount = 0;
-      }
 
-
+      accountService.updateAccount(
+        this.$store.state.account.accountId,
+        this.$store.state.account
+      );
     },
+
     unfavoriteMovie(id) {
-      this.favoriteCount++;
-      let favoriteMovieIds = this.$store.state.account.favoriteMovies.split(',');
+      let favoriteMovieIds =
+        this.$store.state.account.favoriteMovies.split(",");
 
-      const index = favoriteMovieIds.indexOf(id);
-      
-      favoriteMovieIds = favoriteMovieIds.splice(index, 1);
+      const index = favoriteMovieIds.indexOf(id.toString());
 
-      this.$store.state.account.favoriteMovies = favoriteMovieIds.toString();
+      favoriteMovieIds.splice(index, 1);
+
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(",");
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
 
       this.$store.commit("SET_FAVORITES");
-      
-      if (this.favoriteCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.favoriteCount = 0;
-      }
 
-
-    }
+      accountService.updateAccount(
+        this.$store.state.account.accountId,
+        this.$store.state.account
+      );
+    },
   },
 };
 </script>
