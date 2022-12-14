@@ -46,6 +46,7 @@ export default {
   width: 80vw;
   height: 40vw;
   margin: 80px auto; 
+  margin-bottom: 10px;
   border-radius: 10px;
   transition: all 0.4s;
   box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);

@@ -13,6 +13,7 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+const currentAccount = JSON.parse(localStorage.getItem('account'));
 
 if(currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
@@ -22,7 +23,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    account: {
+    account: currentAccount || {
       accountId: 0,
       userId: 0,
       preferredGenres: "",
@@ -82,6 +83,7 @@ export default new Vuex.Store({
 
     SET_ACCOUNT(state, response) {
       // AccountService.getUserAccount(state.user.id).then(response => {
+        localStorage.setItem('account', JSON.stringify(response));
         state.account.accountId = response.accountId;
         state.account.userId = response.userId;
         state.account.preferredGenres = response.preferredGenres;
@@ -97,14 +99,25 @@ export default new Vuex.Store({
     LOGOUT(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('account');
       state.token = '';
       state.user = {};
+      state.account = {};
+      state.movies = [];
+      state.allUsers = [];
+      state.dislikedMoviesArr = [];
+      state.likedMoviesArr = [];
+      state.favoriteMoviesArr = [];
+      state.randomMovie = {};
       axios.defaults.headers.common = {};
     },
     SET_MOVIES(state) {
       MovieService.getAllMovies().then(response => {
         state.movies = response.data;
-        //TODO - update this to filter by preferred genres
+        this.commit("SET_LIKED_MOVIES");
+        this.commit("SET_DISLIKED_MOVIES");
+        this.commit("SET_RANDOM_MOVIE");
+        this.commit("SET_FAVORITES");
         
       });
       

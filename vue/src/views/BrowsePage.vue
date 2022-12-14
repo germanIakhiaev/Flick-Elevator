@@ -100,9 +100,9 @@ export default {
   },
 
   created() {
-    this.$store.commit("SET_LIKED_MOVIES");
-    this.$store.commit("SET_DISLIKED_MOVIES");
-    this.$store.commit("SET_FAVORITES");
+    if (this.$store.state.movies.length === 0) {
+      this.$store.commit("SET_MOVIES");
+    }
   }
   
 }

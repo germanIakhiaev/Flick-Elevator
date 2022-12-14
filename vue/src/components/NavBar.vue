@@ -22,7 +22,7 @@
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
-        <router-link v-show="this.$store.state.isAdmin === true" class="navbar-item has-text-white	" :to="{ name: 'admin' }"
+        <router-link v-show="this.$store.state.isAdmin === true" class="navbar-item has-text-white	is-size-5" :to="{ name: 'admin' }"
           >Admin</router-link
         >
 

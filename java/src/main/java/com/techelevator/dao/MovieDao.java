@@ -19,5 +19,5 @@ public interface MovieDao {
     Movie updateMovie(int id, String title, String[] genres, LocalDate release_date, String overview, double popularity, int runtime, String tagline, String poster_path);
 
     // Delete
-    boolean deleteMovie(int movieId);
+    void deleteMovie(int movieId);
 }

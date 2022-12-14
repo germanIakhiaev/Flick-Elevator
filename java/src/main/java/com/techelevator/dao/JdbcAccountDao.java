@@ -20,6 +20,8 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public Account getAccountByAccountId(int accountId) {
+        if (accountId <= 0) throw new IllegalArgumentException("Invalid Id");
+
         Account account;
         String sql = "" +
                 "SELECT * FROM accounts " +
@@ -30,7 +32,6 @@ public class JdbcAccountDao implements AccountDao{
                 account = mapRowToAccount(rowSet);
                 return account;
             }
-            return null;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
         }
@@ -39,6 +40,7 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public Account getAccountByUserId(int userId) {
+        if (userId <= 0) throw new IllegalArgumentException("Invalid Id");
         Account account;
         String sql = "" +
                 "SELECT * FROM accounts " +
@@ -49,7 +51,6 @@ public class JdbcAccountDao implements AccountDao{
                 account = mapRowToAccount(rowSet);
                 return account;
             }
-            return null;
         } catch (EmptyResultDataAccessException | NullPointerException e) {
 
         }
@@ -118,13 +119,15 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public Account createAccount(int userId) {
+        if (userId < 1) throw new IllegalArgumentException("Invalid ID");
         String sql = "" +
                 "INSERT INTO accounts (user_id, liked_movies, disliked_movies, favorites, preferred_genre) " +
                 "VALUES (?, ?, ?, ?, ?) " +
-                "RETURNING user_id;";
-        Integer returnedId = jdbcTemplate.queryForObject(sql, Integer.class, userId, "", "", "", "");
-        if (returnedId == userId) {
-            return getAccountByUserId(returnedId);
+                "RETURNING account_id;";
+        Integer accountId = jdbcTemplate.queryForObject(sql, Integer.class, userId, "", "", "", "");
+
+        if (accountId != null) {
+            return getAccountByUserId(accountId);
         } else {
             return null;
         }
@@ -132,6 +135,12 @@ public class JdbcAccountDao implements AccountDao{
 
     @Override
     public Account updateAccount(int accountId, Account account) {
+        if (accountId < 1) {
+            throw new IllegalArgumentException("Invalid ID");
+        } else if (accountId != account.getAccountId()) {
+            throw new IllegalArgumentException("ID does not match account");
+        }
+
         String sql = "" +
                 "UPDATE accounts " +
                 "SET account_id = ?, user_id = ?, liked_movies = ?, disliked_movies = ?, favorites = ?, preferred_genre = ? " +

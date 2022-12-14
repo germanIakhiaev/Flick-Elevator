@@ -69,14 +69,25 @@ methods: {
 }
 </script>
 
+<<<<<<< HEAD
 <style>
 .genre-card {
     background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   border-radius: 5px;
 }
+=======
+<style scoped>
+>>>>>>> 5a1ddfa290a256d96be41ac36d9aae935d17d558
     .genre-selection {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .instruction {
+        font-size:24pt;
+        margin-top: 30%;
+    }
+    .setbutton {
+        margin-bottom: 20%;
     }
 </style>

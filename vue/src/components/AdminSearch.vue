@@ -3,11 +3,11 @@
     <!--for searching TMDB -->
 
     <div class="user-mgmt">
-      <router-link :to="{ name: 'notifications' }">User Management</router-link>
+      <router-link class="has-text-white is-size-5" :to="{ name: 'notifications' }">User Management</router-link>
     </div>
 
-    <form class="field container" id="search-card">
-      <label for="search-term" class="label">Search By Keyword</label>
+    <form class="field" id="search-card">
+      <label for="search-term" class="label has-text-white is-size-5">Search By Keyword</label>
       <div class="control">
         <input
           id="search-term"
@@ -35,7 +35,7 @@
           {{ result.title }}
         </h2>
         <h3 class="movie-info is-size-4 genre">{{ convertGenres(result) }}</h3>
-        <h3 class="movie-info has-text-left is-size-5"> Release date: <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
+        <h3 class="movie-info has-text-left is-size-5"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
         <h3 class="movie-info has-text-left is-size-5">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
@@ -113,6 +113,11 @@ export default {
 </script>
 
 <style>
+form {
+  width: 880px;
+  margin: 80px auto; 
+  align-content: center;
+}
 .search {
   display: flex;
   flex-direction: column;
