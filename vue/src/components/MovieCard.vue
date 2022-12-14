@@ -6,7 +6,7 @@
     <div class="card-content">
       <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
       <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre">{{movie.genres}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left pb-2" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left py-3" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
       <h3 class="movie-info is-size-6 has-text-left pb-5">{{ movie.overview }}</h3>  
 
 <div class="inline-buttons">
@@ -98,21 +98,13 @@ export default {
 
 <style>
 .movie-card {
-  border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 0% / 0.8);  /* background-color: hsl(0 0% 100% / 0.8); */
+  background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
+  margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
-  position: relative;
-  width: 80vw;
-  height: 40vw;
-  margin: 80px auto; 
-  margin-bottom: 10px;
-  border-radius: 10px;
-  transition: all 0.4s;
-  box-shadow: 0px 0px 120px -25px rgba(0,0,0, 0.5);
 }
 
   .movie-card:hover{

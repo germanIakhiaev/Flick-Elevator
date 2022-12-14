@@ -84,16 +84,28 @@ data() {
 
     dislikeMovie(id) {
       this.dislikeCount++
-      //add this random movie info to account list
+      //add this movie info to account list
       this.$store.state.account.dislikedMovies += id + ',';
       this.$store.commit("SET_DISLIKED_MOVIES");
+
+      let likedMovieIds = this.$store.state.account.likedMovies.split(',');
+
+      if (likedMovieIds.includes(id)) {
+      const index = likedMovieIds.indexOf(id);
+      
+      likedMovieIds = likedMovieIds.splice(index, 1);
+
+      this.$store.state.account.likedMovies = likedMovieIds.toString();
+
+      this.$store.commit("SET_LIKED_MOVIES");
+      }
       
 
       //update database with new list every x likes, then wipe the count
-      if (this.dislikeCount >= 5) {
+      
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
       this.dislikeCount = 0;
-      }
+      
       this.$store.commit("SET_RANDOM_MOVIE");
 
     },
