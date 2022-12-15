@@ -68,6 +68,10 @@ export default {
       movieToAdd: {},
     };
   },
+  
+  destroyed() {
+     this.$store.commit("SET_MOVIES");
+  },
 
   methods: {
     searchMovies() {

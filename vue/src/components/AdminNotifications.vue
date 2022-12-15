@@ -44,12 +44,21 @@
 
 <script>
 import authService from "../services/AuthService.js";
+
 export default {
   data() {
     return {
       selectedUsers: [],
     };
   },
+  // destroyed() {
+  //   //update db with unadded responses
+  //     accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
+  //     this.likeCount = 0;
+  //     this.dislikeCount = 0;
+  //   //update front-end movie arrays
+  // },
+  
   methods: {
     approveRequest() {
       for (let i = 0; i < this.$store.state.allUsers.length; i++) {
