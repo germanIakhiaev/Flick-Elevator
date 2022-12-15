@@ -122,8 +122,8 @@ export default {
     transition: all 0.4s;
   }
 .card-image img {
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
 }
 .card-content {
@@ -148,20 +148,9 @@ export default {
   grid-template-columns: 1fr;
   overflow: hidden;
 }
-  .movie-card {
-    grid-template-columns: 1fr;
-     height: 210vw;
-  margin: 40px auto; 
-  }
-
   .movie-date, .movie-overview {
     padding: 20px;
-  }
-  /* .card-image img {
-  height: 40vw;
-  /* width: auto; */
-  /* border-radius: 5px;
-} */ 
-  
+  }  
 }
+
 </style>
