@@ -1,10 +1,14 @@
 <template>
   <div class="profile">
     <div class="profile-card">
-    <div class="username profileMovie-info is-size-2 has-text-weight-bold">{{ user.username }}</div>
+      <div class="username profileMovie-info is-size-2 has-text-weight-bold">
+        {{ user.username }}
+      </div>
       <p class="is-size-4">My Genres:</p>
-    <div class="genre profileMovie-info is-size-5 has-text-weight-bold">{{ account.preferredGenres }}</div>
-    <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
+      <div class="genre profileMovie-info is-size-5 has-text-weight-bold">
+        {{ account.preferredGenres }}
+      </div>
+      <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
     </div>
     
     <div
@@ -48,7 +52,6 @@
         >
           <i class="fa-regular fa-star"></i>&nbsp;Unfavorite Movie
         </button>
-
       </div>
     </div>
         <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
@@ -83,22 +86,20 @@ export default {
 
   methods: {
     favoriteMovie(id) {
-      this.favoriteCount++;
-      let favoriteMovieIds = this.$store.state.account.favoriteMovies.split(",");
+      let favoriteMovieIds =
+        this.$store.state.account.favoriteMovies.split(",");
       favoriteMovieIds.push(id);
       this.$store.state.account.favoriteMovies = favoriteMovieIds.join(",");
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
       this.$store.commit("SET_FAVORITES");
 
-      if (this.favoriteCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.favoriteCount = 0;
-      }
+      accountService.updateAccount(
+        this.$store.state.account.accountId,
+        this.$store.state.account
+      );
     },
+
     unfavoriteMovie(id) {
-      this.favoriteCount++;
       let favoriteMovieIds =
         this.$store.state.account.favoriteMovies.split(",");
 
@@ -106,17 +107,15 @@ export default {
 
       favoriteMovieIds.splice(index, 1);
 
-      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(',');
+      this.$store.state.account.favoriteMovies = favoriteMovieIds.join(",");
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
 
       this.$store.commit("SET_FAVORITES");
 
-      if (this.favoriteCount >= 5) {
-        accountService.updateAccount(
-          this.$store.state.account.accountId,
-          this.$store.state.account
-        );
-        this.favoriteCount = 0;
-      }
+      accountService.updateAccount(
+        this.$store.state.account.accountId,
+        this.$store.state.account
+      );
     },
     onChangePage(pageOfItems) {
             // update page of items

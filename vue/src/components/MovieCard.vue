@@ -58,7 +58,7 @@ export default {
       if (!this.$store.state.account.likedMovies.includes(this.$store.state.randomMovie.id)) {
       this.likeCount++;
       //add this random movie info to account list
-      this.$store.state.account.likedMovies += this.$store.state.randomMovie.id + ',';
+      this.$store.state.account.likedMovies += ',' + this.$store.state.randomMovie.id;
       this.$store.commit("SET_LIKED_MOVIES");
       
       }
@@ -68,23 +68,35 @@ export default {
       this.likeCount = 0;
       }
       this.$store.commit("SET_RANDOM_MOVIE");
-
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
+      
     },
 
     dislikeMovie() {
       this.dislikeCount++
       //add this random movie info to account list
-      this.$store.state.account.dislikedMovies += this.$store.state.randomMovie.id + ',';
+      this.$store.state.account.dislikedMovies += ',' + this.$store.state.randomMovie.id;
       this.$store.commit("SET_DISLIKED_MOVIES");
       
+       let likedMovieIds = this.$store.state.account.likedMovies.split(',');
 
+      if (likedMovieIds.includes(this.$store.state.randomMovie.id.toString())) {
+      const index = likedMovieIds.indexOf(this.$store.state.randomMovie.id.toString());
+      
+      likedMovieIds.splice(index, 1);
+
+      this.$store.state.account.likedMovies = likedMovieIds.join(",");
+
+      this.$store.commit("SET_LIKED_MOVIES");
+      }
       //update database with new list every x likes, then wipe the count
       if (this.dislikeCount >= 5) {
       accountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account);
       this.dislikeCount = 0;
       }
       this.$store.commit("SET_RANDOM_MOVIE");
-
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
+      
     },
 
     newRandomMovie() {

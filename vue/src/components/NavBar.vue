@@ -22,7 +22,7 @@
 
     <div class="navbar-menu" :class="{ 'is-active': isActive }">
       <div class="navbar-end">
-        <router-link v-show="this.$store.state.isAdmin === true" class="navbar-item has-text-white	is-size-5" :to="{ name: 'admin' }"
+        <router-link v-show="isAdmin" class="navbar-item has-text-white	is-size-5" :to="{ name: 'admin' }"
           >Admin</router-link
         >
 
@@ -60,6 +60,11 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  computed: {
+    isAdmin() {
+      return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
+    }
+  }
 };
 </script>
 
