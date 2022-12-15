@@ -4,7 +4,7 @@
       <img v-bind:src="'https://image.tmdb.org/t/p/original' + movie.poster_path">
     </div>
     <div class="card-content">
-      <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
+      <h3 class="movie-info is-size-3 has-text-weight-bold movie-title">{{movie.title}}</h3>
       <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre mt-3">{{movie.genres}}</h3>  
       <h3 class="movie-info is-size-5 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
       <h3 class="movie-info is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
@@ -110,7 +110,7 @@ export default {
 
 <style>
 .movie-card {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
   margin: 25px 0px;
@@ -127,7 +127,7 @@ export default {
 .card-image img {
   height: auto;
   width: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .card-content {
   display: flex;
@@ -136,11 +136,13 @@ export default {
 .genre {
   color: #FFFD82;
 }
-
+.movie-title {
+  font-family: 'Unbounded';
+}
 @media only screen and (max-width: 600px) {
   .movie-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 100% / 0.5);
   color: #fcfcfc;
   margin: 25px 0px;

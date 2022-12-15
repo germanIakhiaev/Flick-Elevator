@@ -1,44 +1,31 @@
 <template>
-  <div>
-    <div class="browse-card">
-      <div class="card-image">
-        <img
-          v-bind:src="
-            'https://image.tmdb.org/t/p/original' + browse.poster_path
-          "
-        />
+<div>
+  <div class="browse-card">
+    <div class="card-image">
+      <img
+        v-bind:src="'https://image.tmdb.org/t/p/original' + browse.poster_path"
+      />
+    </div>
+    <div class="card-content">
+      <h2 class="browse-info is-size-3 has-text-weight-bold movie-title">
+        {{ browse.title }}
+      </h2>
+      <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre mt-3">
+        {{ browse.genres }}
+      </h3>
+      <h3 class="browse-info is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
+      <h3 class="browse-info is-size-5 has-text-left pb-6">{{ browse.overview }}</h3>
+
+      <div class="inline-buttons">
+      <button class="button is-focused is-danger" @click="dislikeMovie(browse.id)">
+        <i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike
+      </button>
+      <button class="button is-focused is-success" @click="likeMovie(browse.id)">
+        <i class="fa-solid fa-heart"></i>&nbsp;Like!
+      </button>
       </div>
-      <div class="card-content">
-        <h2 class="browse-info is-size-3 has-text-weight-bold">
-          {{ browse.title }}
-        </h2>
-        <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre mt-3">
-          {{ browse.genres }}
-        </h3>
-        <h3 class="browse-info is-size-5 has-text-left py-5">
-          <i class="fa-regular fa-calendar"></i>
-          {{ browse.release_date.substring(0, 4) }}
-        </h3>
-        <h3 class="browse-info is-size-5 has-text-left pb-6">
-          {{ browse.overview }}
-        </h3>
 
-        <div class="inline-buttons">
-          <button
-            class="button is-focused is-danger"
-            @click="dislikeMovie(browse.id)"
-          >
-            <i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike
-          </button>
-          <button
-            class="button is-focused is-success"
-            @click="likeMovie(browse.id)"
-          >
-            <i class="fa-solid fa-heart"></i>&nbsp;Like!
-          </button>
-        </div>
-
-        <button
+      <button
           class="favorite"
           @click="favoriteMovie(browse.id)"
           v-if="!$store.state.account.favoriteMovies.includes(browse.id)"
@@ -188,7 +175,7 @@ export default {
 .card-image img {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .card-content {
   display: flex;
@@ -218,8 +205,5 @@ export default {
     padding: 0px;
   }
 
-  .card-content {
-    padding: 0px;
-  }
 }
 </style>

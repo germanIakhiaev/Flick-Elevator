@@ -3,7 +3,7 @@
     <!--for searching TMDB -->
 
     <div class="user-mgmt">
-      <router-link class="has-text-white is-size-5" :to="{ name: 'notifications' }">User Management</router-link>
+      <router-link class="has-text-white is-size-5" :to="{ name: 'notifications' }"><i class="fa-solid fa-user-pen"></i>&nbsp;User Management</router-link>
     </div>
 
     <form class="field" id="search-card">
@@ -18,7 +18,7 @@
         />
       </div>
       <button id="search-button" v-on:click.prevent="searchMovies">
-        Search
+        <i class="fa-solid fa-magnifying-glass"></i>&nbsp;Search
       </button>
     </form>
 
@@ -31,7 +31,7 @@
         />
       </div>
       <div class="movie-info card-content">
-        <h2 class="movie-info is-size-3 has-text-weight-bold">
+        <h2 class="movie-info is-size-3 has-text-weight-bold movie-title">
           {{ result.title }}
         </h2>
         <h3 class="movie-info is-size-5 genre py-4">{{ convertGenres(result) }}</h3>
@@ -129,7 +129,7 @@ form {
   justify-content: center;
 }
 .result-card {
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
   margin: 25px 0px;
@@ -145,7 +145,7 @@ form {
   }
 /* .result-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 100% / 0.8);
   color: #0f0c29;
   margin: 25px 0px;
@@ -156,7 +156,7 @@ form {
 
 .user-mgmt {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   margin: 25px 0px;
@@ -177,7 +177,7 @@ form {
 
 #search-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   margin: 25px 0px;
@@ -193,7 +193,7 @@ form {
 .card-image img {
   height: auto;
   width: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 

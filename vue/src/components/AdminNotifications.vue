@@ -112,7 +112,7 @@ export default {
 
 .admin-home-link {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   margin: 25px 0px;
@@ -122,7 +122,7 @@ export default {
 
 #notif-housing {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   margin: 25px 0px;
@@ -132,5 +132,8 @@ export default {
   
 }
 
+table, th, td {
+  border: 1px solid darkgrey;
+}
 
 </style>

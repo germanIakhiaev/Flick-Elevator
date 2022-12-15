@@ -15,7 +15,7 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="label is-size-5 has-text-white">Username</label>
+      <label for="username" class="label is-size-5 has-text-white"><i class="fa-regular fa-user"></i>&nbsp;Username</label>
       <input
         type="text"
         id="username"
@@ -25,7 +25,7 @@
         required
         autofocus
       />
-      <label for="password" class="label is-size-5 has-text-white">Password</label>
+      <label for="password" class="label is-size-5 has-text-white"><i class="fa-solid fa-unlock-keyhole"></i>&nbsp;Password</label>
       <input
         type="password"
         id="password"

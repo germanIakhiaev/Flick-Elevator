@@ -57,7 +57,7 @@ button{
 	margin-top: 20px;
 	outline: none;
 	border: none;
-	border-radius: 5px;
+	border-radius: 10px;
 	transition: .2s ease-in;
 	cursor: pointer;
 }

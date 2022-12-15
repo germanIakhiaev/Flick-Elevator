@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="label is-size-5 has-text-white">Username</label>
+      <label for="username" class="label is-size-5 has-text-white"><i class="fa-regular fa-user"></i>&nbsp;Username</label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="label is-size-5 has-text-white">Password</label>
+      <label for="password" class="label is-size-5 has-text-white"><i class="fa-solid fa-unlock-keyhole"></i>&nbsp;Password</label>
       <input
         type="password"
         id="password"
@@ -33,11 +33,16 @@
         v-model="user.confirmPassword"
         required
       />
-      Request Admin Role<input 
+      <div class="inline-buttons">
+
+      <input 
       type="checkbox"
       id="adminCheck"
       v-model="user.madeAdminRequest"
-      >
+      > 
+      <div>Request Admin Access</div>
+
+      </div>
 
       <router-link :to="{ name: 'login' }" class="is-size-5">Have an account?</router-link>
       <button  class="btn btn-lg btn-primary btn-block is-size-4" type="submit">
