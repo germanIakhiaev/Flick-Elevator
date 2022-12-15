@@ -3,20 +3,21 @@
     <div class="admin-home-link">
       <router-link class="has-text-white is-size-5" :to="{ name: 'admin' }">Back to Admin Home</router-link>
     </div>
+    <div class="profile-card is-size-3" v-if="!hasRequestsPending">No Requests Currently Pending</div>
     <div class="field" id="notif-housing">
       <table>
-        <thead >
+        <thead> 
           <tr>
-            <th>
+            <th class="has-text-white">
                 Select
               <!-- <label for="selectAllBox">
                     Select
                   <input type="checkbox" name="" id="selectAllBox" />
                 </label> -->
             </th>
-            <th>Username</th>
-            <th>Role</th>
-            <th>Request Admin</th>
+            <th class="has-text-white">Username</th>
+            <th class="has-text-white">Role</th>
+            <th class="has-text-white">Requested Admin</th>
           </tr>
         </thead>
         <tbody>
@@ -30,13 +31,13 @@
               />
             </td>
             <td>{{ user.username }}</td>
-            <td>{{ user.authorities[0].name }}</td>
-            <td>{{ user.madeAdminRequest }}</td>
+            <td>{{ user.authorities[0].name.substring(5) }}</td>
+            <td class="is-uppercase">{{ user.madeAdminRequest }}</td>
           </tr>
         </tbody>
       </table>
-      <button @click.prevent="approveRequest()">Approve Selected</button>
-      <button @click.prevent="rejectRequest()">Reject Selected</button>
+      <button @click.prevent="approveRequest()">Give Admin Access</button>
+      <button @click.prevent="rejectRequest()">Revoke Admin Access</button>
     </div>
   </section>
 </template>
@@ -81,6 +82,16 @@ export default {
       this.selectedUsers = [];
     },
   },
+  computed: {
+    usersRequesting() {
+      return this.$store.state.allUsers.filter((user) => {
+        return user.madeAdminRequest === true;
+      });
+    },
+    hasRequestsPending() {
+      return this.usersRequesting.length > 0;
+    }
+  },
 };
 </script>
 
@@ -106,6 +117,10 @@ export default {
   background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
   margin: 25px 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 

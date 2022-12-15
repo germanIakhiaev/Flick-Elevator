@@ -5,9 +5,9 @@
     </div>
     <div class="card-content">
       <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
-      <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre">{{movie.genres}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left py-3" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
-      <h3 class="movie-info is-size-6 has-text-left pb-5">{{ movie.overview }}</h3>  
+      <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre mt-3">{{movie.genres}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
 
 <div class="inline-buttons">
        <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike</button>
