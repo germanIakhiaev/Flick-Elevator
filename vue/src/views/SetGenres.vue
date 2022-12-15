@@ -158,7 +158,7 @@
 
 
           
-      <button v-if="showButton" @click="setPreferredGenres">Save Genres</button>
+      <button v-if="showButton" @click="setPreferredGenres" class="mb-5">Save Genres</button>
       </div>
   </div>
 </template>
@@ -223,6 +223,9 @@ methods: {
     .genre-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
 .container .option_item {
