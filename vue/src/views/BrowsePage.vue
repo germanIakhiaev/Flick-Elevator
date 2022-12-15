@@ -64,6 +64,7 @@
      <browser-card :browse="browse" :account="$store.state.account" v-for="browse in pageOfItems" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
                  <div class="pagination-container">
                  <jw-pagination :items="this.moviesToBrowse" @changePage="onChangePage" class="pagination"></jw-pagination>
+                 
     </div>
     </div>
 </template>
@@ -124,7 +125,7 @@ export default {
 <style>
 #container {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
   margin: 25px 0px;
@@ -142,7 +143,9 @@ select {
   width: 20vw;
 }
 .pagination-container {
-background-color: #BBAADA;
+background-color: lightgray;
+border-radius: 10px;
+font-family: 'Unbounded';
 }
 a { cursor: pointer; }
         .pagination {

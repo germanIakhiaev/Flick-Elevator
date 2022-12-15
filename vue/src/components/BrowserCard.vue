@@ -7,7 +7,7 @@
       />
     </div>
     <div class="card-content">
-      <h2 class="browse-info is-size-3 has-text-weight-bold">
+      <h2 class="browse-info is-size-3 has-text-weight-bold movie-title">
         {{ browse.title }}
       </h2>
       <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre mt-3">
@@ -167,7 +167,7 @@ data() {
 .card-image img {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .card-content {
   
@@ -176,7 +176,7 @@ data() {
 }
 .browse-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8); 
   color: #ffffff;
   margin: 25px 0px;
@@ -206,9 +206,6 @@ data() {
     padding: 0px;
   }
 
-  .card-content {
-    padding: 0px;
-  }
 }
 
 </style>

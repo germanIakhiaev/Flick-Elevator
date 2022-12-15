@@ -1,16 +1,8 @@
 <template>
+<div id="profile-page-wrapper">
   <div class="profile">
-    <div class="profile-card">
-      <div class="username profileMovie-info is-size-2 has-text-weight-bold">
-        {{ user.username }}
-      </div>
-      <p class="is-size-4">My Genres:</p>
-      <div class="genre profileMovie-info is-size-5 has-text-weight-bold">
-        {{ account.preferredGenres }}
-      </div>
-      <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
-    </div>
     
+    <div>
     <div
       v-for="profileMovie in pageOfItems"
       :key="profileMovie.id"
@@ -24,7 +16,7 @@
         />
       </div>
       <div class="card-content">
-        <h3 class="profileMovie-info is-size-3 has-text-weight-bold">
+        <h3 class="profileMovie-info is-size-3 has-text-weight-bold movie-title">
           {{ profileMovie.title }}
         </h3>
         <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre mt-3">
@@ -54,8 +46,23 @@
         </button>
       </div>
     </div>
-        <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
+    </div>
+    <div class="profile-card">
+      <p class="is-size-3 is-underlined">My Profile</p>
+      <div class="username profileMovie-info is-size-2 has-text-weight-semi-bold is-uppercase">
+        <i class="fa-solid fa-user"></i>&nbsp;{{ user.username }}
+      </div>
+      <p class="is-size-4 is-underlined">My Genres:</p>
+      <div class="genre profileMovie-info is-size-5 has-text-weight-bold">
+        {{ account.preferredGenres }}
+      </div>
+      <router-link :to="{ name: 'setGenres' }" class="has-text-white py-6"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Edit My Genres</router-link>
+    </div>
 
+  </div>
+                   <div class="pagination-container">
+  <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
+                   </div>
   </div>
 </template>
 
@@ -128,15 +135,16 @@ export default {
 <style>
 .profile-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);
   color: #ffffff;
-  margin: 25px 0px;
+  margin-top: 25px;
+  grid-area: card;
 }
 
 .profileMovie-card {
   border: 1px transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: hsl(0 0% 0% / 0.8);
   color: #ffffff;
   margin: 25px 0px;
@@ -148,7 +156,7 @@ export default {
 .card-image img {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .card-content {
   display: flex;
@@ -170,5 +178,13 @@ export default {
   .card-content {
     padding: 0px;
   }
+
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "card"
+                       "profile";
+}
 }
 </style>

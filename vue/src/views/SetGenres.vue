@@ -2,7 +2,7 @@
   <div>
       <nav-bar></nav-bar>
     <div class="genre-card mt-5">
-      <h2 class="is-size-2 has-text-weight-bold">Almost There!</h2>
+      <p class="is-size-2 has-text-weight-bold">Almost There!</p>
       <p class="is-size-5">To help us best curate your experience, please select some genres you enjoy or want to see:</p>
 
 <div class="container">
@@ -158,7 +158,7 @@
 
 
           
-      <button v-if="showButton" @click="setPreferredGenres">Save Genres</button>
+      <button v-if="showButton" @click="setPreferredGenres" class="mb-5">Save Genres</button>
       </div>
   </div>
 </template>
@@ -203,7 +203,7 @@ methods: {
 .genre-card {
     background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -223,6 +223,9 @@ methods: {
     .genre-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
 .container .option_item {
@@ -245,7 +248,7 @@ methods: {
   width: 100%;
   height: 100%;
   background: #CFCCC9;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   padding: 58px 40px;
   cursor: pointer;
