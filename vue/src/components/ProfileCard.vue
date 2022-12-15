@@ -7,7 +7,6 @@
     <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
     </div>
     
-    <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
     <div
       v-for="profileMovie in pageOfItems"
       :key="profileMovie.id"

@@ -60,7 +60,6 @@
     </div>
     </div>
     <div class="pagination-container">
-                     <jw-pagination :items="this.moviesToBrowse" @changePage="onChangePage" class="pagination"></jw-pagination>
     </div>
      <browser-card :browse="browse" :account="$store.state.account" v-for="browse in pageOfItems" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
                  <div class="pagination-container">
