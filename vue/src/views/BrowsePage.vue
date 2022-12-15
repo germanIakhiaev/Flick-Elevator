@@ -59,23 +59,30 @@
     </select>
     </div>
     </div>
-    
-     <browser-card :browse="browse" :account="$store.state.account" v-for="browse in moviesToBrowse" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
+    <div class="pagination-container">
+    </div>
+     <browser-card :browse="browse" :account="$store.state.account" v-for="browse in pageOfItems" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
+                 <div class="pagination-container">
+                 <jw-pagination :items="this.moviesToBrowse" @changePage="onChangePage" class="pagination"></jw-pagination>
+    </div>
     </div>
 </template>
 
 <script>
 import BrowserCard from '../components/BrowserCard.vue'
 import NavBar from '../components/NavBar.vue'
+import JwPagination from 'jw-vue-pagination';
+
 export default {
   name: 'browse',
-  components: { NavBar, BrowserCard },
+  components: { NavBar, BrowserCard, JwPagination },
 
   data() {
     return {
       criteria: "",
       genre1: "", //modeled to dropdown menus
-      genre2: ""
+      genre2: "",
+      pageOfItems: []
       
     }
   },
@@ -103,7 +110,13 @@ export default {
     if (this.$store.state.movies.length === 0) {
       this.$store.commit("SET_MOVIES");
     }
-  }
+  },
+  methods: {
+        onChangePage(pageOfItems) {
+            // update page of items
+            this.pageOfItems = pageOfItems;
+        }
+    }
   
 }
 </script>
@@ -128,4 +141,14 @@ select::-ms-expand {
 select {
   width: 20vw;
 }
+.pagination-container {
+background-color: #BBAADA;
+}
+a { cursor: pointer; }
+        .pagination {
+           justify-content: center;
+           flex-wrap: wrap;
+        }
+
+
 </style>

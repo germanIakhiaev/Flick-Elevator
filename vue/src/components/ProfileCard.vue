@@ -7,9 +7,8 @@
     <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
     </div>
     
-
     <div
-      v-for="profileMovie in this.$store.state.likedMoviesArr"
+      v-for="profileMovie in pageOfItems"
       :key="profileMovie.id"
       class="card profileMovie-card"
     >
@@ -24,14 +23,14 @@
         <h3 class="profileMovie-info is-size-3 has-text-weight-bold">
           {{ profileMovie.title }}
         </h3>
-        <h3 class="profileMovie-info is-size-4 has-text-weight-semi-bold genre">
+        <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre mt-3">
           {{ profileMovie.genres }}
         </h3>
-        <h3 class="profileMovie-info is-size-5 has-text-left">
+        <h3 class="profileMovie-info is-size-5 has-text-left py-5">
           <i class="fa-regular fa-calendar"></i>
           {{ profileMovie.release_date.substring(0, 4) }}
         </h3>
-        <h3 class="profileMovie-info is-size-5 has-text-left">
+        <h3 class="profileMovie-info is-size-5 has-text-left py-6">
           {{ profileMovie.overview }}
         </h3>
 
@@ -52,13 +51,18 @@
 
       </div>
     </div>
+        <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
+
   </div>
 </template>
 
 <script>
 import accountService from "../services/AccountService.js";
+import JwPagination from 'jw-vue-pagination';
+
 
 export default {
+  components: {JwPagination},
   created() {
     this.$store.commit("SET_LIKED_MOVIES");
     this.$store.commit("SET_DISLIKED_MOVIES");
@@ -71,6 +75,8 @@ export default {
       likeCount: 0,
       dislikeCount: 0,
       favoriteCount: 0,
+      pageOfItems: []
+
     };
   },
   props: ["user", "account"],
@@ -112,6 +118,10 @@ export default {
         this.favoriteCount = 0;
       }
     },
+    onChangePage(pageOfItems) {
+            // update page of items
+            this.pageOfItems = pageOfItems;
+        },
   },
 };
 </script>
@@ -146,12 +156,6 @@ export default {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-=======
-.profileMovie-info {
-}
-
->>>>>>> 00606deaa8f4d1027dd9129e3ca0efdddda78162
 @media only screen and (max-width: 991px) {
   .profileMovie-card {
     grid-template-columns: 1fr;
