@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-      <a href="https://www.flaticon.com/free-icons/movie" title="movie icons">Movie icon created by Freepik - Flaticon</a>
+      <a href="https://www.flaticon.com/free-icons/movie" title="movie icons"></a>
   </div>
 </template>
 
@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-
+/* Movie icon created by Freepik - Flaticon */
 </style>

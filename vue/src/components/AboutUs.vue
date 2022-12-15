@@ -24,7 +24,7 @@ h1, p {
 }
 .walt{
       margin: 20px;
-      margin-left: 20vw;
+      margin-left: 21vw;
       height: 25vw;
 }
 </style>

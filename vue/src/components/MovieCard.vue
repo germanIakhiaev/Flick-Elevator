@@ -6,8 +6,8 @@
     <div class="card-content">
       <h3 class="movie-info is-size-3 has-text-weight-bold">{{movie.title}}</h3>
       <h3 class="movie-info is-size-5 has-text-weight-semi-bold genre mt-3">{{movie.genres}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
-      <h3 class="movie-info is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
+      <h3 class="movie-info movie-date is-size-5 has-text-left py-5" > <i class="fa-regular fa-calendar"></i> {{movie.release_date.substring(0,4)}}</h3>  
+      <h3 class="movie-info movie-overview is-size-5 has-text-left pb-6">{{ movie.overview }}</h3>  
 
 <div class="inline-buttons">
        <button class="button is-focused is-danger" @click="dislikeMovie"><i class="fa-solid fa-thumbs-down"></i>&nbsp;Dislike</button>
@@ -137,33 +137,32 @@ export default {
   color: #FFFD82;
 }
 
-@media only screen and (max-width: 600px) {
-  .movie-card {
+
+
+@media only screen and (max-width: 900px) {
+   .movie-card {
   border: 1px transparent;
   border-radius: 5px;
-  background-color: hsl(0 0% 100% / 0.5);
   color: #fcfcfc;
   margin: 25px 0px;
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden;
 }
-}
-
-
-@media only screen and (max-width: 991px) {
   .movie-card {
     grid-template-columns: 1fr;
-     height: 200vw;
-  margin: 80px auto; 
+     height: 210vw;
+  margin: 40px auto; 
   }
 
-  h3 {
-    padding: 0px;
+  .movie-date, .movie-overview {
+    padding: 20px;
   }
-
-  .card-content {
-    padding: 0px;
-  }
+  /* .card-image img {
+  height: 40vw;
+  /* width: auto; */
+  /* border-radius: 5px;
+} */ 
+  
 }
 </style>
