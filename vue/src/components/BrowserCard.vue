@@ -159,7 +159,7 @@ data() {
 
 <style>
 
-.brow-card:hover{
+.browse-card:hover{
     transform: scale(1.02);
     box-shadow: 0px 0px 80px -25px rgba(0,0,0, 0.5);
     transition: all 0.4s;
