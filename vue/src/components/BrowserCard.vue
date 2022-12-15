@@ -13,8 +13,8 @@
       <h3 class="browse-info is-size-5 has-text-weight-semi-bold genre mt-3">
         {{ browse.genres }}
       </h3>
-      <h3 class="browse-info is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
-      <h3 class="browse-info is-size-5 has-text-left pb-6">{{ browse.overview }}</h3>
+      <h3 class="browse-info movie-date is-size-5 has-text-left py-5"><i class="fa-regular fa-calendar"></i> {{ browse.release_date.substring(0,4) }}</h3>
+      <h3 class="browse-info movie-overview is-size-5 has-text-left pb-6">{{ browse.overview }}</h3>
 
       <div class="inline-buttons">
       <button class="button is-focused is-danger" @click="dislikeMovie(browse.id)">
@@ -196,9 +196,17 @@ export default {
   display: inline-block;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 900px) {
   .browse-card {
+    border: 1px transparent;
+  border-radius: 5px;
+  color: #fcfcfc;
+  margin: 25px 0px;
+  display: grid;
     grid-template-columns: 1fr;
+  }
+  .movie-date, .movie-overview {
+    padding: 20px;
   }
 
   h3 {
