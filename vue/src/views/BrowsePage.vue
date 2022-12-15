@@ -59,10 +59,13 @@
     </select>
     </div>
     </div>
-                     <jw-pagination :items="this.$store.state.movies" @changePage="onChangePage"></jw-pagination>
+    <div class="pagination-container">
+                     <jw-pagination :items="this.moviesToBrowse" @changePage="onChangePage" class="pagination"></jw-pagination>
+    </div>
      <browser-card :browse="browse" :account="$store.state.account" v-for="browse in pageOfItems" v-bind:key="browse.id"/> <!--TODO - alphabetize results? -->
-                 <jw-pagination :items="this.$store.state.movies" @changePage="onChangePage"></jw-pagination>
-
+                 <div class="pagination-container">
+                 <jw-pagination :items="this.moviesToBrowse" @changePage="onChangePage" class="pagination"></jw-pagination>
+    </div>
     </div>
 </template>
 
@@ -139,10 +142,14 @@ select::-ms-expand {
 select {
   width: 20vw;
 }
-
+.pagination-container {
+background-color: #BBAADA;
+}
 a { cursor: pointer; }
         .pagination {
            justify-content: center;
            flex-wrap: wrap;
         }
+
+
 </style>

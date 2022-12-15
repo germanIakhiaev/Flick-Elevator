@@ -7,9 +7,9 @@
     <router-link :to="{ name: 'setGenres' }">Edit My Genres</router-link>
     </div>
     
-
+    <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
     <div
-      v-for="profileMovie in this.$store.state.likedMoviesArr"
+      v-for="profileMovie in pageOfItems"
       :key="profileMovie.id"
       class="card profileMovie-card"
     >
@@ -52,13 +52,18 @@
 
       </div>
     </div>
+        <jw-pagination :items="this.$store.state.likedMoviesArr" @changePage="onChangePage"></jw-pagination>
+
   </div>
 </template>
 
 <script>
 import accountService from "../services/AccountService.js";
+import JwPagination from 'jw-vue-pagination';
+
 
 export default {
+  components: {JwPagination},
   created() {
     this.$store.commit("SET_LIKED_MOVIES");
     this.$store.commit("SET_DISLIKED_MOVIES");
@@ -71,6 +76,8 @@ export default {
       likeCount: 0,
       dislikeCount: 0,
       favoriteCount: 0,
+      pageOfItems: []
+
     };
   },
   props: ["user", "account"],
@@ -112,6 +119,10 @@ export default {
         this.favoriteCount = 0;
       }
     },
+    onChangePage(pageOfItems) {
+            // update page of items
+            this.pageOfItems = pageOfItems;
+        },
   },
 };
 </script>
