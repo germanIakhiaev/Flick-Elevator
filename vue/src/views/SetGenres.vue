@@ -179,6 +179,12 @@ data() {
     }
 },
 
+//TODO - model previously selected genres?
+
+destroyed() {
+    this.preferredGenres = [];
+},
+
 computed : {
 
     showButton() {
@@ -191,6 +197,8 @@ methods: {
     setPreferredGenres() {//conditional to make sure they select something?
         this.$store.state.account.preferredGenres = this.preferredGenres.join(" ");
         AccountService.updateAccount(this.$store.state.account.accountId, this.$store.state.account).then(() => {
+            localStorage.setItem('account', JSON.stringify(this.$store.state.account));
+            this.$store.commit("SET_RANDOM_MOVIE");
             this.$router.push("/discover");
         });
         

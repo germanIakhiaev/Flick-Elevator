@@ -95,6 +95,7 @@ data() {
       if (!this.$store.state.account.dislikedMovies.includes(id)) {
       //add this movie info to account list
       this.$store.state.account.dislikedMovies += ',' + id;
+      localStorage.setItem('account', JSON.stringify(this.$store.state.account));
       this.$store.commit("SET_DISLIKED_MOVIES");
 
       // let likedMovieIds = this.$store.state.account.likedMovies.split(',');
