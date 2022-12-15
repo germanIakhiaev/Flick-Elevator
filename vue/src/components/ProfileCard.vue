@@ -162,6 +162,13 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.profile {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-areas: "profile card";
+  gap: 10px;
+
+}
 
 @media only screen and (max-width: 900px) {
   .profileMovie-card {
