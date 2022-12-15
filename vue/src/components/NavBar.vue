@@ -72,17 +72,20 @@ export default {
 .navbar {
    background-color: hsl(0 0% 0% / 0.8);  
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .navbar-menu.is-active {
    background-color: hsl(0 0% 0% / 0);  
   color: #ffffff;  
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
+a.navbar-item {
+  font-family: 'Unbounded';
+}
 a.navbar-item:hover {
     background-color:#573b8a;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: inset 0 0 10px #000;
 }
 
