@@ -35,8 +35,8 @@
           {{ result.title }}
         </h2>
         <h3 class="movie-info is-size-5 genre py-4">{{ convertGenres(result) }}</h3>
-        <h3 class="movie-info has-text-left is-size-5 pb-4"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
-        <h3 class="movie-info has-text-left is-size-5 pb-5">{{ result.overview }}</h3>
+        <h3 class="movie-info movie-date has-text-left is-size-5 pb-4"> <i class="fa-regular fa-calendar"></i> {{ result.release_date.substring(0,4) }}</h3>
+        <h3 class="movie-info movie-overview has-text-left is-size-5 pb-5">{{ result.overview }}</h3>
         <button class="movie-info button" @click="addMovieToDb(result)">
           <i class="fa-solid fa-plus"></i>&nbsp;Add to Database
         </button>
@@ -190,6 +190,27 @@ form {
   height: auto;
   width: auto;
   border-radius: 10px;
+}
+@media only screen and (max-width: 900px) {
+  .card-content {
+    border: 1px transparent;
+  border-radius: 5px;
+  color: #fcfcfc;
+  margin: 25px 0px;
+  display: grid;
+    grid-template-columns: 1fr;
+  }
+  .movie-date, .movie-overview {
+    padding: 20px;
+  }
+
+  h3 {
+    padding: 0px;
+  }
+
+  .card-content {
+    padding: 0px;
+  }
 }
 
 

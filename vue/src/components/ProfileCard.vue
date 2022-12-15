@@ -22,11 +22,11 @@
         <h3 class="profileMovie-info is-size-5 has-text-weight-semi-bold genre mt-3">
           {{ profileMovie.genres }}
         </h3>
-        <h3 class="profileMovie-info is-size-5 has-text-left py-5">
+        <h3 class="profileMovie-info movie-date is-size-5 has-text-left py-5">
           <i class="fa-regular fa-calendar"></i>
           {{ profileMovie.release_date.substring(0, 4) }}
         </h3>
-        <h3 class="profileMovie-info is-size-5 has-text-left py-6">
+        <h3 class="profileMovie-info movie-overview is-size-5 has-text-left py-6">
           {{ profileMovie.overview }}
         </h3>
 
@@ -163,21 +163,12 @@ export default {
   flex-direction: column;
 }
 
-.profile {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  grid-template-areas: "profile card";
-  gap: 20px;
-  grid-area: profile;
-}
-
-#profile-page-wrapper {
-  text-align: center;
-}
-
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 900px) {
   .profileMovie-card {
     grid-template-columns: 1fr;
+  }
+  .movie-date, .movie-overview {
+    padding: 20px;
   }
 
   h3 {
