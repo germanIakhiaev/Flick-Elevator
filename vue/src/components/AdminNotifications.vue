@@ -124,7 +124,7 @@ export default {
 }
 
 table, th, td {
-  border: 1px solid darkgrey;
+  border: 1px solid #444;
 }
 
 </style>
